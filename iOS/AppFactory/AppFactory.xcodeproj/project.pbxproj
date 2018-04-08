@@ -8,20 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		BB1634EE207A50C200AED7F6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1634ED207A50C200AED7F6 /* AppDelegate.swift */; };
-		BB1634F0207A50C200AED7F6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1634EF207A50C200AED7F6 /* ViewController.swift */; };
-		BB1634F3207A50C200AED7F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB1634F1207A50C200AED7F6 /* Main.storyboard */; };
 		BB1634F5207A50C200AED7F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB1634F4207A50C200AED7F6 /* Assets.xcassets */; };
 		BB1634F8207A50C200AED7F6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB1634F6207A50C200AED7F6 /* LaunchScreen.storyboard */; };
+		BB163503207A541100AED7F6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB163502207A541100AED7F6 /* Main.storyboard */; };
+		BB163506207A543000AED7F6 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB163505207A543000AED7F6 /* SplashViewController.swift */; };
+		BB16350C207A54DD00AED7F6 /* TabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB16350B207A54DD00AED7F6 /* TabbarViewController.swift */; };
+		BB16350E207A550300AED7F6 /* HttpManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB16350D207A550300AED7F6 /* HttpManager.swift */; };
+		BB163513207A55B500AED7F6 /* EngineerRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB163512207A55B500AED7F6 /* EngineerRequester.swift */; };
+		BB163515207A55BF00AED7F6 /* GalleryRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB163514207A55BF00AED7F6 /* GalleryRequester.swift */; };
+		BB163517207A55DA00AED7F6 /* MessageRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB163516207A55DA00AED7F6 /* MessageRequester.swift */; };
+		BB163519207A55E300AED7F6 /* EstimateRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB163518207A55E300AED7F6 /* EstimateRequester.swift */; };
+		BB16351B207A55FD00AED7F6 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB16351A207A55FD00AED7F6 /* Constants.swift */; };
+		BB16351D207A5C1C00AED7F6 /* ApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB16351C207A5C1C00AED7F6 /* ApiManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		BB1634EA207A50C200AED7F6 /* AppFactory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppFactory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB1634ED207A50C200AED7F6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		BB1634EF207A50C200AED7F6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BB1634F2207A50C200AED7F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BB1634F4207A50C200AED7F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB1634F7207A50C200AED7F6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB1634F9207A50C300AED7F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB163502207A541100AED7F6 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		BB163505207A543000AED7F6 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		BB16350B207A54DD00AED7F6 /* TabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabbarViewController.swift; sourceTree = "<group>"; };
+		BB16350D207A550300AED7F6 /* HttpManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpManager.swift; sourceTree = "<group>"; };
+		BB163512207A55B500AED7F6 /* EngineerRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineerRequester.swift; sourceTree = "<group>"; };
+		BB163514207A55BF00AED7F6 /* GalleryRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryRequester.swift; sourceTree = "<group>"; };
+		BB163516207A55DA00AED7F6 /* MessageRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageRequester.swift; sourceTree = "<group>"; };
+		BB163518207A55E300AED7F6 /* EstimateRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateRequester.swift; sourceTree = "<group>"; };
+		BB16351A207A55FD00AED7F6 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BB16351C207A5C1C00AED7F6 /* ApiManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +71,85 @@
 			isa = PBXGroup;
 			children = (
 				BB1634ED207A50C200AED7F6 /* AppDelegate.swift */,
-				BB1634EF207A50C200AED7F6 /* ViewController.swift */,
-				BB1634F1207A50C200AED7F6 /* Main.storyboard */,
+				BB163500207A53FF00AED7F6 /* View */,
+				BB163507207A54A800AED7F6 /* Http */,
+				BB163508207A54B400AED7F6 /* Extension */,
+				BB163509207A54BE00AED7F6 /* System */,
+				BB163501207A540300AED7F6 /* Storyboard */,
 				BB1634F4207A50C200AED7F6 /* Assets.xcassets */,
 				BB1634F6207A50C200AED7F6 /* LaunchScreen.storyboard */,
 				BB1634F9207A50C300AED7F6 /* Info.plist */,
 			);
 			path = AppFactory;
+			sourceTree = "<group>";
+		};
+		BB163500207A53FF00AED7F6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BB163504207A542200AED7F6 /* Splash */,
+				BB16350A207A54CE00AED7F6 /* Tabbar */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BB163501207A540300AED7F6 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				BB163502207A541100AED7F6 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		BB163504207A542200AED7F6 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				BB163505207A543000AED7F6 /* SplashViewController.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		BB163507207A54A800AED7F6 /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				BB16350D207A550300AED7F6 /* HttpManager.swift */,
+				BB16351C207A5C1C00AED7F6 /* ApiManager.swift */,
+				BB163511207A55A500AED7F6 /* Requester */,
+			);
+			path = Http;
+			sourceTree = "<group>";
+		};
+		BB163508207A54B400AED7F6 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		BB163509207A54BE00AED7F6 /* System */ = {
+			isa = PBXGroup;
+			children = (
+				BB16351A207A55FD00AED7F6 /* Constants.swift */,
+			);
+			path = System;
+			sourceTree = "<group>";
+		};
+		BB16350A207A54CE00AED7F6 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				BB16350B207A54DD00AED7F6 /* TabbarViewController.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		BB163511207A55A500AED7F6 /* Requester */ = {
+			isa = PBXGroup;
+			children = (
+				BB163512207A55B500AED7F6 /* EngineerRequester.swift */,
+				BB163514207A55BF00AED7F6 /* GalleryRequester.swift */,
+				BB163516207A55DA00AED7F6 /* MessageRequester.swift */,
+				BB163518207A55E300AED7F6 /* EstimateRequester.swift */,
+			);
+			path = Requester;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,9 +211,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB163503207A541100AED7F6 /* Main.storyboard in Resources */,
 				BB1634F8207A50C200AED7F6 /* LaunchScreen.storyboard in Resources */,
 				BB1634F5207A50C200AED7F6 /* Assets.xcassets in Resources */,
-				BB1634F3207A50C200AED7F6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,22 +224,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB1634F0207A50C200AED7F6 /* ViewController.swift in Sources */,
 				BB1634EE207A50C200AED7F6 /* AppDelegate.swift in Sources */,
+				BB163513207A55B500AED7F6 /* EngineerRequester.swift in Sources */,
+				BB16351D207A5C1C00AED7F6 /* ApiManager.swift in Sources */,
+				BB163506207A543000AED7F6 /* SplashViewController.swift in Sources */,
+				BB163515207A55BF00AED7F6 /* GalleryRequester.swift in Sources */,
+				BB16351B207A55FD00AED7F6 /* Constants.swift in Sources */,
+				BB16350C207A54DD00AED7F6 /* TabbarViewController.swift in Sources */,
+				BB163517207A55DA00AED7F6 /* MessageRequester.swift in Sources */,
+				BB163519207A55E300AED7F6 /* EstimateRequester.swift in Sources */,
+				BB16350E207A550300AED7F6 /* HttpManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		BB1634F1207A50C200AED7F6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BB1634F2207A50C200AED7F6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		BB1634F6207A50C200AED7F6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -276,11 +364,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = AppFactory/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Leapfrog-Inc.AppFactory";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -290,11 +379,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = AppFactory/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Leapfrog-Inc.AppFactory";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
