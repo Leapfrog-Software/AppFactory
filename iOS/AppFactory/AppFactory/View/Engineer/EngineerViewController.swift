@@ -26,7 +26,13 @@ class EngineerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.initTableView()
         self.fetch()
+    }
+    
+    private func initTableView() {
+        self.tableView.rowHeight = UITableViewAutomaticDimension
+        self.tableView.estimatedRowHeight = 200
     }
     
     private func fetch() {
@@ -50,8 +56,14 @@ class EngineerViewController: UIViewController {
         })
     }
 
+    @IBAction func onTapMenu(_ sender: Any) {
+        let menu = self.viewController(storyboard: "Engineer", identifier: "EngineerMenuViewController") as! EngineerMenuViewController
+        self.tabbarViewController()?.stack(viewController: menu, animationType: .none)
+    }
 
+    @IBAction func onTapAllEstimate(_ sender: Any) {
 
+    }
 }
 extension EngineerViewController: UITableViewDataSource, UITableViewDelegate {
     
@@ -68,6 +80,16 @@ extension EngineerViewController: UITableViewDataSource, UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let engineerId = self.engineerList[indexPath.row].id
+        EngineerDetailRequester.get(id: engineerId, completion: { response in
+            if let response = response {
+                let detail = self.viewController(storyboard: "Engineer", identifier: "EngineerDetailViewController") as! EngineerDetailViewController
+                detail.set(engineerDetailData: response)
+                self.tabbarViewController()?.stack(viewController: detail, animationType: .horizontal)
+            } else {
+                // TODO
+            }
+        })
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
