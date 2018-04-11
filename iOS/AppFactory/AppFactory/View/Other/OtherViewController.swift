@@ -10,26 +10,20 @@ import UIKit
 
 class OtherViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    private func showWebView(webPageType: WebPageType) {
+        
+        let webViewController = self.viewController(storyboard: "Common", identifier: "WebViewController") as! WebViewController
+        webViewController.set(webPageType: webPageType)
+        self.tabbarViewController()?.stack(viewController: webViewController, animationType: .horizontal)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func onTapTerms(_ sender: Any) {
+        self.showWebView(webPageType: .terms)
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func onTapEndedProject(_ sender: Any) {
+        let endedProject = self.viewController(storyboard: "Other", identifier: "EndedProjectViewController") as! EndedProjectViewController
+        self.tabbarViewController()?.stack(viewController: endedProject, animationType: .horizontal)
     }
-    */
-
 }

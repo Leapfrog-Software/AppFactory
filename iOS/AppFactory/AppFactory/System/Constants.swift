@@ -11,6 +11,13 @@ import Foundation
 struct Constants {
     
     static let HttpTimeOutInterval = TimeInterval(10)
-    static let ServerUrl = "http://localhost/appfac/srv.php"
+    static let ServerRootUrl = "http://localhost/appfac/"
+    static let ServerApiFile = "srv.php"
+    static let ServerEngineerImageDirectory = "data/img/user/"
+    static let ServerWorkImageDirectory = "data/img/work/"
     static let StringEncoding = String.Encoding.utf8
+    
+    struct WebPageUrl {
+        static let Terms = "http://appfac.net/terms.html"
+    }
 }

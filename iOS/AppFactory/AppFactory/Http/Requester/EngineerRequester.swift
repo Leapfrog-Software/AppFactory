@@ -58,7 +58,7 @@ class EngineerRequester {
     
     class func get(page: Int, keyword: String, organization: OrganizationType, cost: CostType, works: WorksType, completion: @escaping ((EngineerResponseData?) -> ())) {
         
-        var url = Constants.ServerUrl
+        var url = Constants.ServerRootUrl + Constants.ServerApiFile
         url += "?"
         url += ("command=getengineers")
         url += "&"

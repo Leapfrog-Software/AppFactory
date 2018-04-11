@@ -59,7 +59,7 @@ class GalleryRequester {
     
     class func get(sort: GallerySortType, page: Int, completion: @escaping ((GalleryResponseData?) -> ())) {
         
-        var url = Constants.ServerUrl
+        var url = Constants.ServerRootUrl + Constants.ServerApiFile
         url += "?"
         url += ("command=getgalleries")
         url += "&"

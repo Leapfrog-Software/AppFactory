@@ -65,7 +65,7 @@ class EngineerDetailRequester {
     
     class func get(id: String, completion: @escaping ((EngineerDetailResponseData?) -> ())) {
         
-        var url = Constants.ServerUrl
+        var url = Constants.ServerRootUrl + Constants.ServerApiFile
         url += "?"
         url += ("command=getengineerdetail")
         url += "&"

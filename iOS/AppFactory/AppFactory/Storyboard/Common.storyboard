@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Web View Controller-->
+        <scene sceneID="KpE-W5-0mE">
+            <objects>
+                <viewController storyboardIdentifier="WebViewController" id="ccN-Sw-VAQ" customClass="WebViewController" customModule="AppFactory" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eg0-Ww-1kv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JLn-Fp-Mld">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="タイトル" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BdS-m0-Ljw">
+                                        <rect key="frame" x="153" y="20" width="69.5" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0gA-UU-ejn">
+                                        <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="c3O-Wb-5Sr"/>
+                                        </constraints>
+                                        <state key="normal" title="&lt;"/>
+                                        <connections>
+                                            <action selector="onTapBack:" destination="ccN-Sw-VAQ" eventType="touchUpInside" id="TaR-fA-Nrh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="BdS-m0-Ljw" firstAttribute="centerX" secondItem="JLn-Fp-Mld" secondAttribute="centerX" id="AsF-2C-Iot"/>
+                                    <constraint firstItem="0gA-UU-ejn" firstAttribute="leading" secondItem="JLn-Fp-Mld" secondAttribute="leading" id="Cet-mf-IgW"/>
+                                    <constraint firstAttribute="height" constant="60" id="RBW-DP-eT4"/>
+                                    <constraint firstItem="BdS-m0-Ljw" firstAttribute="top" secondItem="JLn-Fp-Mld" secondAttribute="top" constant="20" id="cZ5-E6-C7h"/>
+                                    <constraint firstAttribute="bottom" secondItem="BdS-m0-Ljw" secondAttribute="bottom" id="dp4-cT-zqy"/>
+                                    <constraint firstItem="0gA-UU-ejn" firstAttribute="top" secondItem="JLn-Fp-Mld" secondAttribute="top" id="wIx-dr-ovh"/>
+                                    <constraint firstAttribute="bottom" secondItem="0gA-UU-ejn" secondAttribute="bottom" id="yXA-a5-xh2"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IdU-qe-H5n">
+                                <rect key="frame" x="0.0" y="60" width="375" height="607"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="JLn-Fp-Mld" firstAttribute="leading" secondItem="dov-73-wQ1" secondAttribute="leading" id="A2o-AS-FVP"/>
+                            <constraint firstItem="dov-73-wQ1" firstAttribute="bottom" secondItem="IdU-qe-H5n" secondAttribute="bottom" id="L3F-JU-E2e"/>
+                            <constraint firstItem="IdU-qe-H5n" firstAttribute="top" secondItem="JLn-Fp-Mld" secondAttribute="bottom" id="MJ3-IK-5r1"/>
+                            <constraint firstItem="IdU-qe-H5n" firstAttribute="leading" secondItem="dov-73-wQ1" secondAttribute="leading" id="VvT-Jh-CR7"/>
+                            <constraint firstItem="JLn-Fp-Mld" firstAttribute="top" secondItem="eg0-Ww-1kv" secondAttribute="top" id="h2V-20-aCt"/>
+                            <constraint firstItem="dov-73-wQ1" firstAttribute="trailing" secondItem="JLn-Fp-Mld" secondAttribute="trailing" id="qvC-d1-VKX"/>
+                            <constraint firstItem="dov-73-wQ1" firstAttribute="trailing" secondItem="IdU-qe-H5n" secondAttribute="trailing" id="xO9-CJ-kSb"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dov-73-wQ1"/>
+                    </view>
+                    <connections>
+                        <outlet property="containerView" destination="IdU-qe-H5n" id="Ket-UP-R9W"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YN6-5P-L0s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-146.40000000000001" y="140.77961019490255"/>
+        </scene>
+    </scenes>
+</document>

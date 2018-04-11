@@ -12,7 +12,7 @@ class MessageRequester {
     
     class func send(sender: String, target: String, message: String, completion: @escaping ((Bool) -> ())) {
         
-        var url = Constants.ServerUrl
+        var url = Constants.ServerRootUrl + Constants.ServerApiFile
         url += "?"
         url += ("command=sendmessage")
         url += "&"

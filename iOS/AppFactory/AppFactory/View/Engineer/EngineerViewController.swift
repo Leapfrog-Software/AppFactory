@@ -62,7 +62,9 @@ class EngineerViewController: UIViewController {
     }
 
     @IBAction func onTapAllEstimate(_ sender: Any) {
-
+        let estimate = self.viewController(storyboard: "Engineer", identifier: "EstimateViewController") as! EstimateViewController
+        estimate.set(isTargetAll: true)
+        self.tabbarViewController()?.stack(viewController: estimate, animationType: .horizontal)
     }
 }
 extension EngineerViewController: UITableViewDataSource, UITableViewDelegate {

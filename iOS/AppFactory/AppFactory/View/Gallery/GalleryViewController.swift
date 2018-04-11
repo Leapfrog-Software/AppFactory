@@ -64,6 +64,16 @@ extension GalleryViewController: UICollectionViewDataSource, UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        let engineerId = self.galleryList[indexPath.row].engineerId
+        EngineerDetailRequester.get(id: engineerId, completion: { response in
+            if let response = response {
+                let detail = self.viewController(storyboard: "Engineer", identifier: "EngineerDetailViewController") as! EngineerDetailViewController
+                detail.set(engineerDetailData: response)
+                self.tabbarViewController()?.stack(viewController: detail, animationType: .horizontal)
+            } else {
+                // TODO
+            }
+        })
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

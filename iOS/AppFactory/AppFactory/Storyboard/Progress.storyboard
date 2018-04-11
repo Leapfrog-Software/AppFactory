@@ -36,12 +36,30 @@
                                     <constraint firstAttribute="height" constant="60" id="qZg-R4-3kW"/>
                                 </constraints>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="進行中のプロジェクトはありません" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CiO-Ol-opw">
+                                <rect key="frame" x="49" y="323" width="277.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Fz-bX-uOQ">
+                                <rect key="frame" x="127.5" y="374" width="120" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="1IZ-et-CSU"/>
+                                    <constraint firstAttribute="width" constant="120" id="L2B-43-s5L"/>
+                                </constraints>
+                                <state key="normal" title="エンジニアを探す"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="CiO-Ol-opw" firstAttribute="centerY" secondItem="gFQ-U0-YnV" secondAttribute="centerY" id="4qe-VE-8da"/>
                             <constraint firstItem="mR7-AL-2Hg" firstAttribute="trailing" secondItem="n2P-Re-rlV" secondAttribute="trailing" id="A6Z-r3-JeO"/>
                             <constraint firstItem="n2P-Re-rlV" firstAttribute="leading" secondItem="mR7-AL-2Hg" secondAttribute="leading" id="NL8-GR-Az7"/>
+                            <constraint firstItem="0Fz-bX-uOQ" firstAttribute="top" secondItem="CiO-Ol-opw" secondAttribute="bottom" constant="30" id="P67-Dl-z0L"/>
                             <constraint firstItem="n2P-Re-rlV" firstAttribute="top" secondItem="gFQ-U0-YnV" secondAttribute="top" id="ehR-cA-RD1"/>
+                            <constraint firstItem="0Fz-bX-uOQ" firstAttribute="centerX" secondItem="gFQ-U0-YnV" secondAttribute="centerX" id="tjH-h9-bOV"/>
+                            <constraint firstItem="CiO-Ol-opw" firstAttribute="centerX" secondItem="gFQ-U0-YnV" secondAttribute="centerX" id="wAc-SD-qAC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mR7-AL-2Hg"/>
                     </view>

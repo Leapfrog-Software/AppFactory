@@ -32,7 +32,7 @@ class EstimateRequester {
     
     class func send(requestData: EstimateRequestData, completion: @escaping ((Bool) -> ())) {
         
-        var url = Constants.ServerUrl
+        var url = Constants.ServerRootUrl + Constants.ServerApiFile
         url += "?"
         url += ("command=estimate")
         url += "&"

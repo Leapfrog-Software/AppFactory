@@ -9,8 +9,18 @@
 import UIKit
 
 class EngineerTableViewCell: UITableViewCell {
+    
+    @IBOutlet private weak var userImageView: UIImageView!
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        ImageStorage.shared.cancelRequest(imageView: self.userImageView)
+    }
 
     func configure(engineerData: EngineerData) {
         
+        let userImageUrl = Constants.ServerRootUrl + Constants.ServerEngineerImageDirectory + engineerData.id + ".png"
+        ImageStorage.shared.fetch(url: userImageUrl, imageView: self.userImageView)
     }
 }

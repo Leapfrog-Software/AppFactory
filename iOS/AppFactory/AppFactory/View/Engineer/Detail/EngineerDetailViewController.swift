@@ -29,6 +29,16 @@ class EngineerDetailViewController: UIViewController {
         self.tableView.estimatedRowHeight = 200
     }
     
+    @IBAction func onTapMessage(_ sender: Any) {
+
+        
+    }
+    
+    @IBAction func onTapEstimate(_ sender: Any) {
+        let estimate = self.viewController(storyboard: "Engineer", identifier: "EstimateViewController") as! EstimateViewController
+        self.stack(viewController: estimate, animationType: .horizontal)
+    }
+    
     @IBAction func onTapBack(_ sender: Any) {
         self.pop(animationType: .horizontal)
     }

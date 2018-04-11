@@ -63,7 +63,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="180" height="260"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N3w-3A-yIh">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="N3w-3A-yIh">
                                                     <rect key="frame" x="45" y="16" width="90" height="120"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="90" id="4nc-0K-kbK"/>
@@ -177,6 +177,9 @@
                                             <constraint firstItem="N3w-3A-yIh" firstAttribute="top" secondItem="gfU-Mk-uey" secondAttribute="top" constant="16" id="oAa-F9-TcB"/>
                                             <constraint firstItem="B9H-4s-UE7" firstAttribute="leading" secondItem="gfU-Mk-uey" secondAttribute="leading" constant="16" id="ozS-pq-Rnq"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="appImageView" destination="N3w-3A-yIh" id="pSF-ON-drc"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <connections>

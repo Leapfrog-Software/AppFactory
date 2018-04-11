@@ -42,6 +42,12 @@
 		BB96C3BC207B8FB40054D352 /* GallerySortType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB96C3BB207B8FB40054D352 /* GallerySortType.swift */; };
 		BB96C3BE207B9B6F0054D352 /* String+Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB96C3BD207B9B6E0054D352 /* String+Base64.swift */; };
 		BBE16247207BCC0A007DCE02 /* UIViewController+Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE16246207BCC0A007DCE02 /* UIViewController+Scene.swift */; };
+		BBEB4BB8207E1FDC0073F461 /* EstimateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEB4BB7207E1FDC0073F461 /* EstimateViewController.swift */; };
+		BBEB4BBA207E204F0073F461 /* ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEB4BB9207E204F0073F461 /* ImageStorage.swift */; };
+		BBEB4BBC207E22D40073F461 /* EstimateCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEB4BBB207E22D40073F461 /* EstimateCompleteViewController.swift */; };
+		BBEB4BC1207E26B10073F461 /* Common.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBEB4BC0207E26B10073F461 /* Common.storyboard */; };
+		BBEB4BC4207E27140073F461 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEB4BC3207E27140073F461 /* WebViewController.swift */; };
+		BBEB4BC6207E296D0073F461 /* EndedProjectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEB4BC5207E296D0073F461 /* EndedProjectViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +88,12 @@
 		BB96C3BB207B8FB40054D352 /* GallerySortType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallerySortType.swift; sourceTree = "<group>"; };
 		BB96C3BD207B9B6E0054D352 /* String+Base64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Base64.swift"; sourceTree = "<group>"; };
 		BBE16246207BCC0A007DCE02 /* UIViewController+Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Scene.swift"; sourceTree = "<group>"; };
+		BBEB4BB7207E1FDC0073F461 /* EstimateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateViewController.swift; sourceTree = "<group>"; };
+		BBEB4BB9207E204F0073F461 /* ImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorage.swift; sourceTree = "<group>"; };
+		BBEB4BBB207E22D40073F461 /* EstimateCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateCompleteViewController.swift; sourceTree = "<group>"; };
+		BBEB4BC0207E26B10073F461 /* Common.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Common.storyboard; sourceTree = "<group>"; };
+		BBEB4BC3207E27140073F461 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		BBEB4BC5207E296D0073F461 /* EndedProjectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndedProjectViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +148,7 @@
 				BB1D078D207CD0B50073BBB2 /* Gallery */,
 				BB1D078E207CD0BC0073BBB2 /* Progress */,
 				BB1D078F207CD0C00073BBB2 /* Other */,
+				BBEB4BC2207E26F20073F461 /* Common */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -148,6 +161,7 @@
 				BB1D079A207CD1780073BBB2 /* Gallery.storyboard */,
 				BB1D079C207CD1800073BBB2 /* Progress.storyboard */,
 				BB1D079E207CD1860073BBB2 /* Other.storyboard */,
+				BBEB4BC0207E26B10073F461 /* Common.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -185,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				BB16351A207A55FD00AED7F6 /* Constants.swift */,
+				BBEB4BB9207E204F0073F461 /* ImageStorage.swift */,
 			);
 			path = System;
 			sourceTree = "<group>";
@@ -216,6 +231,7 @@
 				BB1D07A2207CD65E0073BBB2 /* EngineerTableViewCell.swift */,
 				BB1D07A7207CE12A0073BBB2 /* EngineerMenuViewController.swift */,
 				BB1D07A4207CE0F60073BBB2 /* Detail */,
+				BBEB4BB6207E1FC20073F461 /* Estimate */,
 			);
 			path = Engineer;
 			sourceTree = "<group>";
@@ -241,6 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				BB1D0796207CD0F40073BBB2 /* OtherViewController.swift */,
+				BBEB4BC5207E296D0073F461 /* EndedProjectViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -264,6 +281,23 @@
 				BB96C3BB207B8FB40054D352 /* GallerySortType.swift */,
 			);
 			path = Enum;
+			sourceTree = "<group>";
+		};
+		BBEB4BB6207E1FC20073F461 /* Estimate */ = {
+			isa = PBXGroup;
+			children = (
+				BBEB4BB7207E1FDC0073F461 /* EstimateViewController.swift */,
+				BBEB4BBB207E22D40073F461 /* EstimateCompleteViewController.swift */,
+			);
+			path = Estimate;
+			sourceTree = "<group>";
+		};
+		BBEB4BC2207E26F20073F461 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				BBEB4BC3207E27140073F461 /* WebViewController.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BB163503207A541100AED7F6 /* Main.storyboard in Resources */,
+				BBEB4BC1207E26B10073F461 /* Common.storyboard in Resources */,
 				BB1D079B207CD1780073BBB2 /* Gallery.storyboard in Resources */,
 				BB1634F8207A50C200AED7F6 /* LaunchScreen.storyboard in Resources */,
 				BB1D079D207CD1800073BBB2 /* Progress.storyboard in Resources */,
@@ -349,17 +384,22 @@
 				BB163513207A55B500AED7F6 /* EngineerRequester.swift in Sources */,
 				BB1D07AE207CF5090073BBB2 /* GalleryCollectionViewCell.swift in Sources */,
 				BB1D07AC207CE60A0073BBB2 /* EngineerDetailWorkTableViewCell.swift in Sources */,
+				BBEB4BBA207E204F0073F461 /* ImageStorage.swift in Sources */,
 				BB16351D207A5C1C00AED7F6 /* ApiManager.swift in Sources */,
+				BBEB4BBC207E22D40073F461 /* EstimateCompleteViewController.swift in Sources */,
 				BB96C3BC207B8FB40054D352 /* GallerySortType.swift in Sources */,
 				BB1D0793207CD0E30073BBB2 /* GalleryViewController.swift in Sources */,
 				BB1D07A1207CD1DE0073BBB2 /* UIColor+Original.swift in Sources */,
 				BB96C3BE207B9B6F0054D352 /* String+Base64.swift in Sources */,
+				BBEB4BB8207E1FDC0073F461 /* EstimateViewController.swift in Sources */,
+				BBEB4BC4207E27140073F461 /* WebViewController.swift in Sources */,
 				BB163506207A543000AED7F6 /* SplashViewController.swift in Sources */,
 				BB1D0791207CD0D60073BBB2 /* EngineerViewController.swift in Sources */,
 				BBE16247207BCC0A007DCE02 /* UIViewController+Scene.swift in Sources */,
 				BB1D07A6207CE11D0073BBB2 /* EngineerDetailViewController.swift in Sources */,
 				BB96C3B8207B8EB60054D352 /* CostType.swift in Sources */,
 				BB1D07AA207CE5FD0073BBB2 /* EngineerDetailProfileTableViewCell.swift in Sources */,
+				BBEB4BC6207E296D0073F461 /* EndedProjectViewController.swift in Sources */,
 				BB96C3B3207B89150054D352 /* EngineerDetailRequester.swift in Sources */,
 				BB163515207A55BF00AED7F6 /* GalleryRequester.swift in Sources */,
 				BB96C3BA207B8ECE0054D352 /* WorksType.swift in Sources */,
