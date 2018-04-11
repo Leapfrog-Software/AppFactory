@@ -82,6 +82,8 @@ extension EngineerViewController: UITableViewDataSource, UITableViewDelegate {
     
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        tableView.deselectRow(at: indexPath, animated: true)
+        
         let engineerId = self.engineerList[indexPath.row].id
         EngineerDetailRequester.get(id: engineerId, completion: { response in
             if let response = response {

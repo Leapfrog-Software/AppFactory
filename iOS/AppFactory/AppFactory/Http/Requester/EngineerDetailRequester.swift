@@ -54,7 +54,7 @@ struct EngineerDetailResponseData {
         
         self.name = data["name"] as? String ?? ""
         self.area = data["area"] as? String ?? ""
-        self.organization = OrganizationType.create(with: data["organization"] as? String ?? "")
+        self.organization = OrganizationType.create(with: data["organization"] as? Int ?? 0)
         self.evaluate = data["evaluate"] as? Int ?? 0
         self.profile = data["profile"] as? String ?? ""
         self.works = (data["works"] as? Array<Dictionary<String, Any>>)?.flatMap { EngineerDetailWorkData(data: $0) } ?? []

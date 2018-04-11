@@ -11,18 +11,18 @@ enum OrganizationType {
     case corporation
     case indivisual
     
-    static func create(with: String) -> OrganizationType {
+    static func create(with: Int) -> OrganizationType {
         switch with {
-        case "1":
+        case 1:
             return .corporation
-        case "2":
+        case 2:
             return .indivisual
         default:
             return .unspecified
         }
     }
     
-    func toString() -> String {
+    func toValue() -> String {
         switch self {
         case .unspecified:
             return "0"
@@ -30,6 +30,17 @@ enum OrganizationType {
             return "1"
         case .indivisual:
             return "2"
+        }
+    }
+    
+    func toText() -> String {
+        switch self {
+        case .unspecified:
+            return "-"
+        case .corporation:
+            return "法人"
+        case .indivisual:
+            return "個人"
         }
     }
 }

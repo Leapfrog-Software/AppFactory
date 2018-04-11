@@ -28,7 +28,7 @@ struct GalleryData {
         self.name = data["name"] as? String ?? ""
         self.engineerId = data["engineerId"] as? String ?? ""
         self.engineerArea = data["engineerArea"] as? String ?? ""
-        self.engineerOrganization = OrganizationType.create(with: data["engineerOrganization"] as? String ?? "")
+        self.engineerOrganization = OrganizationType.create(with: data["engineerOrganization"] as? Int ?? 0)
         self.cost = data["cost"] as? Int ?? 0
         self.evaluate = data["evaluate"] as? Int ?? 0
     }
