@@ -17,7 +17,32 @@
                     <view key="view" contentMode="scaleToFill" id="gFQ-U0-YnV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n2P-Re-rlV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="進捗管理" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQ9-Au-CIw">
+                                        <rect key="frame" x="152.5" y="20" width="69.5" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="xQ9-Au-CIw" secondAttribute="bottom" id="2GA-O6-wI2"/>
+                                    <constraint firstItem="xQ9-Au-CIw" firstAttribute="top" secondItem="n2P-Re-rlV" secondAttribute="top" constant="20" id="Mnj-JA-vSi"/>
+                                    <constraint firstItem="xQ9-Au-CIw" firstAttribute="centerX" secondItem="n2P-Re-rlV" secondAttribute="centerX" id="RLm-qf-lF2"/>
+                                    <constraint firstAttribute="height" constant="60" id="qZg-R4-3kW"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mR7-AL-2Hg" firstAttribute="trailing" secondItem="n2P-Re-rlV" secondAttribute="trailing" id="A6Z-r3-JeO"/>
+                            <constraint firstItem="n2P-Re-rlV" firstAttribute="leading" secondItem="mR7-AL-2Hg" secondAttribute="leading" id="NL8-GR-Az7"/>
+                            <constraint firstItem="n2P-Re-rlV" firstAttribute="top" secondItem="gFQ-U0-YnV" secondAttribute="top" id="ehR-cA-RD1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="mR7-AL-2Hg"/>
                     </view>
                 </viewController>

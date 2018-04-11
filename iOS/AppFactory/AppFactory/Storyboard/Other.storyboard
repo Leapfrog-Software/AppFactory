@@ -17,7 +17,32 @@
                     <view key="view" contentMode="scaleToFill" id="m3D-jG-VpR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="22D-wa-loE">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="その他" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8R-nr-UI8">
+                                        <rect key="frame" x="161.5" y="20" width="52" height="40"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="c8R-nr-UI8" secondAttribute="bottom" id="8HH-CR-jGL"/>
+                                    <constraint firstItem="c8R-nr-UI8" firstAttribute="top" secondItem="22D-wa-loE" secondAttribute="top" constant="20" id="8hG-ci-P6c"/>
+                                    <constraint firstAttribute="height" constant="60" id="Bfg-W4-0mV"/>
+                                    <constraint firstItem="c8R-nr-UI8" firstAttribute="centerX" secondItem="22D-wa-loE" secondAttribute="centerX" id="D8u-xD-Zom"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="22D-wa-loE" firstAttribute="leading" secondItem="ib9-2L-a5t" secondAttribute="leading" id="aYk-zf-kfL"/>
+                            <constraint firstAttribute="trailing" secondItem="22D-wa-loE" secondAttribute="trailing" id="kJP-vT-zCH"/>
+                            <constraint firstItem="22D-wa-loE" firstAttribute="top" secondItem="m3D-jG-VpR" secondAttribute="top" id="oaX-D7-uwM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ib9-2L-a5t"/>
                     </view>
                 </viewController>

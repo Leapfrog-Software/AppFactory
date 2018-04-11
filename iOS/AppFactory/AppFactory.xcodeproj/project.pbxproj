@@ -34,6 +34,7 @@
 		BB1D07A8207CE12A0073BBB2 /* EngineerMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1D07A7207CE12A0073BBB2 /* EngineerMenuViewController.swift */; };
 		BB1D07AA207CE5FD0073BBB2 /* EngineerDetailProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1D07A9207CE5FD0073BBB2 /* EngineerDetailProfileTableViewCell.swift */; };
 		BB1D07AC207CE60A0073BBB2 /* EngineerDetailWorkTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1D07AB207CE60A0073BBB2 /* EngineerDetailWorkTableViewCell.swift */; };
+		BB1D07AE207CF5090073BBB2 /* GalleryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1D07AD207CF5090073BBB2 /* GalleryCollectionViewCell.swift */; };
 		BB96C3B3207B89150054D352 /* EngineerDetailRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB96C3B2207B89150054D352 /* EngineerDetailRequester.swift */; };
 		BB96C3B6207B8BB10054D352 /* OrganizationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB96C3B5207B8BB10054D352 /* OrganizationType.swift */; };
 		BB96C3B8207B8EB60054D352 /* CostType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB96C3B7207B8EB60054D352 /* CostType.swift */; };
@@ -73,6 +74,7 @@
 		BB1D07A7207CE12A0073BBB2 /* EngineerMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineerMenuViewController.swift; sourceTree = "<group>"; };
 		BB1D07A9207CE5FD0073BBB2 /* EngineerDetailProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineerDetailProfileTableViewCell.swift; sourceTree = "<group>"; };
 		BB1D07AB207CE60A0073BBB2 /* EngineerDetailWorkTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineerDetailWorkTableViewCell.swift; sourceTree = "<group>"; };
+		BB1D07AD207CF5090073BBB2 /* GalleryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryCollectionViewCell.swift; sourceTree = "<group>"; };
 		BB96C3B2207B89150054D352 /* EngineerDetailRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineerDetailRequester.swift; sourceTree = "<group>"; };
 		BB96C3B5207B8BB10054D352 /* OrganizationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationType.swift; sourceTree = "<group>"; };
 		BB96C3B7207B8EB60054D352 /* CostType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostType.swift; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				BB1D0792207CD0E30073BBB2 /* GalleryViewController.swift */,
+				BB1D07AD207CF5090073BBB2 /* GalleryCollectionViewCell.swift */,
 			);
 			path = Gallery;
 			sourceTree = "<group>";
@@ -344,6 +347,7 @@
 				BB1D07A8207CE12A0073BBB2 /* EngineerMenuViewController.swift in Sources */,
 				BB1634EE207A50C200AED7F6 /* AppDelegate.swift in Sources */,
 				BB163513207A55B500AED7F6 /* EngineerRequester.swift in Sources */,
+				BB1D07AE207CF5090073BBB2 /* GalleryCollectionViewCell.swift in Sources */,
 				BB1D07AC207CE60A0073BBB2 /* EngineerDetailWorkTableViewCell.swift in Sources */,
 				BB16351D207A5C1C00AED7F6 /* ApiManager.swift in Sources */,
 				BB96C3BC207B8FB40054D352 /* GallerySortType.swift in Sources */,
