@@ -43,11 +43,6 @@ class EngineerTableViewCell: UITableViewCell {
         self.star4ImageView.image = evaluateImages[3]
         self.star5ImageView.image = evaluateImages[4]
         
-        let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.minimumLineHeight = 22
-        paragraphStyle.maximumLineHeight = 22
-        let attributedText = NSMutableAttributedString(string: engineerData.profile)
-        attributedText.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: engineerData.profile.count))
-        self.profileLabel.attributedText = attributedText
+        self.profileLabel.set(text: engineerData.profile, lineHeight: 22)
     }
 }

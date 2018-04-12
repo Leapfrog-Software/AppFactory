@@ -13,6 +13,7 @@ struct GalleryData {
     let id: String
     let name: String
     let engineerId: String
+    let engineerName: String
     let engineerArea: String
     let engineerOrganization: OrganizationType
     let cost: Int
@@ -27,6 +28,7 @@ struct GalleryData {
         
         self.name = data["name"] as? String ?? ""
         self.engineerId = data["engineerId"] as? String ?? ""
+        self.engineerName = data["engineerName"] as? String ?? ""
         self.engineerArea = data["engineerArea"] as? String ?? ""
         self.engineerOrganization = OrganizationType.create(with: data["engineerOrganization"] as? Int ?? 0)
         self.cost = data["cost"] as? Int ?? 0

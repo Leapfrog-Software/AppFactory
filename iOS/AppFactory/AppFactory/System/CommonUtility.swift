@@ -22,4 +22,21 @@ class CommonUtility {
             }
         }
     }
+    
+    class func createEvaluateText(_ evaluate: Int) -> String {
+        
+        if evaluate < 0 || evaluate > 50 {
+            return ""
+        }
+        return String(Int(evaluate / 10)) + "." + String(evaluate % 10)
+    }
+    
+    class func createCostText(_ cost: Int) -> String {
+        
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.groupingSeparator = ","
+        formatter.groupingSize = 3
+        return formatter.string(from: NSNumber(value: cost)) ?? ""
+    }
 }

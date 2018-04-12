@@ -30,6 +30,32 @@ class HttpManager {
         HttpManager.request(url: url, method: "POST", body: paramsData, completion: completion)
     }
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     class func request(url: String, method:String, body: Data?, additionalHeader: [String: String]? = nil, completion: @escaping ((Bool, Data?) -> ())) {
         
         guard let urlRaw = URL(string: url) else {

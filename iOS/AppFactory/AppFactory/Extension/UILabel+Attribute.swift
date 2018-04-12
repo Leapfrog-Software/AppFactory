@@ -1,0 +1,22 @@
+//
+//  UILabel+Attribute.swift
+//  AppFactory
+//
+//  Created by Leapfrog-Software on 2018/04/12.
+//  Copyright © 2018年 Leapfrog-Inc. All rights reserved.
+//
+
+import UIKit
+
+extension UILabel {
+    
+    func set(text: String, lineHeight: CGFloat) {
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.minimumLineHeight = lineHeight
+        paragraphStyle.maximumLineHeight = lineHeight
+        let attributedText = NSMutableAttributedString(string: text)
+        attributedText.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: text.count))
+        self.attributedText = attributedText
+    }
+}
