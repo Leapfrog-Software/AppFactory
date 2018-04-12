@@ -37,6 +37,6 @@ class CommonUtility {
         formatter.numberStyle = .decimal
         formatter.groupingSeparator = ","
         formatter.groupingSize = 3
-        return formatter.string(from: NSNumber(value: cost)) ?? ""
+        return (formatter.string(from: NSNumber(value: cost)) ?? "") + "円"
     }
 }

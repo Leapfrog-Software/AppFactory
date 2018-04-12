@@ -77,7 +77,7 @@ extension GalleryViewController: UICollectionViewDataSource, UICollectionViewDel
     }
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: UIScreen.main.bounds.size.width / 2, height: 260)
+        return CGSize(width: UIScreen.main.bounds.size.width / 2, height: 305)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
