@@ -19,45 +19,82 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="n2P-Re-rlV">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="進捗管理" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xQ9-Au-CIw">
-                                        <rect key="frame" x="152.5" y="20" width="69.5" height="40"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <rect key="frame" x="154.5" y="12.5" width="65.5" height="19.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <color key="textColor" red="0.18823529411764706" green="0.18823529411764706" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZPP-j5-Dm5">
+                                        <rect key="frame" x="0.0" y="43" width="375" height="1"/>
+                                        <color key="backgroundColor" red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="iF8-DO-pvZ"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="xQ9-Au-CIw" secondAttribute="bottom" id="2GA-O6-wI2"/>
-                                    <constraint firstItem="xQ9-Au-CIw" firstAttribute="top" secondItem="n2P-Re-rlV" secondAttribute="top" constant="20" id="Mnj-JA-vSi"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZPP-j5-Dm5" secondAttribute="bottom" id="0uR-hu-NSX"/>
+                                    <constraint firstAttribute="trailing" secondItem="ZPP-j5-Dm5" secondAttribute="trailing" id="Naz-9Q-1kZ"/>
                                     <constraint firstItem="xQ9-Au-CIw" firstAttribute="centerX" secondItem="n2P-Re-rlV" secondAttribute="centerX" id="RLm-qf-lF2"/>
-                                    <constraint firstAttribute="height" constant="60" id="qZg-R4-3kW"/>
+                                    <constraint firstAttribute="height" constant="44" id="qZg-R4-3kW"/>
+                                    <constraint firstItem="xQ9-Au-CIw" firstAttribute="centerY" secondItem="n2P-Re-rlV" secondAttribute="centerY" id="thh-y5-rLE"/>
+                                    <constraint firstItem="ZPP-j5-Dm5" firstAttribute="leading" secondItem="n2P-Re-rlV" secondAttribute="leading" id="yR4-yq-igr"/>
                                 </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="進行中のプロジェクトはありません" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CiO-Ol-opw">
-                                <rect key="frame" x="49" y="323" width="277.5" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CiO-Ol-opw">
+                                <rect key="frame" x="89" y="266.5" width="197.5" height="54"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">進行中のプロジェクトは
+</string>
+                                        <attributes>
+                                            <color key="NSColor" red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="18" name="HiraginoSans-W6"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="18" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="ありません">
+                                        <attributes>
+                                            <color key="NSColor" red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="18" name="HiraginoSans-W6"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Fz-bX-uOQ">
-                                <rect key="frame" x="127.5" y="374" width="120" height="50"/>
+                                <rect key="frame" x="97.5" y="380.5" width="180" height="50"/>
+                                <color key="backgroundColor" red="0.12156862745098039" green="0.79607843137254897" blue="0.66274509803921566" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="1IZ-et-CSU"/>
-                                    <constraint firstAttribute="width" constant="120" id="L2B-43-s5L"/>
+                                    <constraint firstAttribute="width" constant="180" id="L2B-43-s5L"/>
                                 </constraints>
-                                <state key="normal" title="エンジニアを探す"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <state key="normal" title="エンジニアを探す">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="onTapSearch:" destination="58s-bt-Dsh" eventType="touchUpInside" id="8dW-mp-ll4"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="CiO-Ol-opw" firstAttribute="centerY" secondItem="gFQ-U0-YnV" secondAttribute="centerY" id="4qe-VE-8da"/>
+                            <constraint firstItem="CiO-Ol-opw" firstAttribute="centerY" secondItem="gFQ-U0-YnV" secondAttribute="centerY" constant="-40" id="4qe-VE-8da"/>
                             <constraint firstItem="mR7-AL-2Hg" firstAttribute="trailing" secondItem="n2P-Re-rlV" secondAttribute="trailing" id="A6Z-r3-JeO"/>
+                            <constraint firstItem="n2P-Re-rlV" firstAttribute="top" secondItem="mR7-AL-2Hg" secondAttribute="top" id="I3O-r6-5tD"/>
                             <constraint firstItem="n2P-Re-rlV" firstAttribute="leading" secondItem="mR7-AL-2Hg" secondAttribute="leading" id="NL8-GR-Az7"/>
-                            <constraint firstItem="0Fz-bX-uOQ" firstAttribute="top" secondItem="CiO-Ol-opw" secondAttribute="bottom" constant="30" id="P67-Dl-z0L"/>
-                            <constraint firstItem="n2P-Re-rlV" firstAttribute="top" secondItem="gFQ-U0-YnV" secondAttribute="top" id="ehR-cA-RD1"/>
+                            <constraint firstItem="0Fz-bX-uOQ" firstAttribute="top" secondItem="CiO-Ol-opw" secondAttribute="bottom" constant="60" id="P67-Dl-z0L"/>
                             <constraint firstItem="0Fz-bX-uOQ" firstAttribute="centerX" secondItem="gFQ-U0-YnV" secondAttribute="centerX" id="tjH-h9-bOV"/>
                             <constraint firstItem="CiO-Ol-opw" firstAttribute="centerX" secondItem="gFQ-U0-YnV" secondAttribute="centerX" id="wAc-SD-qAC"/>
                         </constraints>
@@ -66,7 +103,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="izb-3d-xyL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="393" y="-254"/>
+            <point key="canvasLocation" x="392.80000000000001" y="-254.12293853073464"/>
         </scene>
     </scenes>
 </document>
