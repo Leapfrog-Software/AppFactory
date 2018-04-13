@@ -44,6 +44,7 @@
 		BB1E29D4207F741800CF5AF7 /* DialogButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E29D3207F741800CF5AF7 /* DialogButton.swift */; };
 		BB1E29D7207F748C00CF5AF7 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E29D6207F748C00CF5AF7 /* MessageViewController.swift */; };
 		BB1E29DA207F750800CF5AF7 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E29D9207F750800CF5AF7 /* WebViewController.swift */; };
+		BB22537C2080E3630035605A /* CALayer+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB22537B2080E3630035605A /* CALayer+Border.swift */; };
 		BB96C3B3207B89150054D352 /* EngineerDetailRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB96C3B2207B89150054D352 /* EngineerDetailRequester.swift */; };
 		BB96C3B6207B8BB10054D352 /* OrganizationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB96C3B5207B8BB10054D352 /* OrganizationType.swift */; };
 		BB96C3B8207B8EB60054D352 /* CostType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB96C3B7207B8EB60054D352 /* CostType.swift */; };
@@ -99,6 +100,7 @@
 		BB1E29D3207F741800CF5AF7 /* DialogButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DialogButton.swift; sourceTree = "<group>"; };
 		BB1E29D6207F748C00CF5AF7 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		BB1E29D9207F750800CF5AF7 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		BB22537B2080E3630035605A /* CALayer+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Border.swift"; sourceTree = "<group>"; };
 		BB96C3B2207B89150054D352 /* EngineerDetailRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineerDetailRequester.swift; sourceTree = "<group>"; };
 		BB96C3B5207B8BB10054D352 /* OrganizationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationType.swift; sourceTree = "<group>"; };
 		BB96C3B7207B8EB60054D352 /* CostType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostType.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 				BB96C3BD207B9B6E0054D352 /* String+Base64.swift */,
 				BB1D07A0207CD1DE0073BBB2 /* UIColor+Original.swift */,
 				BB1E29C5207F736F00CF5AF7 /* UILabel+Attribute.swift */,
+				BB22537B2080E3630035605A /* CALayer+Border.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -251,8 +254,8 @@
 				BB1D07A2207CD65E0073BBB2 /* EngineerTableViewCell.swift */,
 				BB1D07A7207CE12A0073BBB2 /* EngineerMenuViewController.swift */,
 				BB1D07A4207CE0F60073BBB2 /* Detail */,
-				BBEB4BB6207E1FC20073F461 /* Estimate */,
 				BB1E29D5207F747B00CF5AF7 /* Message */,
+				BBEB4BB6207E1FC20073F461 /* Estimate */,
 			);
 			path = Engineer;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 				BB1E29C9207F73CD00CF5AF7 /* CheckBox.swift in Sources */,
 				BB1D07A6207CE11D0073BBB2 /* EngineerDetailViewController.swift in Sources */,
 				BB96C3B8207B8EB60054D352 /* CostType.swift in Sources */,
+				BB22537C2080E3630035605A /* CALayer+Border.swift in Sources */,
 				BBCC08D6207E45C10007D33E /* CommonUtility.swift in Sources */,
 				BB1D07AA207CE5FD0073BBB2 /* EngineerDetailProfileTableViewCell.swift in Sources */,
 				BBEB4BC6207E296D0073F461 /* EndedProjectViewController.swift in Sources */,

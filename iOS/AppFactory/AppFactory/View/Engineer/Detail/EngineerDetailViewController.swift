@@ -30,8 +30,9 @@ class EngineerDetailViewController: UIViewController {
     }
     
     @IBAction func onTapMessage(_ sender: Any) {
-
-        
+        let message = self.viewController(storyboard: "Engineer", identifier: "MessageViewController") as! MessageViewController
+        message.set(targetId: self.engineerDetailData.id, targetName: self.engineerDetailData.name)
+        self.stack(viewController: message, animationType: .horizontal)
     }
     
     @IBAction func onTapEstimate(_ sender: Any) {

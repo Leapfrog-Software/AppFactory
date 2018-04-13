@@ -48,8 +48,9 @@ class Dialog: UIView {
         
         actions.forEach { action in
             let button = UINib(nibName: "DialogButton", bundle: nil).instantiate(withOwner: nil, options: nil).first as! DialogButton
-            button.configure(title: action.title, didTap: {
+            button.configure(title: action.title, didTap: { [weak self] in
                 action.action?()
+                self?.removeFromSuperview()
             })
             self.buttonsStackView.addArrangedSubview(button)
         }
