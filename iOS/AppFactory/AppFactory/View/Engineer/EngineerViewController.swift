@@ -16,7 +16,7 @@ class EngineerViewController: UIViewController {
     
     private var keyword = ""
     private var organization = OrganizationType.unspecified
-    private var cost = CostType.unsecified
+    private var cost = CostType.unspecified
     private var works = WorksType.unspecified
     
     private var pageIndex: Int?
@@ -44,6 +44,7 @@ class EngineerViewController: UIViewController {
             self.isLoading = false
             
             if let response = response {
+                
                 self.pageIndex = response.page
                 self.totalPage = response.total
                 response.engineerList.forEach { self.engineerList.append($0) }
@@ -57,7 +58,18 @@ class EngineerViewController: UIViewController {
     }
 
     @IBAction func onTapMenu(_ sender: Any) {
+        
         let menu = self.viewController(storyboard: "Engineer", identifier: "EngineerMenuViewController") as! EngineerMenuViewController
+        menu.setDefault(word: self.keyword, organization: self.organization, cost: self.cost, work: self.works)
+        menu.setCompletion { (word, organization, cost, works) in
+            self.keyword = word
+            self.organization = organization
+            self.cost = cost
+            self.works = works
+            self.pageIndex = 0
+            self.engineerList.removeAll()
+            self.fetch()
+        }
         self.tabbarViewController()?.stack(viewController: menu, animationType: .none)
     }
 

@@ -7,7 +7,7 @@
 //
 
 enum CostType {
-    case unsecified
+    case unspecified
     case u100000
     case u300000
     case u1000000
@@ -15,7 +15,7 @@ enum CostType {
     
     func toString() -> String {
         switch self {
-        case .unsecified:
+        case .unspecified:
             return "0"
         case .u100000:
             return "1"
