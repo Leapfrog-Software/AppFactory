@@ -13,18 +13,18 @@ class EstimateViewController: UIViewController {
     @IBOutlet private weak var engineerNameLabel: UILabel!
     @IBOutlet private weak var purposeTextView: UITextView!
     @IBOutlet private weak var descriptionTextView: UITextView!
-    @IBOutlet private weak var iosCheckBox: CheckBox!
-    @IBOutlet private weak var androidCheckBox: CheckBox!
-    @IBOutlet private weak var chatCheckBox: CheckBox!
-    @IBOutlet private weak var cameraCheckBox: CheckBox!
-    @IBOutlet private weak var movieCheckBox: CheckBox!
-    @IBOutlet private weak var pushCheckBox: CheckBox!
-    @IBOutlet private weak var mapCheckBox: CheckBox!
-    @IBOutlet private weak var geofenceCheckBox: CheckBox!
-    @IBOutlet private weak var settleCheckBox: CheckBox!
-    @IBOutlet private weak var creditCheckBox: CheckBox!
-    @IBOutlet private weak var userCheckBox: CheckBox!
-    @IBOutlet private weak var snsCheckBox: CheckBox!
+    @IBOutlet private weak var iosCheckBox: CheckBoxRoowView!
+    @IBOutlet private weak var androidCheckBox: CheckBoxRoowView!
+    @IBOutlet private weak var chatCheckBox: CheckBoxRoowView!
+    @IBOutlet private weak var cameraCheckBox: CheckBoxRoowView!
+    @IBOutlet private weak var movieCheckBox: CheckBoxRoowView!
+    @IBOutlet private weak var pushCheckBox: CheckBoxRoowView!
+    @IBOutlet private weak var mapCheckBox: CheckBoxRoowView!
+    @IBOutlet private weak var geofenceCheckBox: CheckBoxRoowView!
+    @IBOutlet private weak var settleCheckBox: CheckBoxRoowView!
+    @IBOutlet private weak var creditCheckBox: CheckBoxRoowView!
+    @IBOutlet private weak var userCheckBox: CheckBoxRoowView!
+    @IBOutlet private weak var snsCheckBox: CheckBoxRoowView!
     @IBOutlet private weak var notesTextView: UITextView!
     @IBOutlet private weak var emailTextField: UITextField!
     @IBOutlet private weak var agreeTermsCheckBox: CheckBox!
@@ -44,7 +44,8 @@ class EstimateViewController: UIViewController {
     }
     
     private func initContents() {
-        self.engineerNameLabel.text = self.targetEngineerName
+        let name = (self.targetEngineerName.count > 0) ? self.targetEngineerName : "登録中の開発者"
+        self.engineerNameLabel.text = name + "様に見積もり依頼を送信します。"
     }
     
     private func showError(message: String) {
@@ -53,7 +54,7 @@ class EstimateViewController: UIViewController {
     }
     
     @IBAction func onTapSend(_ sender: Any) {
-        
+        /*
         guard let purpose = self.purposeTextView.text,
             let description = self.descriptionTextView.text,
             let notes = self.notesTextView.text,
@@ -98,12 +99,12 @@ class EstimateViewController: UIViewController {
                                               email: email)
         EstimateRequester.send(requestData: requestData, completion: { [weak self] result in
             if result {
-                let complete = self?.viewController(storyboard: "Engineer", identifier: "EstimateCompleteViewController") as! EstimateCompleteViewController
-                self?.stack(viewController: complete, animationType: .horizontal)
+
             } else {
                 // TODO
             }
         })
+ */
     }
     
     @IBAction func onTapBack(_ sender: Any) {

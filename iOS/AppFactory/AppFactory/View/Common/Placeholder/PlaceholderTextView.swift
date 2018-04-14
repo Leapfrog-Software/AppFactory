@@ -17,12 +17,19 @@ class PlaceholderTextView: UITextView {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        let placeholderLabel = UILabel(frame: CGRect(x: 8, y: 10, width: self.frame.size.width - 20, height: self.font?.pointSize ?? 0))
+        let placeholderLabel = UILabel()
         placeholderLabel.text = self.placeholder
         placeholderLabel.textColor = .placeholder
         placeholderLabel.font = self.font
+        placeholderLabel.numberOfLines = 0
         placeholderLabel.isUserInteractionEnabled = false
         self.addSubview(placeholderLabel)
+        placeholderLabel.translatesAutoresizingMaskIntoConstraints = false
+        placeholderLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
+        placeholderLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8).isActive = true
+        placeholderLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 8).isActive = true
+        placeholderLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 8).isActive = true
+        
         self.placeholderLabel = placeholderLabel
         
         NotificationCenter.default.addObserver(self, selector: #selector(textDidChange), name: Notification.Name.UITextViewTextDidChange, object: nil)

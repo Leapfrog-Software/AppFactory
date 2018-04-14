@@ -37,6 +37,7 @@ class EngineerDetailViewController: UIViewController {
     
     @IBAction func onTapEstimate(_ sender: Any) {
         let estimate = self.viewController(storyboard: "Engineer", identifier: "EstimateViewController") as! EstimateViewController
+        estimate.set(targetId: self.engineerDetailData.id, targetName: self.engineerDetailData.name)
         self.stack(viewController: estimate, animationType: .horizontal)
     }
     
