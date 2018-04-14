@@ -1740,6 +1740,9 @@
                                             <constraint firstAttribute="width" secondItem="lnK-Mf-Czl" secondAttribute="height" multiplier="1:1" id="loe-VJ-syY"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="arrow_left"/>
+                                        <connections>
+                                            <action selector="onTapBack:" destination="gwS-Qx-WyF" eventType="touchUpInside" id="bBK-JL-u7l"/>
+                                        </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KP9-cM-9Dk">
                                         <rect key="frame" x="0.0" y="43" width="375" height="1"/>
@@ -1811,7 +1814,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ou-2c-iPl">
                                                 <rect key="frame" x="0.0" y="27.5" width="311" height="170"/>
                                                 <subviews>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Dcm-hL-2nC">
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Dcm-hL-2nC" customClass="PlaceholderTextView" customModule="AppFactory" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="8" width="295" height="154"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <color key="textColor" red="0.18823529411764706" green="0.18823529411764706" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1821,7 +1824,11 @@
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                                                 <integer key="value" value="8"/>
                                                             </userDefinedRuntimeAttribute>
+                                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="作りたいアプリの概要、予算など"/>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="gwS-Qx-WyF" id="jUj-Hv-IFm"/>
+                                                        </connections>
                                                     </textView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1867,11 +1874,14 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Urc-O5-Ks5">
                                                 <rect key="frame" x="0.0" y="27.5" width="311" height="44"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CLb-2c-348">
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="メールアドレス、電話番号など" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CLb-2c-348" customClass="PlaceholderTextField" customModule="AppFactory" customModuleProvider="target">
                                                         <rect key="frame" x="8" y="0.0" width="295" height="44"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="didExitEmail:" destination="gwS-Qx-WyF" eventType="editingDidEndOnExit" id="hkK-64-MP0"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2017,6 +2027,7 @@
                         <outlet property="emailTextView" destination="CLb-2c-348" id="M7E-aQ-v7Y"/>
                         <outlet property="engineerImageView" destination="lPj-Bx-W3J" id="Fr2-Ln-iD8"/>
                         <outlet property="messageTextView" destination="Dcm-hL-2nC" id="3oJ-Ax-l1x"/>
+                        <outlet property="scrollViewBottomConstraint" destination="qim-az-fmo" id="o2M-c9-GVe"/>
                         <outlet property="targetNameLabel" destination="2A1-zX-Khy" id="81B-HU-AiW"/>
                     </connections>
                 </viewController>

@@ -25,4 +25,16 @@ extension UIColor {
     class var activeGray: UIColor {
         return UIColor(red: 191 / 255, green: 191 / 255, blue: 191 / 255, alpha: 1.0)
     }
+    
+    class var placeholder: UIColor {
+        return UIColor(red: 146 / 255, green: 146 / 255, blue: 146 / 255, alpha: 1)
+    }
+    
+    class var dialogActionSuccess: UIColor {
+        return UIColor(red: 123 / 255, green: 209 / 255, blue: 249 / 255, alpha: 1)
+    }
+    
+    class var dialogActionError: UIColor {
+        return UIColor(red: 230 / 255, green: 73 / 255, blue: 66 / 255, alpha: 1)
+    }
 }

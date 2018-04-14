@@ -45,6 +45,9 @@
 		BB1E29D7207F748C00CF5AF7 /* MessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E29D6207F748C00CF5AF7 /* MessageViewController.swift */; };
 		BB1E29DA207F750800CF5AF7 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1E29D9207F750800CF5AF7 /* WebViewController.swift */; };
 		BB22537C2080E3630035605A /* CALayer+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB22537B2080E3630035605A /* CALayer+Border.swift */; };
+		BB36A4AE2082009600B96D18 /* KeyboardRespondableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36A4AD2082009600B96D18 /* KeyboardRespondableViewController.swift */; };
+		BB36A4B12082038F00B96D18 /* PlaceholderTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36A4B02082038F00B96D18 /* PlaceholderTextField.swift */; };
+		BB36A4B3208203A500B96D18 /* PlaceholderTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB36A4B2208203A500B96D18 /* PlaceholderTextView.swift */; };
 		BB96C3B3207B89150054D352 /* EngineerDetailRequester.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB96C3B2207B89150054D352 /* EngineerDetailRequester.swift */; };
 		BB96C3B6207B8BB10054D352 /* OrganizationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB96C3B5207B8BB10054D352 /* OrganizationType.swift */; };
 		BB96C3B8207B8EB60054D352 /* CostType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB96C3B7207B8EB60054D352 /* CostType.swift */; };
@@ -101,6 +104,9 @@
 		BB1E29D6207F748C00CF5AF7 /* MessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageViewController.swift; sourceTree = "<group>"; };
 		BB1E29D9207F750800CF5AF7 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		BB22537B2080E3630035605A /* CALayer+Border.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+Border.swift"; sourceTree = "<group>"; };
+		BB36A4AD2082009600B96D18 /* KeyboardRespondableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardRespondableViewController.swift; sourceTree = "<group>"; };
+		BB36A4B02082038F00B96D18 /* PlaceholderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextField.swift; sourceTree = "<group>"; };
+		BB36A4B2208203A500B96D18 /* PlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
 		BB96C3B2207B89150054D352 /* EngineerDetailRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineerDetailRequester.swift; sourceTree = "<group>"; };
 		BB96C3B5207B8BB10054D352 /* OrganizationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationType.swift; sourceTree = "<group>"; };
 		BB96C3B7207B8EB60054D352 /* CostType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostType.swift; sourceTree = "<group>"; };
@@ -332,6 +338,23 @@
 			path = WebView;
 			sourceTree = "<group>";
 		};
+		BB36A4AC2082008400B96D18 /* Keyboard */ = {
+			isa = PBXGroup;
+			children = (
+				BB36A4AD2082009600B96D18 /* KeyboardRespondableViewController.swift */,
+			);
+			path = Keyboard;
+			sourceTree = "<group>";
+		};
+		BB36A4AF2082037600B96D18 /* Placeholder */ = {
+			isa = PBXGroup;
+			children = (
+				BB36A4B02082038F00B96D18 /* PlaceholderTextField.swift */,
+				BB36A4B2208203A500B96D18 /* PlaceholderTextView.swift */,
+			);
+			path = Placeholder;
+			sourceTree = "<group>";
+		};
 		BB96C3B4207B8BA00054D352 /* Enum */ = {
 			isa = PBXGroup;
 			children = (
@@ -355,6 +378,8 @@
 		BBEB4BC2207E26F20073F461 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BB36A4AF2082037600B96D18 /* Placeholder */,
+				BB36A4AC2082008400B96D18 /* Keyboard */,
 				BB1E29D8207F74F800CF5AF7 /* WebView */,
 				BB1E29C7207F73BD00CF5AF7 /* CheckBox */,
 				BB1E29CC207F73ED00CF5AF7 /* Dialog */,
@@ -463,11 +488,14 @@
 				BB1E29CE207F73FB00CF5AF7 /* Dialog.swift in Sources */,
 				BB163506207A543000AED7F6 /* SplashViewController.swift in Sources */,
 				BB1D0791207CD0D60073BBB2 /* EngineerViewController.swift in Sources */,
+				BB36A4B12082038F00B96D18 /* PlaceholderTextField.swift in Sources */,
 				BBE16247207BCC0A007DCE02 /* UIViewController+Scene.swift in Sources */,
 				BB1E29C9207F73CD00CF5AF7 /* CheckBox.swift in Sources */,
 				BB1D07A6207CE11D0073BBB2 /* EngineerDetailViewController.swift in Sources */,
+				BB36A4B3208203A500B96D18 /* PlaceholderTextView.swift in Sources */,
 				BB96C3B8207B8EB60054D352 /* CostType.swift in Sources */,
 				BB22537C2080E3630035605A /* CALayer+Border.swift in Sources */,
+				BB36A4AE2082009600B96D18 /* KeyboardRespondableViewController.swift in Sources */,
 				BBCC08D6207E45C10007D33E /* CommonUtility.swift in Sources */,
 				BB1D07AA207CE5FD0073BBB2 /* EngineerDetailProfileTableViewCell.swift in Sources */,
 				BBEB4BC6207E296D0073F461 /* EndedProjectViewController.swift in Sources */,

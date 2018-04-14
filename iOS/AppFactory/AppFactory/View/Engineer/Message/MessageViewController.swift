@@ -8,13 +8,14 @@
 
 import UIKit
 
-class MessageViewController: UIViewController {
+class MessageViewController: KeyboardRespondableViewController {
     
     @IBOutlet private weak var engineerImageView: UIImageView!
     @IBOutlet private weak var targetNameLabel: UILabel!
     @IBOutlet private weak var messageTextView: UITextView!
     @IBOutlet private weak var emailTextView: UITextField!
     @IBOutlet private weak var agreeTermsImageView: UIImageView!
+    @IBOutlet private weak var scrollViewBottomConstraint: NSLayoutConstraint!
     
     private var targetId = ""
     private var targetName = ""
@@ -39,9 +40,21 @@ class MessageViewController: UIViewController {
         self.targetNameLabel.text = self.targetName
     }
     
+    override func keyboardDidChange(with: KeyboardAnimation) {
+
+        self.scrollViewBottomConstraint.constant = with.height
+        UIView.animate(withDuration: with.duration, delay: 0, options: with.curve, animations: {
+            self.view.layoutIfNeeded()
+        })
+    }
+    
     private func showError(message: String) {
         let action = DialogAction(title: "OK", action: nil)
-        Dialog.show(title: "エラー", message: message, actions: [action])
+        Dialog.show(style: .error, title: "エラー", message: message, actions: [action])
+    }
+    
+    @IBAction func didExitEmail(_ sender: Any) {
+        self.view.endEditing(true)
     }
     
     @IBAction func onTapAgree(_ sender: Any) {
@@ -76,10 +89,22 @@ class MessageViewController: UIViewController {
                         engineerDetail.pop(animationType: .horizontal)
                     }
                 })
-                Dialog.show(title: "完了", message: "メッセージを送信しました", actions: [action])
+                Dialog.show(style: .success, title: "完了", message: "メッセージを送信しました", actions: [action])
             } else {
                 self.showError(message: "通信に失敗しました")
             }
         })
     }
+    
+    @IBAction func onTapBack(_ sender: Any) {
+        self.pop(animationType: .horizontal)
+    }
 }
+
+extension MessageViewController: UITextViewDelegate {
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        self.view.endEditing(true)
+    }
+}
+

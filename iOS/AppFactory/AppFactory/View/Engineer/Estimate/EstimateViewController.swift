@@ -49,7 +49,7 @@ class EstimateViewController: UIViewController {
     
     private func showError(message: String) {
         let action = DialogAction(title: "OK", action: nil)
-        Dialog.show(title: "エラー", message: message, actions: [action])
+        Dialog.show(style: .error, title: "エラー", message: message, actions: [action])
     }
     
     @IBAction func onTapSend(_ sender: Any) {

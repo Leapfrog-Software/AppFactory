@@ -15,11 +15,17 @@ struct DialogAction {
 
 class Dialog: UIView {
     
+    enum Style {
+        case success
+        case error
+    }
+    
+    @IBOutlet private weak var iconImageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
     @IBOutlet private weak var messageLabel: UILabel!
     @IBOutlet private weak var buttonsStackView: UIStackView!
     
-    class func show(title: String, message: String, actions: [DialogAction]) {
+    class func show(style: Style, title: String, message: String, actions: [DialogAction]) {
         
         guard let window = UIApplication.shared.keyWindow else {
             return
@@ -33,22 +39,24 @@ class Dialog: UIView {
         dialog.trailingAnchor.constraint(equalTo: window.trailingAnchor).isActive = true
         dialog.bottomAnchor.constraint(equalTo: window.bottomAnchor).isActive = true
         
-        dialog.configure(title: title, message: message, actions: actions)
+        dialog.configure(style: style, title: title, message: message, actions: actions)
         
         dialog.alpha = 0
-        UIView.animate(withDuration: 0.1) {
+        UIView.animate(withDuration: 0.15) {
             dialog.alpha = 1.0
         }
     }
     
-    private func configure(title: String, message: String, actions: [DialogAction]) {
+    private func configure(style: Style, title: String, message: String, actions: [DialogAction]) {
         
+        self.iconImageView.image = UIImage(named: (style == .success) ? "dialog_success" : "dialog_error")
         self.titleLabel.text = title
         self.messageLabel.text = message
         
         actions.forEach { action in
             let button = UINib(nibName: "DialogButton", bundle: nil).instantiate(withOwner: nil, options: nil).first as! DialogButton
-            button.configure(title: action.title, didTap: { [weak self] in
+            let color = (style == .success) ? UIColor.dialogActionSuccess : UIColor.dialogActionError
+            button.configure(title: action.title, color: color, didTap: { [weak self] in
                 action.action?()
                 self?.removeFromSuperview()
             })
