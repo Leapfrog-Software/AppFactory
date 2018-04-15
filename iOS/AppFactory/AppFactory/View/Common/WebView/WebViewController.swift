@@ -13,6 +13,7 @@ enum WebPageType {
     
     case terms
     case privacypolicy
+    case company
     
     func toUrl() -> URL {
 
@@ -23,6 +24,8 @@ enum WebPageType {
             urlString = Constants.WebPageUrl.Terms
         case .privacypolicy:
             urlString = Constants.WebPageUrl.Privacypolicy
+        case .company:
+            urlString = Constants.WebPageUrl.Company
         }
         
         return URL(string: urlString)!
@@ -35,7 +38,8 @@ enum WebPageType {
             return "利用規約"
         case .privacypolicy:
             return "個人情報保護方針"
-            
+        case .company:
+            return "運営会社"
         }
     }
 }

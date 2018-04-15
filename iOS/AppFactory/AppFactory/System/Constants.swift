@@ -19,10 +19,12 @@ struct Constants {
     
     struct UserDefaultsKey {
         static let didShowTutorial = "didShowTutorial"
+        static let pushSetting = "PushSetting"
     }
     
     struct WebPageUrl {
         static let Terms = "http://appfac.net/terms.html"
         static let Privacypolicy = "http://appfac.net/privacypolicy.html"
+        static let Company = "http://lfg.co.jp"
     }
 }

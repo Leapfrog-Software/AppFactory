@@ -56,6 +56,10 @@ class TutorialViewController: UIViewController {
     
     @IBAction func onTapStart(_ sender: Any) {
         
+        let saveData = SaveData.shared
+        saveData.didShowTutorial = true
+        saveData.save()
+        
         self.contentsViewVerticalConstraint.constant = UIScreen.main.bounds.size.height
         UIView.animate(withDuration: 0.15, animations: {
             self.view.layoutIfNeeded()

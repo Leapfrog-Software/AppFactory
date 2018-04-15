@@ -13,10 +13,12 @@ class SaveData {
     static let shared = SaveData()
     
     var didShowTutorial = false
+    var pushSetting = true
     
     init() {
         let userDefaults = UserDefaults()
         self.didShowTutorial = userDefaults.bool(forKey: Constants.UserDefaultsKey.didShowTutorial)
+        self.pushSetting = userDefaults.bool(forKey: Constants.UserDefaultsKey.pushSetting)
     }
     
     func save() {
@@ -24,6 +26,7 @@ class SaveData {
         let userDefaults = UserDefaults()
         
         userDefaults.set(self.didShowTutorial, forKey: Constants.UserDefaultsKey.didShowTutorial)
+        userDefaults.set(self.pushSetting, forKey: Constants.UserDefaultsKey.pushSetting)
         
         userDefaults.synchronize()
     }
