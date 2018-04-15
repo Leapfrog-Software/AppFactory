@@ -38,7 +38,7 @@ public class HttpManager extends AsyncTask<String, Integer, Object> {
 
             conn.setDoInput(true);
             conn.setDoOutput(true);
-            if (params[2].length() > 0) {
+            if (params.length >= 3) {
                 String paramStr = params[2];
                 PrintWriter printWriter = new PrintWriter(conn.getOutputStream());
                 printWriter.print(paramStr);
