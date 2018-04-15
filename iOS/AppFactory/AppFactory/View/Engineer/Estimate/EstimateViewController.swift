@@ -110,7 +110,13 @@ class EstimateViewController: KeyboardRespondableViewController {
                                               sns: self.snsCheckBox.getValue(),
                                               notes: notes,
                                               email: email)
+        
+        Loading.start()
+        
         EstimateRequester.send(requestData: requestData, completion: { [weak self] result in
+            
+            Loading.stop()
+            
             if result {
                 let action = DialogAction(title: "OK", action: {
                     if let engineerDetail = self?.parent as? EngineerDetailViewController {

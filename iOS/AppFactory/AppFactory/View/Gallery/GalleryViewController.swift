@@ -29,10 +29,15 @@ class GalleryViewController: UIViewController {
     private func fetch() {
 
         self.isLoading = true
+
+        if self.pageIndex != nil {
+            Loading.start()
+        }
         
         GalleryRequester.get(sort: self.sortType, page: self.pageIndex ?? 0, completion: { response in
             
             self.isLoading = false
+            Loading.stop()
             
             if let response = response {
                 self.pageIndex = response.page
@@ -41,7 +46,8 @@ class GalleryViewController: UIViewController {
                 
                 self.collectionView.reloadData()
             } else {
-                // TODO
+                let action = DialogAction(title: "OK", action: nil)
+                Dialog.show(style: .error, title: "エラー", message: "通信に失敗しました", actions: [action])
             }
         })
     }
@@ -82,7 +88,8 @@ extension GalleryViewController: UICollectionViewDataSource, UICollectionViewDel
                 detail.set(engineerDetailData: response)
                 self.tabbarViewController()?.stack(viewController: detail, animationType: .horizontal)
             } else {
-                // TODO
+                let action = DialogAction(title: "OK", action: nil)
+                Dialog.show(style: .error, title: "エラー", message: "通信に失敗しました", actions: [action])
             }
         })
     }

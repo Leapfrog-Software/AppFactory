@@ -11,6 +11,7 @@ import UIKit
 class EngineerViewController: UIViewController {
 
     @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet private weak var noDataLabel: UILabel!
     
     private var isLoading = false
     
@@ -20,7 +21,7 @@ class EngineerViewController: UIViewController {
     private var works = WorksType.unspecified
     
     private var pageIndex: Int?
-    private var totalPage: Int?
+    private var totalCount: Int?
     private var engineerList = [EngineerData]()
     
     override func viewDidLoad() {
@@ -39,21 +40,29 @@ class EngineerViewController: UIViewController {
 
         self.isLoading = true
         
+        if self.pageIndex != nil {
+            Loading.start()
+        }
+        
         EngineerRequester.get(page: self.pageIndex ?? 0, keyword: self.keyword, organization: self.organization, cost: self.cost, works: self.works, completion: { response in
             
+            Loading.stop()
             self.isLoading = false
             
             if let response = response {
                 
                 self.pageIndex = response.page
-                self.totalPage = response.total
+                self.totalCount = response.total
                 response.engineerList.forEach { self.engineerList.append($0) }
                 
                 self.tableView.reloadData()
                 
             } else {
-                // TODO
+                let action = DialogAction(title: "OK", action: nil)
+                Dialog.show(style: .error, title: "エラー", message: "通信に失敗しました", actions: [action])
             }
+            
+            self.noDataLabel.isHidden = !self.engineerList.isEmpty
         })
     }
 
@@ -103,7 +112,8 @@ extension EngineerViewController: UITableViewDataSource, UITableViewDelegate {
                 detail.set(engineerDetailData: response)
                 self.tabbarViewController()?.stack(viewController: detail, animationType: .horizontal)
             } else {
-                // TODO
+                let action = DialogAction(title: "OK", action: nil)
+                Dialog.show(style: .error, title: "エラー", message: "通信に失敗しました", actions: [action])
             }
         })
     }
@@ -118,8 +128,8 @@ extension EngineerViewController: UITableViewDataSource, UITableViewDelegate {
         }
 
         let currentPage = self.pageIndex ?? 0
-        let totalPage = self.totalPage ?? 0
-        if currentPage < totalPage {
+        let totalCount = self.totalCount ?? 0
+        if currentPage < Int(totalCount / 20) + 1 {
             var pageIndex = self.pageIndex ?? 0
             pageIndex += 1
             self.pageIndex = pageIndex

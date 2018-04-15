@@ -62,6 +62,12 @@ class MessageViewController: KeyboardRespondableViewController {
         self.agreeTermsImageView.image = self.isAgree ? UIImage(named: "check_on") : UIImage(named: "check_off")
     }
     
+    @IBAction func onTapTerms(_ sender: Any) {
+        let webView = self.viewController(storyboard: "Common", identifier: "WebViewController") as! WebViewController
+        webView.set(webPageType: .terms)
+        self.stack(viewController: webView, animationType: .horizontal)
+    }
+    
     @IBAction func onTapSend(_ sender: Any) {
         
         guard let message = self.messageTextView.text,
@@ -82,7 +88,12 @@ class MessageViewController: KeyboardRespondableViewController {
             return
         }
         
+        Loading.start()
+        
         MessageRequester.send(sender: email, target: self.targetId, message: message, completion: { result in
+            
+            Loading.stop()
+            
             if result {
                 let action = DialogAction(title: "OK", action: {
                     if let engineerDetail = self.parent as? EngineerDetailViewController {

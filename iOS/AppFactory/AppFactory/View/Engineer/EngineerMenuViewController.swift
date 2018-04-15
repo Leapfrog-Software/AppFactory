@@ -137,6 +137,10 @@ class EngineerMenuViewController: UIViewController {
         })
     }
     
+    @IBAction func didExitWord(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+    
     @IBAction func onTapOrganization1(_ sender: Any) {
         self.currentOrganization = .unspecified
         self.setOrganization()

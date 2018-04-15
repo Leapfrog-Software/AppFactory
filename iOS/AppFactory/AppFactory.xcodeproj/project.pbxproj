@@ -60,6 +60,8 @@
 		BBD9EB6E208323E1005A271F /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD9EB6D208323E1005A271F /* TutorialViewController.swift */; };
 		BBD9EB70208323EF005A271F /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD9EB6F208323EF005A271F /* TutorialView.swift */; };
 		BBD9EB72208323FC005A271F /* TutorialView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBD9EB71208323FC005A271F /* TutorialView.xib */; };
+		BBD9EB7520833D11005A271F /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD9EB7420833D11005A271F /* Loading.swift */; };
+		BBD9EB7720833D1A005A271F /* Loading.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBD9EB7620833D1A005A271F /* Loading.xib */; };
 		BBE16247207BCC0A007DCE02 /* UIViewController+Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE16246207BCC0A007DCE02 /* UIViewController+Scene.swift */; };
 		BBEB4BB8207E1FDC0073F461 /* EstimateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEB4BB7207E1FDC0073F461 /* EstimateViewController.swift */; };
 		BBEB4BBA207E204F0073F461 /* ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEB4BB9207E204F0073F461 /* ImageStorage.swift */; };
@@ -123,6 +125,8 @@
 		BBD9EB6D208323E1005A271F /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		BBD9EB6F208323EF005A271F /* TutorialView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialView.swift; sourceTree = "<group>"; };
 		BBD9EB71208323FC005A271F /* TutorialView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TutorialView.xib; sourceTree = "<group>"; };
+		BBD9EB7420833D11005A271F /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
+		BBD9EB7620833D1A005A271F /* Loading.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Loading.xib; sourceTree = "<group>"; };
 		BBE16246207BCC0A007DCE02 /* UIViewController+Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Scene.swift"; sourceTree = "<group>"; };
 		BBEB4BB7207E1FDC0073F461 /* EstimateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateViewController.swift; sourceTree = "<group>"; };
 		BBEB4BB9207E204F0073F461 /* ImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorage.swift; sourceTree = "<group>"; };
@@ -387,6 +391,15 @@
 			path = Tutorial;
 			sourceTree = "<group>";
 		};
+		BBD9EB7320833D00005A271F /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				BBD9EB7420833D11005A271F /* Loading.swift */,
+				BBD9EB7620833D1A005A271F /* Loading.xib */,
+			);
+			path = Loading;
+			sourceTree = "<group>";
+		};
 		BBEB4BB6207E1FC20073F461 /* Estimate */ = {
 			isa = PBXGroup;
 			children = (
@@ -398,6 +411,7 @@
 		BBEB4BC2207E26F20073F461 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BBD9EB7320833D00005A271F /* Loading */,
 				BB36A4AF2082037600B96D18 /* Placeholder */,
 				BB36A4AC2082008400B96D18 /* Keyboard */,
 				BB1E29D8207F74F800CF5AF7 /* WebView */,
@@ -470,6 +484,7 @@
 				BB163503207A541100AED7F6 /* Main.storyboard in Resources */,
 				BBEB4BC1207E26B10073F461 /* Common.storyboard in Resources */,
 				BB1D079B207CD1780073BBB2 /* Gallery.storyboard in Resources */,
+				BBD9EB7720833D1A005A271F /* Loading.xib in Resources */,
 				BBD9EB72208323FC005A271F /* TutorialView.xib in Resources */,
 				BB1E29CB207F73D600CF5AF7 /* CheckBox.xib in Resources */,
 				BB1634F8207A50C200AED7F6 /* LaunchScreen.storyboard in Resources */,
@@ -498,6 +513,7 @@
 				BB1D07AC207CE60A0073BBB2 /* EngineerDetailWorkTableViewCell.swift in Sources */,
 				BBEB4BBA207E204F0073F461 /* ImageStorage.swift in Sources */,
 				BB16351D207A5C1C00AED7F6 /* ApiManager.swift in Sources */,
+				BBD9EB7520833D11005A271F /* Loading.swift in Sources */,
 				BB96C3BC207B8FB40054D352 /* GallerySortType.swift in Sources */,
 				BB1E29C6207F736F00CF5AF7 /* UILabel+Attribute.swift in Sources */,
 				BB1D0793207CD0E30073BBB2 /* GalleryViewController.swift in Sources */,
