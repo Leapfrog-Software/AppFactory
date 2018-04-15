@@ -55,6 +55,7 @@
 		BB96C3BC207B8FB40054D352 /* GallerySortType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB96C3BB207B8FB40054D352 /* GallerySortType.swift */; };
 		BB96C3BE207B9B6F0054D352 /* String+Base64.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB96C3BD207B9B6E0054D352 /* String+Base64.swift */; };
 		BBCC08D6207E45C10007D33E /* CommonUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBCC08D5207E45C10007D33E /* CommonUtility.swift */; };
+		BBD9EB6720831A4D005A271F /* GallerySortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBD9EB6620831A4D005A271F /* GallerySortViewController.swift */; };
 		BBE16247207BCC0A007DCE02 /* UIViewController+Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE16246207BCC0A007DCE02 /* UIViewController+Scene.swift */; };
 		BBEB4BB8207E1FDC0073F461 /* EstimateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEB4BB7207E1FDC0073F461 /* EstimateViewController.swift */; };
 		BBEB4BBA207E204F0073F461 /* ImageStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBEB4BB9207E204F0073F461 /* ImageStorage.swift */; };
@@ -113,6 +114,7 @@
 		BB96C3BB207B8FB40054D352 /* GallerySortType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallerySortType.swift; sourceTree = "<group>"; };
 		BB96C3BD207B9B6E0054D352 /* String+Base64.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Base64.swift"; sourceTree = "<group>"; };
 		BBCC08D5207E45C10007D33E /* CommonUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonUtility.swift; sourceTree = "<group>"; };
+		BBD9EB6620831A4D005A271F /* GallerySortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GallerySortViewController.swift; sourceTree = "<group>"; };
 		BBE16246207BCC0A007DCE02 /* UIViewController+Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Scene.swift"; sourceTree = "<group>"; };
 		BBEB4BB7207E1FDC0073F461 /* EstimateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstimateViewController.swift; sourceTree = "<group>"; };
 		BBEB4BB9207E204F0073F461 /* ImageStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageStorage.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 			children = (
 				BB1D0792207CD0E30073BBB2 /* GalleryViewController.swift */,
 				BB1D07AD207CF5090073BBB2 /* GalleryCollectionViewCell.swift */,
+				BBD9EB6620831A4D005A271F /* GallerySortViewController.swift */,
 			);
 			path = Gallery;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 				BBCC08D6207E45C10007D33E /* CommonUtility.swift in Sources */,
 				BB1D07AA207CE5FD0073BBB2 /* EngineerDetailProfileTableViewCell.swift in Sources */,
 				BBEB4BC6207E296D0073F461 /* EndedProjectViewController.swift in Sources */,
+				BBD9EB6720831A4D005A271F /* GallerySortViewController.swift in Sources */,
 				BB96C3B3207B89150054D352 /* EngineerDetailRequester.swift in Sources */,
 				BB163515207A55BF00AED7F6 /* GalleryRequester.swift in Sources */,
 				BB96C3BA207B8ECE0054D352 /* WorksType.swift in Sources */,

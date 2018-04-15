@@ -27,7 +27,7 @@ class GalleryViewController: UIViewController {
     }
     
     private func fetch() {
-        
+
         self.isLoading = true
         
         GalleryRequester.get(sort: self.sortType, page: self.pageIndex ?? 0, completion: { response in
@@ -46,7 +46,18 @@ class GalleryViewController: UIViewController {
         })
     }
 
+    @IBAction func onTapSort(_ sender: Any) {
+        let sort = self.viewController(storyboard: "Gallery", identifier: "GallerySortViewController") as! GallerySortViewController
+        sort.set(defaultType: self.sortType, completion: { sortType in
+            self.sortType = sortType
+            self.pageIndex = 0
+            self.galleryList.removeAll()
+            self.collectionView.reloadData()
 
+            self.fetch()
+        })
+        self.tabbarViewController()?.stack(viewController: sort, animationType: .none)
+    }
 }
 
 extension GalleryViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
