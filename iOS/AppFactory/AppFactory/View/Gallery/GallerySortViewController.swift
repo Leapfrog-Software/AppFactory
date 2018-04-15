@@ -28,30 +28,31 @@ class GallerySortViewController: UIViewController {
         self.costImageView.isHidden = (self.defaultSortType != .cost)
     }
     
-    private func close(delay: Bool) {
+    private func close(delay: Bool, notifySortType: GallerySortType?) {
         
         UIView.animate(withDuration: 0.15, delay: delay ? 0.3 : 0, animations: {
             self.view.alpha = 0
-        }, completion: { _ in
-            self.pop(animationType: .none)
+        }, completion: { [weak self] _ in
+            if let sortType = notifySortType {
+                self?.completion(sortType)
+            }
+            self?.pop(animationType: .none)
         })
     }
     
     @IBAction func onTapEvaluate(_ sender: Any) {
         self.evaluateImageView.isHidden = false
         self.costImageView.isHidden = true
-        self.completion(.evaluate)
-        self.close(delay: true)
+        self.close(delay: true, notifySortType: .evaluate)
     }
     
     @IBAction func onTapCost(_ sender: Any) {
         self.evaluateImageView.isHidden = true
         self.costImageView.isHidden = false
-        self.completion(.cost)
-        self.close(delay: true)
+        self.close(delay: true, notifySortType: .cost)
     }
     
     @IBAction func onTapClose(_ sender: Any) {
-        self.close(delay: false)
+        self.close(delay: false, notifySortType: nil)
     }
 }
