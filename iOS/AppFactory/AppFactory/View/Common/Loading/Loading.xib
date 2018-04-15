@@ -23,21 +23,45 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1dV-0S-Y4e">
                     <rect key="frame" x="127" y="273" width="120" height="120"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Kob-Jy-4tU">
-                            <rect key="frame" x="40" y="40" width="40" height="40"/>
-                            <color key="backgroundColor" red="0.96078431369999995" green="0.1450980392" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading1" translatesAutoresizingMaskIntoConstraints="NO" id="Kob-Jy-4tU">
+                            <rect key="frame" x="27" y="43" width="50" height="50"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="40" id="N6D-kQ-z0z"/>
-                                <constraint firstAttribute="height" constant="40" id="kEe-aP-bf2"/>
+                                <constraint firstAttribute="width" constant="50" id="N6D-kQ-z0z"/>
+                                <constraint firstAttribute="height" constant="50" id="kEe-aP-bf2"/>
+                            </constraints>
+                        </imageView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEb-4S-57B">
+                            <rect key="frame" x="51" y="19" width="50" height="50"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="sLo-fV-Jcw"/>
+                                <constraint firstAttribute="height" constant="50" id="xDt-eK-nAf"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="25"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loading2" translatesAutoresizingMaskIntoConstraints="NO" id="Tjk-wo-ieG">
+                            <rect key="frame" x="56" y="24" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="ROd-7z-D9q"/>
+                                <constraint firstAttribute="width" constant="40" id="zt3-Kc-eRh"/>
                             </constraints>
                         </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="Kob-Jy-4tU" firstAttribute="centerX" secondItem="1dV-0S-Y4e" secondAttribute="centerX" id="7Sj-6w-lY5"/>
+                        <constraint firstItem="Kob-Jy-4tU" firstAttribute="centerX" secondItem="1dV-0S-Y4e" secondAttribute="centerX" constant="-8" id="7Sj-6w-lY5"/>
                         <constraint firstAttribute="width" constant="120" id="GqN-Cz-atB"/>
-                        <constraint firstItem="Kob-Jy-4tU" firstAttribute="centerY" secondItem="1dV-0S-Y4e" secondAttribute="centerY" id="fxY-St-G8x"/>
+                        <constraint firstItem="Tjk-wo-ieG" firstAttribute="centerX" secondItem="1dV-0S-Y4e" secondAttribute="centerX" constant="16" id="aWt-aV-Tcm"/>
+                        <constraint firstItem="Tjk-wo-ieG" firstAttribute="centerY" secondItem="uEb-4S-57B" secondAttribute="centerY" id="eaZ-zZ-Zvf"/>
+                        <constraint firstItem="Kob-Jy-4tU" firstAttribute="centerY" secondItem="1dV-0S-Y4e" secondAttribute="centerY" constant="8" id="fxY-St-G8x"/>
+                        <constraint firstItem="Tjk-wo-ieG" firstAttribute="centerY" secondItem="1dV-0S-Y4e" secondAttribute="centerY" constant="-16" id="iec-9M-Dkl"/>
                         <constraint firstAttribute="height" constant="120" id="jAz-fw-1vA"/>
+                        <constraint firstItem="Tjk-wo-ieG" firstAttribute="centerX" secondItem="uEb-4S-57B" secondAttribute="centerX" id="tiw-Hh-sdx"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -57,8 +81,14 @@
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
-                <outlet property="loadingImageView" destination="Kob-Jy-4tU" id="AOz-bd-goz"/>
+                <outlet property="loading1ImageView" destination="Kob-Jy-4tU" id="ouk-mS-EJq"/>
+                <outlet property="loading2ImageView" destination="Tjk-wo-ieG" id="gA1-uW-dmz"/>
             </connections>
+            <point key="canvasLocation" x="54.5" y="59.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="loading1" width="85" height="85"/>
+        <image name="loading2" width="50" height="50"/>
+    </resources>
 </document>

@@ -38,9 +38,7 @@ class CheckBoxRoowView: UIView {
     }
 }
 
-class CheckBox: UIView {
-    
-    
+class CheckBox: UIView {    
     
     @IBOutlet private weak var checkImageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!

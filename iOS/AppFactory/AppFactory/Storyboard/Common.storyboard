@@ -87,6 +87,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow_left" width="42" height="42"/>
+        <image name="arrow_left" width="44" height="44"/>
     </resources>
 </document>

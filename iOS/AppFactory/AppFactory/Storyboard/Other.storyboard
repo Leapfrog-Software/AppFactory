@@ -94,10 +94,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="YoR-HA-pUY">
-                                                <rect key="frame" x="339" y="20" width="20" height="20"/>
+                                                <rect key="frame" x="345" y="23" width="14" height="14"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="20" id="IAf-v7-647"/>
-                                                    <constraint firstAttribute="width" constant="20" id="WPW-g9-XHt"/>
+                                                    <constraint firstAttribute="height" constant="14" id="IAf-v7-647"/>
+                                                    <constraint firstAttribute="width" constant="14" id="WPW-g9-XHt"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oqh-Ni-k8S">
@@ -140,10 +140,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="pjs-xz-4bg">
-                                                <rect key="frame" x="339" y="20" width="20" height="20"/>
+                                                <rect key="frame" x="345" y="23" width="14" height="14"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="20" id="F4m-og-AlR"/>
-                                                    <constraint firstAttribute="height" constant="20" id="aK3-9T-8kZ"/>
+                                                    <constraint firstAttribute="width" constant="14" id="F4m-og-AlR"/>
+                                                    <constraint firstAttribute="height" constant="14" id="aK3-9T-8kZ"/>
                                                 </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KBc-mP-LVU">
@@ -186,10 +186,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="6hN-7e-ZUt">
-                                                <rect key="frame" x="339" y="20" width="20" height="20"/>
+                                                <rect key="frame" x="345" y="23" width="14" height="14"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="20" id="3eX-BT-UwV"/>
-                                                    <constraint firstAttribute="height" constant="20" id="fn9-Lb-8qs"/>
+                                                    <constraint firstAttribute="width" constant="14" id="3eX-BT-UwV"/>
+                                                    <constraint firstAttribute="height" constant="14" id="fn9-Lb-8qs"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rL-2t-oux">
@@ -232,10 +232,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="7HM-wv-yMd">
-                                                <rect key="frame" x="339" y="20" width="20" height="20"/>
+                                                <rect key="frame" x="345" y="23" width="14" height="14"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="20" id="GTA-J8-Ng9"/>
-                                                    <constraint firstAttribute="height" constant="20" id="aOk-KL-4X3"/>
+                                                    <constraint firstAttribute="width" constant="14" id="GTA-J8-Ng9"/>
+                                                    <constraint firstAttribute="height" constant="14" id="aOk-KL-4X3"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="okJ-ww-jie">
@@ -278,10 +278,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right" translatesAutoresizingMaskIntoConstraints="NO" id="Ylh-FG-1Fj">
-                                                <rect key="frame" x="339" y="20" width="20" height="20"/>
+                                                <rect key="frame" x="345" y="23" width="14" height="14"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="20" id="A8g-z9-IWm"/>
-                                                    <constraint firstAttribute="height" constant="20" id="aZ7-KJ-Taw"/>
+                                                    <constraint firstAttribute="width" constant="14" id="A8g-z9-IWm"/>
+                                                    <constraint firstAttribute="height" constant="14" id="aZ7-KJ-Taw"/>
                                                 </constraints>
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qwx-Bg-dY4">
@@ -395,11 +395,21 @@
                                             <action selector="onTapBack:" destination="TK8-jj-F7I" eventType="touchUpInside" id="8N6-jJ-0zF"/>
                                         </connections>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5f5-SR-Aoj">
+                                        <rect key="frame" x="0.0" y="59" width="375" height="1"/>
+                                        <color key="backgroundColor" red="0.85098039215686272" green="0.85098039215686272" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="71L-gl-5MM"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="5f5-SR-Aoj" secondAttribute="bottom" id="8kJ-bV-cfE"/>
                                     <constraint firstItem="Bjm-bF-TLh" firstAttribute="centerY" secondItem="wJp-g7-qqu" secondAttribute="centerY" id="Fty-kW-MhE"/>
                                     <constraint firstItem="Bjm-bF-TLh" firstAttribute="centerX" secondItem="wJp-g7-qqu" secondAttribute="centerX" id="G3t-XZ-1ys"/>
+                                    <constraint firstAttribute="trailing" secondItem="5f5-SR-Aoj" secondAttribute="trailing" id="LVh-64-O6p"/>
+                                    <constraint firstItem="5f5-SR-Aoj" firstAttribute="leading" secondItem="wJp-g7-qqu" secondAttribute="leading" id="QlA-hL-umO"/>
                                     <constraint firstItem="jFH-ew-Hb8" firstAttribute="top" secondItem="wJp-g7-qqu" secondAttribute="top" id="Qw0-52-JuU"/>
                                     <constraint firstItem="jFH-ew-Hb8" firstAttribute="leading" secondItem="wJp-g7-qqu" secondAttribute="leading" id="SR6-xt-ygH"/>
                                     <constraint firstAttribute="bottom" secondItem="jFH-ew-Hb8" secondAttribute="bottom" id="dym-dh-3Hb"/>
@@ -430,7 +440,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow_left" width="42" height="42"/>
-        <image name="arrow_right" width="42" height="42"/>
+        <image name="arrow_left" width="44" height="44"/>
+        <image name="arrow_right" width="14" height="14"/>
     </resources>
 </document>

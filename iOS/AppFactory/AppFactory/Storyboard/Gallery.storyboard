@@ -386,7 +386,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cost" width="21" height="21"/>
+        <image name="cost" width="14" height="14"/>
         <image name="gallery_sort" width="44" height="44"/>
         <image name="sort_selected" width="20" height="20"/>
         <image name="star_full_14_14" width="14" height="14"/>

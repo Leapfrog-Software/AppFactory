@@ -59,6 +59,6 @@
         </view>
     </objects>
     <resources>
-        <image name="check_gray_off" width="79" height="79"/>
+        <image name="check_gray_off" width="20" height="20"/>
     </resources>
 </document>

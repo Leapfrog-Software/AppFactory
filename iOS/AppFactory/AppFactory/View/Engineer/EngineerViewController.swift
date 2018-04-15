@@ -27,6 +27,7 @@ class EngineerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.noDataLabel.isHidden = true
         self.initTableView()
         self.fetch()
     }

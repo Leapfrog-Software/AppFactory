@@ -10,7 +10,8 @@ import UIKit
 
 class Loading: UIView {
     
-    @IBOutlet private weak var loadingImageView: UIImageView!
+    @IBOutlet private weak var loading1ImageView: UIImageView!
+    @IBOutlet private weak var loading2ImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,11 +21,17 @@ class Loading: UIView {
     
     private func animate() {
         
-        let animation = CABasicAnimation(keyPath: "transform.rotation.z")
-        animation.toValue = NSNumber(value: 2 * Double.pi)
-        animation.duration = 0.8
-        animation.repeatCount = .infinity
-        loadingImageView.layer.add(animation, forKey: "rotate")
+        let animation1 = CABasicAnimation(keyPath: "transform.rotation.z")
+        animation1.toValue = NSNumber(value: 2 * Double.pi)
+        animation1.duration = 1.2
+        animation1.repeatCount = .infinity
+        loading1ImageView.layer.add(animation1, forKey: "rotate")
+
+        let animation2 = CABasicAnimation(keyPath: "transform.rotation.z")
+        animation2.toValue = NSNumber(value: -2 * Double.pi)
+        animation2.duration = 1.6
+        animation2.repeatCount = .infinity
+        loading2ImageView.layer.add(animation2, forKey: "rotate")
     }
     
     class func start() {

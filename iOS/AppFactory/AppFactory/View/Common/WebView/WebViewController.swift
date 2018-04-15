@@ -65,7 +65,7 @@ class WebViewController: UIViewController {
         webView.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor).isActive = true
         webView.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor).isActive = true
         webView.bottomAnchor.constraint(equalTo: self.containerView.bottomAnchor).isActive = true
-        
+
         webView.navigationDelegate = self
         
         let request = URLRequest(url: self.webPageType.toUrl(), cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: Constants.HttpTimeOutInterval)
