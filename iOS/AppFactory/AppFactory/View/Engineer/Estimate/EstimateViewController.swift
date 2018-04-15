@@ -8,7 +8,7 @@
 
 import UIKit
 
-class EstimateViewController: UIViewController {
+class EstimateViewController: KeyboardRespondableViewController {
     
     @IBOutlet private weak var engineerNameLabel: UILabel!
     @IBOutlet private weak var purposeTextView: UITextView!
@@ -27,10 +27,12 @@ class EstimateViewController: UIViewController {
     @IBOutlet private weak var snsCheckBox: CheckBoxRoowView!
     @IBOutlet private weak var notesTextView: UITextView!
     @IBOutlet private weak var emailTextField: UITextField!
-    @IBOutlet private weak var agreeTermsCheckBox: CheckBox!
+    @IBOutlet private weak var agreeTermsImageView: UIImageView!
+    @IBOutlet private weak var scrollViewBottomConstraint: NSLayoutConstraint!
     
     private var targetEngineerId = ""
     private var targetEngineerName = ""
+    private var isAgree = false
     
     func set(targetId: String, targetName: String) {
         self.targetEngineerId = targetId
@@ -53,8 +55,19 @@ class EstimateViewController: UIViewController {
         Dialog.show(style: .error, title: "エラー", message: message, actions: [action])
     }
     
+    override func keyboardDidChange(with: KeyboardAnimation) {
+        self.scrollViewBottomConstraint.constant = with.height
+        UIView.animate(withDuration: with.duration, delay: 0, options: with.curve, animations: {
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    @IBAction func didExitEmail(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+    
     @IBAction func onTapSend(_ sender: Any) {
-        /*
+        
         guard let purpose = self.purposeTextView.text,
             let description = self.descriptionTextView.text,
             let notes = self.notesTextView.text,
@@ -75,7 +88,7 @@ class EstimateViewController: UIViewController {
             return
         }
         
-        if self.agreeTermsCheckBox.getValue() == false {
+        if !self.isAgree {
             self.showError(message: "利用規約への同意が必要です")
             return
         }
@@ -99,12 +112,27 @@ class EstimateViewController: UIViewController {
                                               email: email)
         EstimateRequester.send(requestData: requestData, completion: { [weak self] result in
             if result {
-
+                let action = DialogAction(title: "OK", action: {
+                    if let engineerDetail = self?.parent as? EngineerDetailViewController {
+                        engineerDetail.pop(animationType: .horizontal)
+                    }
+                })
+                Dialog.show(style: .success, title: "送信が完了しました", message: "返信があるまでお待ちください", actions: [action])
             } else {
-                // TODO
+                self?.showError(message: "通信に失敗しました")
             }
         })
- */
+    }
+    
+    @IBAction func onTapAgree(_ sender: Any) {
+        self.isAgree = !self.isAgree
+        self.agreeTermsImageView.image = UIImage(named: (self.isAgree) ? "check_on" : "check_off")
+    }
+    
+    @IBAction func onTapTerms(_ sender: Any) {
+        let webView = self.viewController(storyboard: "Common", identifier: "WebViewController") as! WebViewController
+        webView.set(webPageType: .terms)
+        self.stack(viewController: webView, animationType: .horizontal)
     }
     
     @IBAction func onTapBack(_ sender: Any) {
@@ -112,3 +140,16 @@ class EstimateViewController: UIViewController {
     }
 }
 
+extension EstimateViewController: UITextViewDelegate {
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        self.view.endEditing(true)
+    }
+}
+
+extension EstimateViewController: UIScrollViewDelegate {
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        self.view.endEditing(true)
+    }
+}

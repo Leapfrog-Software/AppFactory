@@ -10,7 +10,9 @@ import UIKit
 import WebKit
 
 enum WebPageType {
+    
     case terms
+    case privacypolicy
     
     func toUrl() -> URL {
 
@@ -19,15 +21,29 @@ enum WebPageType {
         switch self {
         case .terms:
             urlString = Constants.WebPageUrl.Terms
+        case .privacypolicy:
+            urlString = Constants.WebPageUrl.Privacypolicy
         }
         
         return URL(string: urlString)!
+    }
+    
+    func toTitleText() -> String {
+        
+        switch self {
+        case .terms:
+            return "利用規約"
+        case .privacypolicy:
+            return "個人情報保護方針"
+            
+        }
     }
 }
 
 class WebViewController: UIViewController {
 
     @IBOutlet private weak var containerView: UIView!
+    @IBOutlet private weak var titleLabel: UILabel!
 
     private var webPageType: WebPageType!
     
@@ -48,6 +64,8 @@ class WebViewController: UIViewController {
         
         let request = URLRequest(url: self.webPageType.toUrl(), cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: Constants.HttpTimeOutInterval)
         webView.load(request)
+        
+        self.titleLabel.text = self.webPageType.toTitleText()
     }
     
     

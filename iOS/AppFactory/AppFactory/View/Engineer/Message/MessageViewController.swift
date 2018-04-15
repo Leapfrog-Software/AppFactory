@@ -108,3 +108,9 @@ extension MessageViewController: UITextViewDelegate {
     }
 }
 
+extension MessageViewController: UIScrollViewDelegate {
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        self.view.endEditing(true)
+    }
+}

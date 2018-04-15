@@ -56,7 +56,7 @@ struct EngineerDetailResponseData {
         self.area = data["area"] as? String ?? ""
         self.organization = OrganizationType.create(with: data["organization"] as? Int ?? 0)
         self.evaluate = data["evaluate"] as? Int ?? 0
-        self.profile = data["profile"] as? String ?? ""
+        self.profile = (data["profile"] as? String ?? "").replacingOccurrences(of: "<br>", with: "\n")
         self.works = (data["works"] as? Array<Dictionary<String, Any>>)?.flatMap { EngineerDetailWorkData(data: $0) } ?? []
     }
 }

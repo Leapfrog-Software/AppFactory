@@ -58,7 +58,11 @@ class Dialog: UIView {
             let color = (style == .success) ? UIColor.dialogActionSuccess : UIColor.dialogActionError
             button.configure(title: action.title, color: color, didTap: { [weak self] in
                 action.action?()
-                self?.removeFromSuperview()
+                UIView.animate(withDuration: 0.15, animations: {
+                    self?.alpha = 0
+                }, completion: { [weak self] _ in
+                    self?.removeFromSuperview()
+                })
             })
             self.buttonsStackView.addArrangedSubview(button)
         }

@@ -19,5 +19,6 @@ struct Constants {
     
     struct WebPageUrl {
         static let Terms = "http://appfac.net/terms.html"
+        static let Privacypolicy = "http://appfac.net/privacypolicy.html"
     }
 }
