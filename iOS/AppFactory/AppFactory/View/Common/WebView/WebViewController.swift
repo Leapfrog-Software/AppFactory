@@ -68,6 +68,9 @@ class WebViewController: UIViewController {
 
         webView.navigationDelegate = self
         
+        webView.scrollView.showsVerticalScrollIndicator = false
+        webView.scrollView.showsHorizontalScrollIndicator = false
+        
         let request = URLRequest(url: self.webPageType.toUrl(), cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: Constants.HttpTimeOutInterval)
         webView.load(request)
         

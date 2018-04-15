@@ -71,6 +71,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jXq-YG-6cV">
+                                <rect key="frame" x="0.0" y="607" width="375" height="60"/>
+                                <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pSj-s1-kRB">
                                 <rect key="frame" x="0.0" y="607" width="375" height="60"/>
                                 <subviews>
@@ -215,7 +219,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="0.93999999999999995" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="Ebl-CA-8AT" secondAttribute="bottom" id="01y-fR-rFD"/>
                                     <constraint firstAttribute="bottom" secondItem="zsa-4Q-dq2" secondAttribute="bottom" id="52D-uf-bFf"/>
@@ -240,12 +244,16 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="pSj-s1-kRB" firstAttribute="top" secondItem="qsw-QR-jMX" secondAttribute="bottom" id="3oW-Hy-DuK"/>
+                            <constraint firstAttribute="bottom" secondItem="jXq-YG-6cV" secondAttribute="bottom" id="6fl-W3-Xjq"/>
+                            <constraint firstItem="fNS-o0-1lE" firstAttribute="trailing" secondItem="jXq-YG-6cV" secondAttribute="trailing" id="81f-ZU-fQJ"/>
                             <constraint firstItem="fNS-o0-1lE" firstAttribute="trailing" secondItem="pSj-s1-kRB" secondAttribute="trailing" id="FK4-3J-92Z"/>
                             <constraint firstItem="pSj-s1-kRB" firstAttribute="bottom" secondItem="fNS-o0-1lE" secondAttribute="bottom" id="Sl0-Vd-vHX"/>
+                            <constraint firstItem="jXq-YG-6cV" firstAttribute="leading" secondItem="fNS-o0-1lE" secondAttribute="leading" id="Ss5-0V-T9h"/>
                             <constraint firstItem="qsw-QR-jMX" firstAttribute="top" secondItem="e1Z-Km-kSj" secondAttribute="top" id="aFk-Dh-DVk"/>
                             <constraint firstItem="pSj-s1-kRB" firstAttribute="leading" secondItem="fNS-o0-1lE" secondAttribute="leading" id="g0O-CN-xpx"/>
                             <constraint firstItem="qsw-QR-jMX" firstAttribute="leading" secondItem="fNS-o0-1lE" secondAttribute="leading" id="hRh-ew-bAg"/>
                             <constraint firstItem="fNS-o0-1lE" firstAttribute="trailing" secondItem="qsw-QR-jMX" secondAttribute="trailing" id="iWf-ej-aAg"/>
+                            <constraint firstItem="jXq-YG-6cV" firstAttribute="top" secondItem="qsw-QR-jMX" secondAttribute="bottom" id="pcD-79-Nnf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fNS-o0-1lE"/>
                     </view>
@@ -263,7 +271,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GyI-SI-gUg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="978" y="118"/>
+            <point key="canvasLocation" x="976.79999999999995" y="117.39130434782609"/>
         </scene>
         <!--Tutorial View Controller-->
         <scene sceneID="9dj-h7-gpy">
@@ -427,9 +435,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="noZ-in-pGI" firstAttribute="leading" secondItem="D4f-W0-jcu" secondAttribute="leading" id="7pn-9J-I2i"/>
+                            <constraint firstAttribute="bottom" secondItem="noZ-in-pGI" secondAttribute="bottom" id="BZC-59-dVK"/>
                             <constraint firstItem="9BY-6Y-9pG" firstAttribute="centerX" secondItem="7QL-kB-hjz" secondAttribute="centerX" id="G57-Ew-hrt"/>
                             <constraint firstItem="9BY-6Y-9pG" firstAttribute="centerY" secondItem="7QL-kB-hjz" secondAttribute="centerY" id="GVV-fM-8KE"/>
-                            <constraint firstItem="D4f-W0-jcu" firstAttribute="bottom" secondItem="noZ-in-pGI" secondAttribute="bottom" id="RQw-hV-OVv"/>
                             <constraint firstItem="noZ-in-pGI" firstAttribute="top" secondItem="7QL-kB-hjz" secondAttribute="top" id="XAZ-cm-Cs5"/>
                             <constraint firstItem="D4f-W0-jcu" firstAttribute="trailing" secondItem="noZ-in-pGI" secondAttribute="trailing" id="xdb-th-zOL"/>
                         </constraints>

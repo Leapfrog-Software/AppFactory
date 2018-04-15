@@ -32,11 +32,11 @@
                             </constraints>
                         </imageView>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uEb-4S-57B">
-                            <rect key="frame" x="51" y="19" width="50" height="50"/>
+                            <rect key="frame" x="53" y="21" width="46" height="46"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="50" id="sLo-fV-Jcw"/>
-                                <constraint firstAttribute="height" constant="50" id="xDt-eK-nAf"/>
+                                <constraint firstAttribute="width" constant="46" id="sLo-fV-Jcw"/>
+                                <constraint firstAttribute="height" constant="46" id="xDt-eK-nAf"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
@@ -73,7 +73,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="1dV-0S-Y4e" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="05r-cS-Ki2"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="iCq-2b-dBJ" secondAttribute="bottom" id="P2K-Ot-e1p"/>
+                <constraint firstAttribute="bottom" secondItem="iCq-2b-dBJ" secondAttribute="bottom" id="Ooq-tQ-y9g"/>
                 <constraint firstItem="iCq-2b-dBJ" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="ZbL-f0-KnB"/>
                 <constraint firstItem="1dV-0S-Y4e" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="dqY-pJ-6q4"/>
                 <constraint firstItem="iCq-2b-dBJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="ibX-gI-iAF"/>
