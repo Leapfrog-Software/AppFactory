@@ -29,6 +29,7 @@ class TabbarViewController: UIViewController {
         super.viewDidLoad()
         
         self.initContents()
+        self.showTutorial()
     }
     
     private func initContents() {
@@ -43,6 +44,14 @@ class TabbarViewController: UIViewController {
         self.addContents(self.otherViewController, isHidden: true)
         
         self.changeContents(index: 0)
+    }
+    
+    private func showTutorial() {
+        
+        if !SaveData.shared.didShowTutorial {
+            let tutorial = self.viewController(storyboard: "Main", identifier: "TutorialViewController") as! TutorialViewController
+            self.stack(viewController: tutorial, animationType: .none)
+        }
     }
     
     private func addContents(_ viewController: UIViewController, isHidden: Bool) {

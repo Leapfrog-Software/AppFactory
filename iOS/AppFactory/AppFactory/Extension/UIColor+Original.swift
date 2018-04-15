@@ -11,11 +11,15 @@ import UIKit
 extension UIColor {
     
     class var tabSelected: UIColor {
-        return .black
+        return UIColor(red: 48 / 255, green: 48 / 255, blue: 48 / 255, alpha: 1.0)
     }
     
     class var tabUnselected: UIColor {
-        return .lightGray
+        return UIColor(red: 170 / 255, green: 170 / 255, blue: 170 / 255, alpha: 1.0)
+    }
+    
+    class var mainBlack: UIColor {
+        return UIColor(red: 48 / 255, green: 48 / 255, blue: 48 / 255, alpha: 1.0)
     }
     
     class var activeGreen: UIColor {
@@ -24,6 +28,10 @@ extension UIColor {
     
     class var activeGray: UIColor {
         return UIColor(red: 191 / 255, green: 191 / 255, blue: 191 / 255, alpha: 1.0)
+    }
+    
+    class var passiveGray: UIColor {
+        return UIColor(red: 220 / 255, green: 220 / 255, blue: 220 / 255, alpha: 1.0)
     }
     
     class var placeholder: UIColor {

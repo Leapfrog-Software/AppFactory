@@ -17,6 +17,10 @@ struct Constants {
     static let ServerWorkImageDirectory = "data/img/work/"
     static let StringEncoding = String.Encoding.utf8
     
+    struct UserDefaultsKey {
+        static let didShowTutorial = "didShowTutorial"
+    }
+    
     struct WebPageUrl {
         static let Terms = "http://appfac.net/terms.html"
         static let Privacypolicy = "http://appfac.net/privacypolicy.html"
