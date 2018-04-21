@@ -6,4 +6,6 @@
 
     <color name="tabSelected">#303030</color>
     <color name="tabUnselected">#AAAAAA</color>
+    <color name="mainBlack">#303030</color>
+    <color name="passiveGray">#D9D9D9</color>
 </resources>

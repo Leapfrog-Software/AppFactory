@@ -19,11 +19,15 @@ public class MainActivity extends AppCompatActivity {
         SaveData.getInstance().initialize(this);
 
         mFragmentController = new FragmentController();
-        mFragmentController.initialize(getSupportFragmentManager(), R.id.container);
+        mFragmentController.initialize(getSupportFragmentManager(), R.id.tabContainer);
         mFragmentController.stack(new SplashFragment(), FragmentController.AnimationType.none);
     }
 
     public FragmentController getFragmentController() {
         return mFragmentController;
+    }
+
+    public int getSubContainerId() {
+        return R.id.subContainer;
     }
 }
