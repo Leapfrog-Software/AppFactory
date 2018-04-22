@@ -21,6 +21,7 @@ import leapfrog_inc.appfactory.Function.PicassoUtility;
 import leapfrog_inc.appfactory.Http.Enum.CostType;
 import leapfrog_inc.appfactory.Http.Enum.OrganizationType;
 import leapfrog_inc.appfactory.Http.Enum.WorksType;
+import leapfrog_inc.appfactory.Http.Requester.EngineerDetailRequester;
 import leapfrog_inc.appfactory.Http.Requester.EngineerRequester;
 import leapfrog_inc.appfactory.R;
 
@@ -95,17 +96,29 @@ public class EngineerFragment extends BaseFragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 EngineerRequester.EngineerData engineerData = (EngineerRequester.EngineerData) adapterView.getItemAtPosition(i);
-
-                EngineerDetailFragment fragment = new EngineerDetailFragment();
-                TabbarFragment tabbar = getTabbar();
-                if (tabbar != null) {
-                    tabbar.stackFragment(fragment, AnimationType.horizontal);
-                }
+                fetchDetailData(engineerData.id);
             }
         });
     }
 
+    private void fetchDetailData(String engineerId) {
 
+        EngineerDetailRequester.get(engineerId, new EngineerDetailRequester.EngineerDetailRequesterCallback() {
+            @Override
+            public void didReceiveData(EngineerDetailRequester.EngineerDetailResponseData response) {
+                if (response != null) {
+                    EngineerDetailFragment fragment = new EngineerDetailFragment();
+                    fragment.set(response);
+                    TabbarFragment tabbar = getTabbar();
+                    if (tabbar != null) {
+                        tabbar.stackFragment(fragment, AnimationType.horizontal);
+                    }
+                } else {
+                    // TODO
+                }
+            }
+        });
+    }
 
     public static class EngineerAdapter extends ArrayAdapter<EngineerRequester.EngineerData> {
 

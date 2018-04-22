@@ -40,7 +40,7 @@ public class EngineerDetailRequester {
                 String function = json.getString("function");
                 int cost = json.getInt("cost");
                 int evaluate = json.getInt("evaluate");
-                boolean source = json.getBoolean("source");
+                boolean source = (json.getInt("source") == 1) ? true : false;
 
                 EngineerDetailWorkData data = new EngineerDetailWorkData();
                 data.id = id;
@@ -105,13 +105,11 @@ public class EngineerDetailRequester {
                 if (result) {
                     try {
                         EngineerDetailResponseData responseData = EngineerDetailResponseData.create(new JSONObject(data));
-                        if (responseData != null) {
-                            callback.didReceiveData(true, responseData);
-                            return;
-                        }
+                        callback.didReceiveData(responseData);
+                        return;
                     } catch (Exception e) {}
                 }
-                callback.didReceiveData(false, null);
+                callback.didReceiveData(null);
             }
         });
 
@@ -126,7 +124,7 @@ public class EngineerDetailRequester {
     }
 
     public interface EngineerDetailRequesterCallback {
-        void didReceiveData(boolean result, EngineerDetailResponseData response);
+        void didReceiveData(EngineerDetailResponseData response);
     }
 }
 

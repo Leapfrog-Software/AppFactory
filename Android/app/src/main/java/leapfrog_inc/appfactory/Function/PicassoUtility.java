@@ -26,7 +26,7 @@ public class PicassoUtility {
                 .into(imageView);
     }
 
-    public static void getAppImage(Context context, String url, ImageView imageView) {
+    public static void getWorkImage(Context context, String url, ImageView imageView) {
         Picasso.with(context)
                 .load(url).networkPolicy(NetworkPolicy.NO_STORE)
                 .noFade()
