@@ -1,7 +1,9 @@
 package leapfrog_inc.appfactory.Fragment;
 
+import android.app.Activity;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.ViewGroup;
@@ -44,8 +46,8 @@ public class BaseFragment extends Fragment {
         }
 
         if (mAnimationType != AnimationType.none) {
-            int fromXDelta = (mAnimationType == AnimationType.horizontal) ? (int)(-DeviceUtility.getWindowSize(getActivity()).x) : 0;
-            int fromYdelta = (mAnimationType == AnimationType.horizontal) ? 0 : (int)(-DeviceUtility.getWindowSize(getActivity()).y);
+            int fromXDelta = (mAnimationType == AnimationType.horizontal) ? (int)(DeviceUtility.getWindowSize(getActivity()).x) : 0;
+            int fromYdelta = (mAnimationType == AnimationType.horizontal) ? 0 : (int)(DeviceUtility.getWindowSize(getActivity()).y);
             TranslateAnimation animation = new TranslateAnimation(fromXDelta, 0, fromYdelta, 0);
             animation.setDuration(200);
             animation.setFillAfter(true);
@@ -57,9 +59,54 @@ public class BaseFragment extends Fragment {
 
         fragment.mAnimationType = animationType;
 
-        FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-        transaction.add(R.id.rootLayout, fragment);
-        transaction.commitAllowingStateLoss();
+        FragmentActivity activity = getActivity();
+        if (activity != null) {
+            FragmentManager fragmentManager = activity.getSupportFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.add(R.id.rootLayout, fragment);
+            transaction.commitAllowingStateLoss();
+        }
+    }
+
+    public void popFragment(AnimationType animationType) {
+
+        View view = getView();
+        if (view == null) {
+            return;
+        }
+
+        if (animationType != AnimationType.none) {
+            int toXDelta = (animationType == AnimationType.horizontal) ? (int)(DeviceUtility.getWindowSize(getActivity()).x) : 0;
+            int toYdelta = (animationType == AnimationType.horizontal) ? 0 : (int)(DeviceUtility.getWindowSize(getActivity()).y);
+            TranslateAnimation animation = new TranslateAnimation(0, toXDelta, 0, toYdelta);
+            animation.setDuration(200);
+            animation.setFillAfter(true);
+
+            animation.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {}
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    popFragment();
+                }
+                @Override
+                public void onAnimationRepeat(Animation animation) {}
+            });
+
+            view.startAnimation(animation);
+        } else {
+            popFragment();
+        }
+    }
+
+    private void popFragment() {
+        FragmentActivity activity = getActivity();
+        if (activity != null) {
+            FragmentManager fragmentManager = activity.getSupportFragmentManager();
+            FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.remove(this);
+            transaction.commitAllowingStateLoss();
+        }
     }
 
     public TabbarFragment getTabbar() {

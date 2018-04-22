@@ -94,13 +94,11 @@ public class EngineerRequester {
                 if (result) {
                     try {
                         EngineerResponseData responseData = EngineerResponseData.create(new JSONObject(data));
-                        if (responseData != null) {
-                            callback.didReceiveData(true, responseData);
-                            return;
-                        }
+                        callback.didReceiveData(responseData);
+                        return;
                     } catch (Exception e) {}
                 }
-                callback.didReceiveData(false, null);
+                callback.didReceiveData(null);
             }
         });
 
@@ -123,6 +121,6 @@ public class EngineerRequester {
     }
 
     public interface EngineerRequesterCallback {
-        void didReceiveData(boolean result, EngineerResponseData response);
+        void didReceiveData(EngineerResponseData response);
     }
 }
