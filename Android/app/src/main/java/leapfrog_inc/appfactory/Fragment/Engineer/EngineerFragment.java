@@ -8,12 +8,16 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 import leapfrog_inc.appfactory.Fragment.BaseFragment;
 import leapfrog_inc.appfactory.Fragment.Tabbar.TabbarFragment;
+import leapfrog_inc.appfactory.Function.Constants;
+import leapfrog_inc.appfactory.Function.PicassoUtility;
 import leapfrog_inc.appfactory.Http.Enum.CostType;
 import leapfrog_inc.appfactory.Http.Enum.OrganizationType;
 import leapfrog_inc.appfactory.Http.Enum.WorksType;
@@ -120,6 +124,38 @@ public class EngineerFragment extends BaseFragment {
             convertView = mInflater.inflate(R.layout.adapter_engineer, parent, false);
 
             EngineerRequester.EngineerData engineerData = getItem(position);
+
+            String imageUrl = Constants.ServerEngineerImageDirectory + engineerData.id + ".png";
+            PicassoUtility.getEngineerImage(mContext, imageUrl, (ImageView)convertView.findViewById(R.id.engineerImageView));
+
+            ((TextView)convertView.findViewById(R.id.nameTextView)).setText(engineerData.name);
+            ((TextView)convertView.findViewById(R.id.areaTextView)).setText(engineerData.area);
+            ((TextView)convertView.findViewById(R.id.oranizationTextView)).setText(engineerData.organization.toText());
+            ((TextView)convertView.findViewById(R.id.profileTextView)).setText(engineerData.profile);
+
+            int[] emptyImageViewIds = {R.id.star1EmptyImageView, R.id.star2EmptyImageView, R.id.star3EmptyImageView, R.id.star4EmptyImageView, R.id.star5EmptyImageView};
+            int[] halfImageViewIds = {R.id.star1HalfImageView, R.id.star2HalfImageView, R.id.star3HalfImageView, R.id.star4HalfImageView, R.id.star5HalfImageView};
+            int[] fullImageViewIds = {R.id.star1FullImageView, R.id.star2FullImageView, R.id.star3FullImageView, R.id.star4FullImageView, R.id.star5FullImageView};
+
+            for (int i = 0; i < 5; i++) {
+                ImageView emptyImageView = convertView.findViewById(emptyImageViewIds[i]);
+                ImageView halfImageView = convertView.findViewById(halfImageViewIds[i]);
+                ImageView fullImageView = convertView.findViewById(fullImageViewIds[i]);
+
+                if (engineerData.evaluate < i * 10 + 5) {
+                    emptyImageView.setVisibility(View.VISIBLE);
+                    halfImageView.setVisibility(View.GONE);
+                    fullImageView.setVisibility(View.GONE);
+                } else if (engineerData.evaluate < i * 10 + 10) {
+                    emptyImageView.setVisibility(View.GONE);
+                    halfImageView.setVisibility(View.VISIBLE);
+                    fullImageView.setVisibility(View.GONE);
+                } else {
+                    emptyImageView.setVisibility(View.GONE);
+                    halfImageView.setVisibility(View.GONE);
+                    fullImageView.setVisibility(View.VISIBLE);
+                }
+            }
 
             return convertView;
         }
