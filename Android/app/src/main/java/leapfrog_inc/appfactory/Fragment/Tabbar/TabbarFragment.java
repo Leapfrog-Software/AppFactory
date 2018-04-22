@@ -1,19 +1,18 @@
 package leapfrog_inc.appfactory.Fragment.Tabbar;
 
 import android.os.Bundle;
-import android.support.v4.content.ContextCompat;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.Button;
 
 import leapfrog_inc.appfactory.Fragment.BaseFragment;
 import leapfrog_inc.appfactory.Fragment.Engineer.EngineerFragment;
-import leapfrog_inc.appfactory.Fragment.FragmentController;
 import leapfrog_inc.appfactory.Fragment.Gallery.GalleryFragment;
 import leapfrog_inc.appfactory.Fragment.Other.OtherFragment;
 import leapfrog_inc.appfactory.Fragment.Progress.ProgressFragment;
+import leapfrog_inc.appfactory.MainActivity;
 import leapfrog_inc.appfactory.R;
 
 /**
@@ -22,6 +21,11 @@ import leapfrog_inc.appfactory.R;
 
 public class TabbarFragment extends BaseFragment {
 
+    private EngineerFragment mEngineerFragment;
+    private GalleryFragment mGalleryFragment;
+    private ProgressFragment mProgressFragment;
+    private OtherFragment mOtherFragment;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstance) {
 
@@ -29,6 +33,9 @@ public class TabbarFragment extends BaseFragment {
 
         initFragmentController();
         changeTab(0);
+        initAction(view);
+
+        ((MainActivity)getActivity()).mTabbarFragment = this;
 
         return view;
     }
@@ -36,22 +43,53 @@ public class TabbarFragment extends BaseFragment {
     private void initFragmentController() {
 
         android.support.v4.app.FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
         int contentsLayoutId = R.id.contentsLayout;
 
-        Tab1Controller.getInstance().initialize(fragmentManager, contentsLayoutId);
-        Tab1Controller.getInstance().stack(new EngineerFragment(), FragmentController.AnimationType.none);
+        mEngineerFragment = new EngineerFragment();
+        transaction.add(contentsLayoutId, mEngineerFragment);
 
-        Tab2Controller.getInstance().initialize(fragmentManager, contentsLayoutId);
-        Tab2Controller.getInstance().stack(new GalleryFragment(), FragmentController.AnimationType.none);
-        Tab2Controller.getInstance().hide();
+        mGalleryFragment = new GalleryFragment();
+        transaction.add(contentsLayoutId, mGalleryFragment);
 
-        Tab3Controller.getInstance().initialize(fragmentManager, contentsLayoutId);
-        Tab3Controller.getInstance().stack(new ProgressFragment(), FragmentController.AnimationType.none);
-        Tab3Controller.getInstance().hide();
+        mProgressFragment = new ProgressFragment();
+        transaction.add(contentsLayoutId, mProgressFragment);
 
-        Tab4Controller.getInstance().initialize(fragmentManager, contentsLayoutId);
-        Tab4Controller.getInstance().stack(new OtherFragment(), FragmentController.AnimationType.none);
-        Tab4Controller.getInstance().hide();
+        mOtherFragment = new OtherFragment();
+        transaction.add(contentsLayoutId, mOtherFragment);
+
+        transaction.commitAllowingStateLoss();
+    }
+
+    private void initAction(View view) {
+
+        ((Button)view.findViewById(R.id.tab1Button)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeTab(0);
+            }
+        });
+
+        ((Button)view.findViewById(R.id.tab2Button)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeTab(1);
+            }
+        });
+
+        ((Button)view.findViewById(R.id.tab3Button)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeTab(2);
+            }
+        });
+
+        ((Button)view.findViewById(R.id.tab4Button)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changeTab(3);
+            }
+        });
     }
 
     private void changeTab(int index) {
@@ -60,51 +98,27 @@ public class TabbarFragment extends BaseFragment {
         if (view == null) return;
 
         if (index == 0) {
-            Tab1Controller.getInstance().show();
-            ((ImageView)view.findViewById(R.id.tab1OnImageView)).setVisibility(View.VISIBLE);
-            ((ImageView)view.findViewById(R.id.tab1OffImageView)).setVisibility(View.GONE);
-            ((TextView)view.findViewById(R.id.tab1TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabSelected));
+            mEngineerFragment.getView().setVisibility(View.VISIBLE);
         } else {
-            Tab1Controller.getInstance().hide();
-            ((ImageView)view.findViewById(R.id.tab1OnImageView)).setVisibility(View.GONE);
-            ((ImageView)view.findViewById(R.id.tab1OffImageView)).setVisibility(View.VISIBLE);
-            ((TextView)view.findViewById(R.id.tab1TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabUnselected));
+            mEngineerFragment.getView().setVisibility(View.INVISIBLE);
         }
 
         if (index == 1) {
-            Tab2Controller.getInstance().show();
-            ((ImageView)view.findViewById(R.id.tab2OnImageView)).setVisibility(View.VISIBLE);
-            ((ImageView)view.findViewById(R.id.tab2OffImageView)).setVisibility(View.GONE);
-            ((TextView)view.findViewById(R.id.tab2TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabSelected));
+            mGalleryFragment.getView().setVisibility(View.VISIBLE);
         } else {
-            Tab2Controller.getInstance().hide();
-            ((ImageView)view.findViewById(R.id.tab2OnImageView)).setVisibility(View.GONE);
-            ((ImageView)view.findViewById(R.id.tab2OffImageView)).setVisibility(View.VISIBLE);
-            ((TextView)view.findViewById(R.id.tab2TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabUnselected));
+            mGalleryFragment.getView().setVisibility(View.INVISIBLE);
         }
 
         if (index == 2) {
-            Tab3Controller.getInstance().show();
-            ((ImageView)view.findViewById(R.id.tab3OnImageView)).setVisibility(View.VISIBLE);
-            ((ImageView)view.findViewById(R.id.tab3OffImageView)).setVisibility(View.GONE);
-            ((TextView)view.findViewById(R.id.tab3TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabSelected));
+            mProgressFragment.getView().setVisibility(View.VISIBLE);
         } else {
-            Tab3Controller.getInstance().hide();
-            ((ImageView)view.findViewById(R.id.tab3OnImageView)).setVisibility(View.GONE);
-            ((ImageView)view.findViewById(R.id.tab3OffImageView)).setVisibility(View.VISIBLE);
-            ((TextView)view.findViewById(R.id.tab3TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabUnselected));
+            mProgressFragment.getView().setVisibility(View.INVISIBLE);
         }
 
         if (index == 3) {
-            Tab4Controller.getInstance().show();
-            ((ImageView)view.findViewById(R.id.tab4OnImageView)).setVisibility(View.VISIBLE);
-            ((ImageView)view.findViewById(R.id.tab4OffImageView)).setVisibility(View.GONE);
-            ((TextView)view.findViewById(R.id.tab4TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabSelected));
+            mOtherFragment.getView().setVisibility(View.VISIBLE);
         } else {
-            Tab4Controller.getInstance().hide();
-            ((ImageView)view.findViewById(R.id.tab4OnImageView)).setVisibility(View.GONE);
-            ((ImageView)view.findViewById(R.id.tab4OffImageView)).setVisibility(View.VISIBLE);
-            ((TextView)view.findViewById(R.id.tab4TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabUnselected));
+            mOtherFragment.getView().setVisibility(View.INVISIBLE);
         }
     }
 }

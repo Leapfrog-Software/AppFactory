@@ -8,9 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import leapfrog_inc.appfactory.Fragment.BaseFragment;
-import leapfrog_inc.appfactory.Fragment.FragmentController;
 import leapfrog_inc.appfactory.Fragment.Tabbar.TabbarFragment;
-import leapfrog_inc.appfactory.MainActivity;
 import leapfrog_inc.appfactory.R;
 
 /**
@@ -27,10 +25,7 @@ public class SplashFragment extends BaseFragment {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                MainActivity mainActivity = (MainActivity)getActivity();
-                if (mainActivity != null) {
-                    mainActivity.getFragmentController().replace(new TabbarFragment(), FragmentController.AnimationType.none);
-                }
+                stackFragment(new TabbarFragment(), AnimationType.none);
             }
         }, 2000);
 

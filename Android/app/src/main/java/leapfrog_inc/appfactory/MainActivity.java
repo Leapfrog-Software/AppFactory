@@ -1,15 +1,16 @@
 package leapfrog_inc.appfactory;
 
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import leapfrog_inc.appfactory.Fragment.FragmentController;
 import leapfrog_inc.appfactory.Fragment.Splash.SplashFragment;
+import leapfrog_inc.appfactory.Fragment.Tabbar.TabbarFragment;
 import leapfrog_inc.appfactory.Function.SaveData;
 
 public class MainActivity extends AppCompatActivity {
 
-    private FragmentController mFragmentController;
+    public TabbarFragment mTabbarFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,13 +19,9 @@ public class MainActivity extends AppCompatActivity {
 
         SaveData.getInstance().initialize(this);
 
-        mFragmentController = new FragmentController();
-        mFragmentController.initialize(getSupportFragmentManager(), R.id.tabContainer);
-        mFragmentController.stack(new SplashFragment(), FragmentController.AnimationType.none);
-    }
-
-    public FragmentController getFragmentController() {
-        return mFragmentController;
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.add(R.id.tabContainer, new SplashFragment());
+        transaction.commitAllowingStateLoss();
     }
 
     public int getSubContainerId() {
