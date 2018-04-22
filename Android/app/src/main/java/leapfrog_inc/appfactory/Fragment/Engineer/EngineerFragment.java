@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -34,16 +36,38 @@ public class EngineerFragment extends BaseFragment {
     private int mPage = 0;
     private int mTotalCount = 0;
     private ArrayList<EngineerRequester.EngineerData> mEngineerList = new ArrayList<EngineerRequester.EngineerData>();
+    private boolean mIsLoading = false;
+
+    private String mSearchWord = "";
+    private OrganizationType mOrganizationType = OrganizationType.unspecified;
+    private CostType mCostType = CostType.unspecified;
+    private WorksType mWorksType = WorksType.unspecified;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstance) {
 
         View view = inflater.inflate(R.layout.fragment_engineer, null);
 
+        initListView(view);
         initAction(view);
         refresh();
 
         return view;
+    }
+
+    private void initListView(View view) {
+
+        ListView listView = view.findViewById(R.id.listView);
+
+        EngineerAdapter adapter = new EngineerAdapter(getActivity());
+        listView.setAdapter(adapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                EngineerRequester.EngineerData engineerData = (EngineerRequester.EngineerData) adapterView.getItemAtPosition(i);
+                fetchDetailData(engineerData.id);
+            }
+        });
     }
 
     private void initAction(View view) {
@@ -54,22 +78,63 @@ public class EngineerFragment extends BaseFragment {
                 TabbarFragment tabbar = getTabbar();
                 if (tabbar != null) {
                     EngineerMenuFragment fragment = new EngineerMenuFragment();
+                    fragment.set(mSearchWord, mOrganizationType, mCostType, mWorksType, new EngineerMenuFragment.EngineerMenuFragmentCallback() {
+                        @Override
+                        public void onSearch(String word, OrganizationType organization, CostType costType, WorksType worksType) {
+                            mSearchWord = word;
+                            mOrganizationType = organization;
+                            mCostType = costType;
+                            mWorksType = worksType;
+                            mPage = 0;
+                            mTotalCount = 0;
+                            mEngineerList.clear();
+                            refresh();
+
+                            View view = getView();
+                            if (view == null) return;
+                            initListView(view);
+                        }
+                    });
                     tabbar.stackFragment(fragment, AnimationType.none);
                 }
             }
+        });
+
+        ((ListView)view.findViewById(R.id.listView)).setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView absListView, int i) {
+                View view = getView();
+                if (view == null) return;
+                ListView listView = view.findViewById(R.id.listView);
+                if (listView.getLastVisiblePosition() == listView.getAdapter().getCount() - 1) {
+                    if (mPage < mTotalCount / 20 + 1) {
+                        mPage += 1;
+                        refresh();
+                    }
+                }
+            }
+            @Override
+            public void onScroll(AbsListView absListView, int i, int i1, int i2) {}
         });
     }
 
     private void refresh() {
 
-        EngineerRequester.get(0, "", OrganizationType.unspecified, CostType.unspecified, WorksType.unspecified, new EngineerRequester.EngineerRequesterCallback() {
+        mIsLoading = true;
+
+        EngineerRequester.get(mPage, mSearchWord, mOrganizationType, mCostType, mWorksType, new EngineerRequester.EngineerRequesterCallback() {
             @Override
             public void didReceiveData(EngineerRequester.EngineerResponseData response) {
+
+                mIsLoading = false;
+
                 if (response != null) {
                     mPage = response.page;
                     mTotalCount = response.total;
-                    mEngineerList = response.engineerList;
-                    resetListView();
+                    for (int i = 0; i < response.engineerList.size(); i++) {
+                        mEngineerList.add(response.engineerList.get(i));
+                    }
+                    appendListView(response.engineerList);
 
                 } else {
                     // TODO
@@ -78,27 +143,25 @@ public class EngineerFragment extends BaseFragment {
         });
     }
 
-    private void resetListView() {
+    private void appendListView(ArrayList<EngineerRequester.EngineerData> engineerList) {
 
         View view = getView();
         if (view == null) return;
         ListView listView = (ListView)view.findViewById(R.id.listView);
 
-        EngineerAdapter adapter = new EngineerAdapter(getActivity());
+        EngineerAdapter adapter = (EngineerAdapter) listView.getAdapter();
+//        ListAdapter oldAdapter = listView.getAdapter();
+//        if ((oldAdapter != null) && (oldAdapter instanceof EngineerAdapter)) {
+//            adapter = (EngineerAdapter) oldAdapter;
+//        } else {
+//            adapter = new EngineerAdapter(getActivity());
+//        }
 
-        for (int i = 0; i < mEngineerList.size(); i++) {
-            adapter.add(mEngineerList.get(i));
+        for (int i = 0; i < engineerList.size(); i++) {
+            adapter.add(engineerList.get(i));
         }
 
         adapter.notifyDataSetChanged();
-        listView.setAdapter(adapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                EngineerRequester.EngineerData engineerData = (EngineerRequester.EngineerData) adapterView.getItemAtPosition(i);
-                fetchDetailData(engineerData.id);
-            }
-        });
     }
 
     private void fetchDetailData(String engineerId) {

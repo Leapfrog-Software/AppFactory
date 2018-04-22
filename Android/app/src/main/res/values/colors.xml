@@ -16,4 +16,8 @@
     <color name="engineerDetailButtonLayout">#262626</color>
     <color name="engineerDetailWorkName">#505050</color>
 
+    <color name="engineerMenuLayout">#262626</color>
+    <color name="engineerMenuOrange">#FFC32E</color>
+    <color name="engineerMenuText">#BFBFBF</color>
+
 </resources>
