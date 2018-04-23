@@ -65,6 +65,22 @@ public class EngineerDetailFragment extends BaseFragment {
 
     private void initAction(View view) {
 
+        ((Button)view.findViewById(R.id.messageButton)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                MessageFragment fragment = new MessageFragment();
+                stackFragment(fragment, AnimationType.horizontal);
+            }
+        });
+
+        ((Button)view.findViewById(R.id.estimateButton)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EstimateFragment fragment = new EstimateFragment();
+                stackFragment(fragment, AnimationType.horizontal);
+            }
+        });
+
         ((Button)view.findViewById(R.id.backButton)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
