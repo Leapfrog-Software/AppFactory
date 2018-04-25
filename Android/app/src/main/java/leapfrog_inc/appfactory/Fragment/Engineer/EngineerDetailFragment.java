@@ -69,6 +69,7 @@ public class EngineerDetailFragment extends BaseFragment {
             @Override
             public void onClick(View view) {
                 MessageFragment fragment = new MessageFragment();
+                fragment.set(mEngineerDetailData);
                 stackFragment(fragment, AnimationType.horizontal);
             }
         });
@@ -77,6 +78,7 @@ public class EngineerDetailFragment extends BaseFragment {
             @Override
             public void onClick(View view) {
                 EstimateFragment fragment = new EstimateFragment();
+                fragment.set(mEngineerDetailData);
                 stackFragment(fragment, AnimationType.horizontal);
             }
         });
