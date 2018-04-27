@@ -17,6 +17,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import leapfrog_inc.appfactory.Fragment.BaseFragment;
+import leapfrog_inc.appfactory.Fragment.Common.Loading;
 import leapfrog_inc.appfactory.Fragment.Tabbar.TabbarFragment;
 import leapfrog_inc.appfactory.Function.Constants;
 import leapfrog_inc.appfactory.Function.PicassoUtility;
@@ -121,12 +122,14 @@ public class EngineerFragment extends BaseFragment {
     private void refresh() {
 
         mIsLoading = true;
+        Loading.start(getActivity());
 
         EngineerRequester.get(mPage, mSearchWord, mOrganizationType, mCostType, mWorksType, new EngineerRequester.EngineerRequesterCallback() {
             @Override
             public void didReceiveData(EngineerRequester.EngineerResponseData response) {
 
                 mIsLoading = false;
+                Loading.stop(getActivity());
 
                 if (response != null) {
                     mPage = response.page;
@@ -150,12 +153,6 @@ public class EngineerFragment extends BaseFragment {
         ListView listView = (ListView)view.findViewById(R.id.listView);
 
         EngineerAdapter adapter = (EngineerAdapter) listView.getAdapter();
-//        ListAdapter oldAdapter = listView.getAdapter();
-//        if ((oldAdapter != null) && (oldAdapter instanceof EngineerAdapter)) {
-//            adapter = (EngineerAdapter) oldAdapter;
-//        } else {
-//            adapter = new EngineerAdapter(getActivity());
-//        }
 
         for (int i = 0; i < engineerList.size(); i++) {
             adapter.add(engineerList.get(i));

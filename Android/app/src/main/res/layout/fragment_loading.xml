@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rootLayout"
+    android:background="#0000">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#5000"/>
+
+    <FrameLayout
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:background="@layout/shape_loading_background"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/loading1ImageView"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/loading1"
+            android:layout_gravity="center"
+            android:layout_marginLeft="-8dp"
+            android:layout_marginTop="8dp"/>
+        <View
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@layout/shape_loading_concealer"
+            android:layout_gravity="center"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="-16dp"/>
+        <ImageView
+            android:id="@+id/loading2ImageView"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/loading2"
+            android:layout_gravity="center"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="-16dp"/>
+
+    </FrameLayout>
+
+</FrameLayout>

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import leapfrog_inc.appfactory.Fragment.BaseFragment;
+import leapfrog_inc.appfactory.Fragment.Common.Dialog;
 import leapfrog_inc.appfactory.R;
 
 /**
@@ -19,6 +20,7 @@ public class GalleryFragment extends BaseFragment {
 
         View view = inflater.inflate(R.layout.fragment_gallery, null);
 
+        
         return view;
     }
 }
