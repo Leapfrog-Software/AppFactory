@@ -249,7 +249,7 @@ public class GalleryFragment extends BaseFragment {
                 ((TextView)convertView.findViewById(R.id.evaluateTextView2)).setText(evaluateText);
 
                 final String engineerId = galleryData.engineerId;
-                ((Button)convertView.findViewById(R.id.galleryButton1)).setOnClickListener(new View.OnClickListener() {
+                ((Button)convertView.findViewById(R.id.galleryButton2)).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
                         mCallback.didSelect(engineerId);

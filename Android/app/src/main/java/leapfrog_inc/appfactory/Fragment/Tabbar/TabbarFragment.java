@@ -96,7 +96,7 @@ public class TabbarFragment extends BaseFragment {
         });
     }
 
-    private void changeTab(int index) {
+    public void changeTab(int index) {
 
         View view = getView();
         if (view == null) return;
