@@ -154,6 +154,16 @@ public class EngineerFragment extends BaseFragment {
                     }
                     appendListView(response.engineerList);
 
+                    View view = getView();
+                    if (view == null) return;
+                    if (response.total > 0) {
+                        view.findViewById(R.id.listView).setVisibility(View.VISIBLE);
+                        view.findViewById(R.id.noDataTextView).setVisibility(View.GONE);
+                    } else {
+                        view.findViewById(R.id.listView).setVisibility(View.GONE);
+                        view.findViewById(R.id.noDataTextView).setVisibility(View.VISIBLE);
+                    }
+
                 } else {
                     Dialog.show(getActivity(), Dialog.Style.error, "エラー", "通信に失敗しました", null);
                 }

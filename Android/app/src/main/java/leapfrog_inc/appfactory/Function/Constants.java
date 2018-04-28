@@ -6,7 +6,8 @@ package leapfrog_inc.appfactory.Function;
 
 public class Constants {
 
-    public static String ServerRootUrl = "http://10.0.2.2/appfac/";
+    public static String ServerRootUrl = "http://appfac.net/";
+//    public static String ServerRootUrl = "http://10.0.2.2/appfac/";
     public static String ServerApiUrl = Constants.ServerRootUrl + "srv.php";
     public static String ServerEngineerImageDirectory = Constants.ServerRootUrl + "data/img/user/";
     public static String ServerWorkImageDirectory = Constants.ServerRootUrl + "data/img/work/";

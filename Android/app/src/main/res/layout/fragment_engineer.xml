@@ -57,6 +57,19 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:divider="@null"/>
+
+        <TextView
+            android:id="@+id/noDataTextView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="該当するエンジニアが見つかりません"
+            android:textSize="16dp"
+            android:textColor="@color/passiveGray"
+            android:textAlignment="center"
+            android:gravity="center_vertical"
+            android:visibility="gone"/>
+
     </LinearLayout>
 
 </FrameLayout>
