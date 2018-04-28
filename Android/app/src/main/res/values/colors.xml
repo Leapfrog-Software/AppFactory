@@ -24,6 +24,8 @@
     <color name="messageBackground">#F2F2F2</color>
     <color name="messageSendButton">#FFC32E</color>
 
+    <color name="gallerySortBackground">#60000000</color>
+
     <color name="editTextBorder">#D0D0D0</color>
     <color name="editTextPlaceholder">#929292</color>
 

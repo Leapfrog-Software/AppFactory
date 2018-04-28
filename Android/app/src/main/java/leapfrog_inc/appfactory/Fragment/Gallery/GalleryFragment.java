@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Gallery;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -40,7 +42,6 @@ public class GalleryFragment extends BaseFragment {
     private GallerySortType mSortType = GallerySortType.evaluate;
     private int mPage = 0;
     private int mTotalCount = 0;
-    private ArrayList<GalleryRequester.GalleryData> mGalleryList = new ArrayList<GalleryRequester.GalleryData>();
     private boolean mIsLoading = false;
 
     @Override
@@ -80,10 +81,55 @@ public class GalleryFragment extends BaseFragment {
             }
         });
         listView.setAdapter(adapter);
+
+        ((ListView)view.findViewById(R.id.listView)).setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView absListView, int i) {
+
+                if (mIsLoading) {
+                    return;
+                }
+                View view = getView();
+                if (view == null) return;
+
+                ListView listView = view.findViewById(R.id.listView);
+                if (listView.getLastVisiblePosition() == listView.getAdapter().getCount() - 1) {
+                    if (mPage + 1 < mTotalCount) {
+                        mPage += 1;
+                        refresh();
+                    }
+                }
+            }
+            @Override
+            public void onScroll(AbsListView absListView, int i, int i1, int i2) {}
+        });
     }
 
     private void initAction(View view) {
 
+        ((ImageButton)view.findViewById(R.id.sortButton)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                GallerySortFragment fragment = new GallerySortFragment();
+                fragment.set(mSortType, new GallerySortFragment.GallerySortFragmentCallback() {
+                    @Override
+                    public void didSelect(GallerySortType sortType) {
+                        View view = getView();
+                        if (view == null) return;
+                        ListView listView = (ListView)view.findViewById(R.id.listView);
+                        GalleryAdapter adapter = (GalleryAdapter) listView.getAdapter();
+                        adapter.clear();
+
+                        mSortType = sortType;
+                        mPage = 0;
+                        mTotalCount = 0;
+                        refresh();
+                    }
+                });
+                TabbarFragment tabbar = getTabbar();
+                tabbar.stackFragment(fragment, AnimationType.none);
+            }
+        });
     }
 
     private void refresh() {
@@ -100,9 +146,6 @@ public class GalleryFragment extends BaseFragment {
                 if (response != null) {
                     mPage = response.page;
                     mTotalCount = response.total;
-                    for (int i = 0; i < response.galleryList.size(); i++) {
-                        mGalleryList.add(response.galleryList.get(i));
-                    }
                     appendListView(response.galleryList);
                 } else {
                     // TODO
