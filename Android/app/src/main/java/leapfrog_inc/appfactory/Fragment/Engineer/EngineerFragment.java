@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import leapfrog_inc.appfactory.Fragment.BaseFragment;
+import leapfrog_inc.appfactory.Fragment.Common.Dialog;
 import leapfrog_inc.appfactory.Fragment.Common.Loading;
 import leapfrog_inc.appfactory.Fragment.Tabbar.TabbarFragment;
 import leapfrog_inc.appfactory.Function.Constants;
@@ -122,6 +124,14 @@ public class EngineerFragment extends BaseFragment {
             @Override
             public void onScroll(AbsListView absListView, int i, int i1, int i2) {}
         });
+
+        ((Button)view.findViewById(R.id.allEstimateButton)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                EstimateFragment fragment = new EstimateFragment();
+                stackFragment(fragment, AnimationType.horizontal);
+            }
+        });
     }
 
     private void refresh() {
@@ -145,7 +155,7 @@ public class EngineerFragment extends BaseFragment {
                     appendListView(response.engineerList);
 
                 } else {
-                    // TODO
+                    Dialog.show(getActivity(), Dialog.Style.error, "エラー", "通信に失敗しました", null);
                 }
             }
         });
@@ -179,7 +189,7 @@ public class EngineerFragment extends BaseFragment {
                         tabbar.stackFragment(fragment, AnimationType.horizontal);
                     }
                 } else {
-                    // TODO
+                    Dialog.show(getActivity(), Dialog.Style.error, "エラー", "通信に失敗しました", null);
                 }
             }
         });

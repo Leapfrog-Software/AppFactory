@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -45,7 +46,18 @@ public class WebViewFragment extends BaseFragment {
 
         WebView webView = (WebView)view.findViewById(R.id.webView);
         webView.getSettings().setJavaScriptEnabled(true);
+
+        Client client = new Client();
+        client.setCallback(new WebViewCallback() {
+            @Override
+            public void onPageFinished() {
+                Loading.stop(getActivity());
+            }
+        });
+        webView.setWebViewClient(client);
         webView.loadUrl(mUrl);
+
+        Loading.start(getActivity());
     }
 
     private void initAction(View view) {
@@ -56,5 +68,23 @@ public class WebViewFragment extends BaseFragment {
                 popFragment(AnimationType.horizontal);
             }
         });
+    }
+
+    static class Client extends android.webkit.WebViewClient {
+
+        private WebViewCallback mCallback;
+
+        void setCallback(WebViewCallback callback) {
+            mCallback = callback;
+        }
+
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            mCallback.onPageFinished();
+        }
+    }
+
+    interface WebViewCallback {
+        void onPageFinished();
     }
 }

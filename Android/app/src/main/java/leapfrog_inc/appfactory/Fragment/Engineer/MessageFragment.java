@@ -11,6 +11,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import leapfrog_inc.appfactory.Fragment.BaseFragment;
+import leapfrog_inc.appfactory.Fragment.Common.Dialog;
+import leapfrog_inc.appfactory.Fragment.Common.Loading;
+import leapfrog_inc.appfactory.Fragment.Common.WebViewFragment;
 import leapfrog_inc.appfactory.Function.Constants;
 import leapfrog_inc.appfactory.Function.PicassoUtility;
 import leapfrog_inc.appfactory.Function.SaveData;
@@ -75,7 +78,9 @@ public class MessageFragment extends BaseFragment {
         ((Button)view.findViewById(R.id.termButton)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                WebViewFragment fragment = new WebViewFragment();
+                fragment.set(Constants.WebPageUrl.terms, "利用規約");
+                stackFragment(fragment, AnimationType.horizontal);
             }
         });
 
@@ -96,25 +101,35 @@ public class MessageFragment extends BaseFragment {
         String email = ((EditText)view.findViewById(R.id.emailEditText)).getText().toString();
 
         if ((message.length() == 0)) {
-            // TODO
+            Dialog.show(getActivity(), Dialog.Style.error, "エラー", "メッセージが未入力です", null);
             return;
         }
         if ((email.length() == 0)) {
-            // TODO
+            Dialog.show(getActivity(), Dialog.Style.error, "エラー", "ご連絡先が未入力です", null);
             return;
         }
         if (mIsAgree == false) {
-            // TODO
+            Dialog.show(getActivity(), Dialog.Style.error, "エラー", "利用規約への同意が必要です", null);
             return;
         }
+
+        Loading.start(getActivity());
 
         MessageRequester.send(email, mEngineerDetailData.id, message, new MessageRequester.MessageRequesterCallback() {
             @Override
             public void didReceiveData(boolean result) {
+
+                Loading.stop(getActivity());
+
                 if (result) {
-                    // TODO
+                    Dialog.show(getActivity(), Dialog.Style.success, "完了", "メッセージを送信しました", new Dialog.DialogCallback() {
+                        @Override
+                        public void didClose() {
+                            popFragment(AnimationType.horizontal);
+                        }
+                    });
                 } else {
-                    // TODO
+                    Dialog.show(getActivity(), Dialog.Style.error, "エラー", "通信に失敗しました", null);
                 }
             }
         });

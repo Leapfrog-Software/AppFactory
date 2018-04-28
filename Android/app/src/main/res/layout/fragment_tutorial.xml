@@ -52,7 +52,8 @@
                             android:id="@+id/progress1Passive"
                             android:layout_width="12dp"
                             android:layout_height="12dp"
-                            android:background="@layout/shape_tutorial_progress_passive"/>
+                            android:background="@layout/shape_tutorial_progress_passive"
+                            android:visibility="gone"/>
                         <View
                             android:layout_width="20dp"
                             android:layout_height="1dp"/>
@@ -60,7 +61,8 @@
                             android:id="@+id/progress2Active"
                             android:layout_width="12dp"
                             android:layout_height="12dp"
-                            android:background="@layout/shape_tutorial_progress_active"/>
+                            android:background="@layout/shape_tutorial_progress_active"
+                            android:visibility="gone"/>
                         <View
                             android:id="@+id/progress2Passive"
                             android:layout_width="12dp"
@@ -73,7 +75,8 @@
                             android:id="@+id/progress3Active"
                             android:layout_width="12dp"
                             android:layout_height="12dp"
-                            android:background="@layout/shape_tutorial_progress_active"/>
+                            android:background="@layout/shape_tutorial_progress_active"
+                            android:visibility="gone"/>
                         <View
                             android:id="@+id/progress3Passive"
                             android:layout_width="12dp"
@@ -86,7 +89,8 @@
                             android:id="@+id/progress4Active"
                             android:layout_width="12dp"
                             android:layout_height="12dp"
-                            android:background="@layout/shape_tutorial_progress_active"/>
+                            android:background="@layout/shape_tutorial_progress_active"
+                            android:visibility="gone"/>
                         <View
                             android:id="@+id/progress4Passive"
                             android:layout_width="12dp"
@@ -99,7 +103,8 @@
                             android:id="@+id/progress5Active"
                             android:layout_width="12dp"
                             android:layout_height="12dp"
-                            android:background="@layout/shape_tutorial_progress_active"/>
+                            android:background="@layout/shape_tutorial_progress_active"
+                            android:visibility="gone"/>
                         <View
                             android:id="@+id/progress5Passive"
                             android:layout_width="12dp"

@@ -11,6 +11,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import leapfrog_inc.appfactory.Fragment.BaseFragment;
+import leapfrog_inc.appfactory.Fragment.Common.Dialog;
+import leapfrog_inc.appfactory.Fragment.Common.Loading;
+import leapfrog_inc.appfactory.Fragment.Common.WebViewFragment;
 import leapfrog_inc.appfactory.Function.Constants;
 import leapfrog_inc.appfactory.Function.PicassoUtility;
 import leapfrog_inc.appfactory.Http.Enum.OrganizationType;
@@ -56,8 +59,13 @@ public class EstimateFragment extends BaseFragment {
 
     private void initContents(View view) {
 
-        String title = mEngineerDetailData.name + "様に見積もり依頼を送信します";
-        ((TextView)view.findViewById(R.id.titleTextView)).setText(title);
+        if (mEngineerDetailData == null) {
+            String title = "登録中の開発者様に見積もり依頼を送信します";
+            ((TextView) view.findViewById(R.id.titleTextView)).setText(title);
+        } else {
+            String title = mEngineerDetailData.name + "様に見積もり依頼を送信します";
+            ((TextView) view.findViewById(R.id.titleTextView)).setText(title);
+        }
 
         resetContents(view);
     }
@@ -133,7 +141,9 @@ public class EstimateFragment extends BaseFragment {
         ((Button)view.findViewById(R.id.termButton)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                WebViewFragment fragment = new WebViewFragment();
+                fragment.set(Constants.WebPageUrl.terms, "利用規約");
+                stackFragment(fragment, AnimationType.horizontal);
             }
         });
 
@@ -189,24 +199,29 @@ public class EstimateFragment extends BaseFragment {
         String email = ((EditText)view.findViewById(R.id.emailEditText)).getText().toString();
 
         if ((purpose.length() == 0)) {
-            // TODO
+            Dialog.show(getActivity(), Dialog.Style.error, "エラー", "アプリの目的が未入力です", null);
             return;
         }
         if ((description.length() == 0)) {
-            // TODO
+            Dialog.show(getActivity(), Dialog.Style.error, "エラー", "アプリの概要が未入力です", null);
             return;
         }
         if ((email.length() == 0)) {
-            // TODO
+            Dialog.show(getActivity(), Dialog.Style.error, "エラー", "ご連絡先が未入力です", null);
             return;
         }
         if (mIsAgree == false) {
-            // TODO
+            Dialog.show(getActivity(), Dialog.Style.error, "エラー", "利用規約への同意が必要です", null);
             return;
         }
 
         EstimateRequester.EstimateRequestData request = new EstimateRequester.EstimateRequestData();
-        request.target = mEngineerDetailData.id;
+
+        String targetId = "";
+        if (mEngineerDetailData != null) {
+            targetId = mEngineerDetailData.id;
+        }
+        request.target = targetId;
         request.purpose = purpose;
         request.description = description;
         request.ios = mIos;
@@ -224,10 +239,24 @@ public class EstimateFragment extends BaseFragment {
         request.notes = notes;
         request.email = email;
 
+        Loading.start(getActivity());
+
         EstimateRequester.send(request, new EstimateRequester.EstimateRequesterCallback() {
             @Override
             public void didReceiveData(boolean result) {
-                // TODO
+
+                Loading.stop(getActivity());
+
+                if (result) {
+                    Dialog.show(getActivity(), Dialog.Style.success, "送信が完了しました", "返信があるまでお待ちください", new Dialog.DialogCallback() {
+                        @Override
+                        public void didClose() {
+                            popFragment(AnimationType.horizontal);
+                        }
+                    });
+                } else {
+                    Dialog.show(getActivity(), Dialog.Style.error, "エラー", "通信に失敗しました", null);
+                }
             }
         });
     }

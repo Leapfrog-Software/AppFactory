@@ -63,9 +63,15 @@ public class GalleryFragment extends BaseFragment {
         GalleryAdapter adapter = new GalleryAdapter(getActivity(), new GalleryAdapter.GalleryAdapterCallback() {
             @Override
             public void didSelect(String engineerId) {
+
+                Loading.start(getActivity());
+
                 EngineerDetailRequester.get(engineerId, new EngineerDetailRequester.EngineerDetailRequesterCallback() {
                     @Override
                     public void didReceiveData(EngineerDetailRequester.EngineerDetailResponseData response) {
+
+                        Loading.stop(getActivity());
+
                         if (response != null) {
                             EngineerDetailFragment fragment = new EngineerDetailFragment();
                             fragment.set(response);
@@ -74,7 +80,7 @@ public class GalleryFragment extends BaseFragment {
                                 tabbar.stackFragment(fragment, AnimationType.horizontal);
                             }
                         } else {
-                            // TODO
+                            Dialog.show(getActivity(), Dialog.Style.error, "エラー", "通信に失敗しました", null);
                         }
                     }
                 });

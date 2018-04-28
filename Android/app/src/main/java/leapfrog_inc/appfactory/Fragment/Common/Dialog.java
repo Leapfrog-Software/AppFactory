@@ -31,8 +31,9 @@ public class Dialog extends BaseFragment {
     private Style mStyle;
     private String mTitle;
     private String mMessage;
+    private DialogCallback mCallback;
 
-    public static void show(FragmentActivity activity, Style style, String title, String message) {
+    public static void show(FragmentActivity activity, Style style, String title, String message, DialogCallback callback) {
 
         if (!(activity instanceof MainActivity)) {
             return;
@@ -48,6 +49,7 @@ public class Dialog extends BaseFragment {
         loading.mStyle = style;
         loading.mTitle = title;
         loading.mMessage = message;
+        loading.mCallback = callback;
     }
 
     @Override
@@ -102,8 +104,16 @@ public class Dialog extends BaseFragment {
             return;
         }
 
+        if (mCallback != null) {
+            mCallback.didClose();
+        }
+
         FragmentTransaction transaction = mMainActivity.getSupportFragmentManager().beginTransaction();
         transaction.remove(this);
         transaction.commitAllowingStateLoss();
+    }
+
+    public interface DialogCallback {
+        void didClose();
     }
 }
