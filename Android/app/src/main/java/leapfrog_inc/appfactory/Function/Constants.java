@@ -19,4 +19,10 @@ public class Constants {
         public static String didInitialized = "DidInitialized";
         public static String pushSetting = "PushSetting";
     }
+
+    public static class WebPageUrl {
+        public static String terms = "http://appfac.net/app/terms.html";
+        public static String privacypolicy = "http://appfac.net/app/privacypolicy.html";
+        public static String company = "http://lfg.co.jp";
+    }
 }

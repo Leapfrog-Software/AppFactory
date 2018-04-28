@@ -1,8 +1,10 @@
 package leapfrog_inc.appfactory.Fragment.Other;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,8 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 import leapfrog_inc.appfactory.Fragment.BaseFragment;
+import leapfrog_inc.appfactory.Fragment.Common.WebViewFragment;
+import leapfrog_inc.appfactory.Function.Constants;
 import leapfrog_inc.appfactory.Function.SaveData;
 import leapfrog_inc.appfactory.R;
 
@@ -70,7 +74,7 @@ public class OtherFragment extends BaseFragment {
         ((Button)view.findViewById(R.id.howToUseButton)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                // TODO
             }
         });
 
@@ -84,22 +88,31 @@ public class OtherFragment extends BaseFragment {
         ((Button)view.findViewById(R.id.termButton)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                openWebView(Constants.WebPageUrl.terms, "利用規約");
             }
         });
 
         ((Button)view.findViewById(R.id.privacyPolicyButton)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                openWebView(Constants.WebPageUrl.privacypolicy, "個人情報保護方針");
             }
         });
 
         ((Button)view.findViewById(R.id.companyButton)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Uri uri = Uri.parse(Constants.WebPageUrl.company);
+                Intent i = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(i);
             }
         });
+    }
+
+    private void openWebView(String url, String title) {
+
+        WebViewFragment fragment = new WebViewFragment();
+        fragment.set(url, title);
+        stackFragment(fragment, AnimationType.horizontal);
     }
 }
