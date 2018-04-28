@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import leapfrog_inc.appfactory.Fragment.BaseFragment;
 import leapfrog_inc.appfactory.Fragment.Common.WebViewFragment;
+import leapfrog_inc.appfactory.Fragment.Tutorial.TutorialFragment;
 import leapfrog_inc.appfactory.Function.Constants;
 import leapfrog_inc.appfactory.Function.SaveData;
 import leapfrog_inc.appfactory.R;
@@ -74,7 +75,7 @@ public class OtherFragment extends BaseFragment {
         ((Button)view.findViewById(R.id.howToUseButton)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO
+                stackFragment(new TutorialFragment(), AnimationType.none);
             }
         });
 

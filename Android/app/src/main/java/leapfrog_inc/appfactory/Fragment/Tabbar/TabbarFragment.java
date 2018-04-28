@@ -16,6 +16,8 @@ import leapfrog_inc.appfactory.Fragment.Engineer.EngineerFragment;
 import leapfrog_inc.appfactory.Fragment.Gallery.GalleryFragment;
 import leapfrog_inc.appfactory.Fragment.Other.OtherFragment;
 import leapfrog_inc.appfactory.Fragment.Progress.ProgressFragment;
+import leapfrog_inc.appfactory.Fragment.Tutorial.TutorialFragment;
+import leapfrog_inc.appfactory.Function.SaveData;
 import leapfrog_inc.appfactory.MainActivity;
 import leapfrog_inc.appfactory.R;
 
@@ -38,6 +40,7 @@ public class TabbarFragment extends BaseFragment {
         initFragmentController();
         changeTab(0);
         initAction(view);
+        showTutorial();
 
         ((MainActivity)getActivity()).mTabbarFragment = this;
 
@@ -147,6 +150,13 @@ public class TabbarFragment extends BaseFragment {
             ((ImageView)view.findViewById(R.id.tab4OnImageView)).setVisibility(View.GONE);
             ((ImageView)view.findViewById(R.id.tab4OffImageView)).setVisibility(View.VISIBLE);
             ((TextView)view.findViewById(R.id.tab4TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabUnselected));
+        }
+    }
+
+    private void showTutorial() {
+
+        if (SaveData.getInstance().didInitialized == false) {
+            stackFragment(new TutorialFragment(), AnimationType.none);
         }
     }
 }

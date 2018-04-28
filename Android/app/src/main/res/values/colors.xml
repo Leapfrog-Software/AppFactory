@@ -14,6 +14,8 @@
     <color name="orange">#FF6347</color>
     <color name="green">#1FCBA9</color>
 
+    <color name="tutorialBaseLayout">#60000000</color>
+
     <color name="engineerDetailButtonLayout">#262626</color>
     <color name="engineerDetailWorkName">#505050</color>
 
