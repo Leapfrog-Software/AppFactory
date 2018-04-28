@@ -1257,7 +1257,7 @@
                                                         <constraint firstItem="jp1-p0-7kF" firstAttribute="leading" secondItem="lXc-w5-C7W" secondAttribute="leading" id="wMj-Ua-ajC"/>
                                                     </constraints>
                                                 </view>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lCS-XG-jG1">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="baloon" translatesAutoresizingMaskIntoConstraints="NO" id="lCS-XG-jG1">
                                                     <rect key="frame" x="16" y="322.5" width="24" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="Mf8-2D-RpR"/>
@@ -2727,6 +2727,7 @@
     </scenes>
     <resources>
         <image name="arrow_left" width="44" height="44"/>
+        <image name="baloon" width="24" height="24"/>
         <image name="check_off" width="14" height="14"/>
         <image name="check_on" width="14" height="14"/>
         <image name="cost" width="14" height="14"/>

@@ -38,7 +38,7 @@ class EstimateRequester {
         url += "&"
         url += ("target=" + requestData.target)
         url += "&"
-        url += ("purchase=" + (requestData.purpose.base64Encode() ?? ""))
+        url += ("purpose=" + (requestData.purpose.base64Encode() ?? ""))
         url += "&"
         url += ("description=" + (requestData.description.base64Encode() ?? ""))
         url += "&"
