@@ -6,11 +6,47 @@
     android:background="#fff"
     android:id="@+id/rootLayout">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="gallery"
-        android:textSize="40dp"/>
+        android:orientation="vertical">
+
+        <!-- ヘッダ -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="44dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="アプリギャラリー"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                android:textColor="@color/mainBlack"
+                android:textAlignment="center"
+                android:gravity="center_vertical" />
+            <ImageButton
+                android:id="@+id/sortButton"
+                android:src="@drawable/gallery_sort"
+                android:scaleType="fitCenter"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginRight="8dp"
+                android:background="#0000"/>
+        </FrameLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/passiveGray" />
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:divider="@null"/>
+
+    </LinearLayout>
 
 </FrameLayout>

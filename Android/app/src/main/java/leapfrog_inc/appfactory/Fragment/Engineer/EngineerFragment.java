@@ -104,8 +104,13 @@ public class EngineerFragment extends BaseFragment {
         ((ListView)view.findViewById(R.id.listView)).setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(AbsListView absListView, int i) {
+
+                if (mIsLoading) {
+                    return;
+                }
                 View view = getView();
                 if (view == null) return;
+
                 ListView listView = view.findViewById(R.id.listView);
                 if (listView.getLastVisiblePosition() == listView.getAdapter().getCount() - 1) {
                     if (mPage < mTotalCount / 20 + 1) {

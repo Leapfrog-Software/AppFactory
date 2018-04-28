@@ -107,7 +107,7 @@ public class TabbarFragment extends BaseFragment {
             ((ImageView)view.findViewById(R.id.tab1OffImageView)).setVisibility(View.GONE);
             ((TextView)view.findViewById(R.id.tab1TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabSelected));
         } else {
-            mEngineerFragment.getView().setVisibility(View.INVISIBLE);
+            mEngineerFragment.getView().setVisibility(View.GONE);
             ((ImageView)view.findViewById(R.id.tab1OnImageView)).setVisibility(View.GONE);
             ((ImageView)view.findViewById(R.id.tab1OffImageView)).setVisibility(View.VISIBLE);
             ((TextView)view.findViewById(R.id.tab1TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabUnselected));
@@ -119,7 +119,7 @@ public class TabbarFragment extends BaseFragment {
             ((ImageView)view.findViewById(R.id.tab2OffImageView)).setVisibility(View.GONE);
             ((TextView)view.findViewById(R.id.tab2TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabSelected));
         } else {
-            mGalleryFragment.getView().setVisibility(View.INVISIBLE);
+            mGalleryFragment.getView().setVisibility(View.GONE);
             ((ImageView)view.findViewById(R.id.tab2OnImageView)).setVisibility(View.GONE);
             ((ImageView)view.findViewById(R.id.tab2OffImageView)).setVisibility(View.VISIBLE);
             ((TextView)view.findViewById(R.id.tab2TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabUnselected));
@@ -131,7 +131,7 @@ public class TabbarFragment extends BaseFragment {
             ((ImageView)view.findViewById(R.id.tab3OffImageView)).setVisibility(View.GONE);
             ((TextView)view.findViewById(R.id.tab3TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabSelected));
         } else {
-            mProgressFragment.getView().setVisibility(View.INVISIBLE);
+            mProgressFragment.getView().setVisibility(View.GONE);
             ((ImageView)view.findViewById(R.id.tab3OnImageView)).setVisibility(View.GONE);
             ((ImageView)view.findViewById(R.id.tab3OffImageView)).setVisibility(View.VISIBLE);
             ((TextView)view.findViewById(R.id.tab3TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabUnselected));
@@ -143,7 +143,7 @@ public class TabbarFragment extends BaseFragment {
             ((ImageView)view.findViewById(R.id.tab4OffImageView)).setVisibility(View.GONE);
             ((TextView)view.findViewById(R.id.tab4TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabSelected));
         } else {
-            mOtherFragment.getView().setVisibility(View.INVISIBLE);
+            mOtherFragment.getView().setVisibility(View.GONE);
             ((ImageView)view.findViewById(R.id.tab4OnImageView)).setVisibility(View.GONE);
             ((ImageView)view.findViewById(R.id.tab4OffImageView)).setVisibility(View.VISIBLE);
             ((TextView)view.findViewById(R.id.tab4TextView)).setTextColor(ContextCompat.getColor(getActivity().getApplicationContext(), R.color.tabUnselected));
