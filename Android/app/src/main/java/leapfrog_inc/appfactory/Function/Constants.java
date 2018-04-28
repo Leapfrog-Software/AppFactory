@@ -17,5 +17,6 @@ public class Constants {
     public static class SharedPreferenceKey {
         public static String Key = "AppFactory";
         public static String didInitialized = "DidInitialized";
+        public static String pushSetting = "PushSetting";
     }
 }

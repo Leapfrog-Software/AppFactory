@@ -13,6 +13,7 @@ public class SaveData {
 
     public Context mContext;
     public boolean didInitialized = false;
+    public boolean pushSetting = true;
 
     private SaveData(){}
 
@@ -30,6 +31,7 @@ public class SaveData {
         SharedPreferences data = context.getSharedPreferences(Constants.SharedPreferenceKey.Key, Context.MODE_PRIVATE);
 
         didInitialized = data.getBoolean(Constants.SharedPreferenceKey.didInitialized, false);
+        pushSetting = data.getBoolean(Constants.SharedPreferenceKey.pushSetting, true);
     }
 
     public void save() {
@@ -38,6 +40,7 @@ public class SaveData {
         SharedPreferences.Editor editor = data.edit();
 
         editor.putBoolean(Constants.SharedPreferenceKey.didInitialized, didInitialized);
+        editor.putBoolean(Constants.SharedPreferenceKey.pushSetting, pushSetting);
 
         editor.apply();
     }
