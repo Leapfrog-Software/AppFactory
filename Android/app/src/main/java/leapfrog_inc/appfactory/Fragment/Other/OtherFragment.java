@@ -49,6 +49,13 @@ public class OtherFragment extends BaseFragment {
         } catch (Exception e) {}
 
         ((TextView)view.findViewById(R.id.versionTextView)).setText("バージョン : " + version);
+
+        if (SaveData.getInstance().pushSetting) {
+            ((CheckBox)view.findViewById(R.id.pushCheckBox)).setChecked(true);
+        } else {
+            ((CheckBox)view.findViewById(R.id.pushCheckBox)).setChecked(false);
+        }
+
     }
 
     private void initAction(View view) {

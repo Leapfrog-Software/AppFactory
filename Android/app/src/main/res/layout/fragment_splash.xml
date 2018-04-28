@@ -5,11 +5,25 @@
     android:background="#fff"
     android:id="@+id/rootLayout">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="splash"
-        android:gravity="center"
-        android:textSize="48dp"/>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+        <ImageView
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            android:src="@drawable/splash_icon"
+            android:layout_gravity="center_horizontal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="アプリファクトリー"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            android:textColor="@color/mainBlack"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center_horizontal" />
+    </LinearLayout>
 
 </FrameLayout>
