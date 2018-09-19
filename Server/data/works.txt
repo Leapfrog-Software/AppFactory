@@ -1,0 +1,19 @@
+ID,アプリ名,エンジニアID,OS,言語,機能,開発費,評価,ソース有無
+0,企業向け勤怠管理アプリ,0,iOS  / Android,Objectice-C / JAVA / PHP / MySQL,HTTPS通信 / LINE連携 / GPS制御,600000,45,0
+1,ファッション関連ニュース配信アプリ,0,iOS,Swift / PHP,HTTPS通信 / いいね機能 / ユーザ管理,120000,50,1
+2,通販サイトのスマホアプリ化,0,iOS,Swift,HTTPS通信 / Google連携 / ApplePay,160000,40,0
+3,チャットアプリ(iOS版),1,iOS10 / Windows,Swift3,HTTP通信,60000,40,1
+4,チャットアプリ(Android版),1,Android5系 / Windows,JAVA / C++,HTTP通信 / Socket通信,60000,40,0
+5,共通の趣味を持つユーザが繋がるSNSアプリ,1,iOS / Android,Swift3 / JAVA,HTTP通信,100000,45,0
+6,動画共有アプリ,2,iOS / Android,Objective-C / Swift / JAVA,Firebase連携,80000,35,0
+7,主婦層に向けたレシピ共有SNSアプリ,3,iOS / Android,Swift4 / JAVA / AWS(EC2・DynamoDB),お気に入り共有機能 / Push通知,800000,35,0
+8,女性向けニュース配信アプリ,4,iOS,Swift,FB・Twitter連携,80000,50,0
+9,体験共有型ソーシャルアプリ,5,iOS / Android,Swift / JAVA,Instagram連動機能,240000,45,0
+10,旅行記シェアツール,6,iOS / Android,Kotlin / Swift4,テンプレート埋め込み・利用機能,180000,25,0
+11,富裕層向け分譲マンション情報配信システム,7,iOS / Android,Swift / JAVA,マンション検索 / 絞り込み / SNS投稿,700000,40,0
+12,ユーザー発信型のキュレーションアプリ,7,iOS / Android,Swift / JAVA,チャット機能 / ニュースまとめ・投稿機能 / Push通知,200000,50,0
+13,ランキング形式の写真・動画共有アプリ,8,iOS / Android,Swift / JAVA,FirebaseリアルタイムDB / 投稿者のランク付け機能,170000,35,0
+14,イタリアンレストランの販促アプリ,9,iOS,Swift,いいね機能・レビュー共有機能,400000,25,1
+15,AI技術を利用した投稿写真によるマッチング,47,iOS / Android,Unity / PHP,写真解析 / 機械学習 / DB連携,2400000,0,0
+16,専門家に質問する悩み相談アプリ,47,iOS / Android,Unity / PHP,WebRTC / HTTP,1800000,0,0
+17,Webサイトのトレンド指数解析ツール,47,iOS / Android,Unity,-,3694614,0,0

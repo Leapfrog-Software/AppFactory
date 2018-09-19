@@ -1,0 +1,466 @@
+<html>
+<head>
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <meta charset="utf-8">
+  <title>アプリファクトリー</title>
+  <link rel="shortcut icon" href="img/icon.png" type="image/png">
+  <style>
+    body {
+      background: #fff;
+    }
+    body, div, span, td {
+      margin: 0;
+      padding: 0;
+      font-family: "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro",Lucida Grande,"メイリオ", Meiryo, Tahoma, Verdana, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+      font-size: 14px;
+      color: #333;
+    }
+    a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    input[type="text"] {
+      border: 1px solid #ddd;
+    }
+
+    input[type="text"]:focus {
+      outline: 0;
+      border-color: orange;
+    }
+
+  </style>
+
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <script src="common.js"></script>
+  <script type="text/javascript">
+
+  var gEngineerName = "";
+
+    function fetch() {
+
+      var url = "srv.php?command=getengineerdetail&id=" + getParameter("id");
+      httpPost(url, null, function(data) {
+        var parsed = null;
+        try {
+          parsed = JSON.parse(data);
+          if (!parsed) {
+            return;
+          }
+        } catch(e) {
+          return;
+        }
+        if ((parsed.id == null) || (parsed.name == null) || (parsed.area == null) || (parsed.organization == null) || (parsed.evaluate == null) || (parsed.profile == null) || (parsed.works == null) || (!Array.isArray(parsed.works))) {
+          return;
+        }
+        gEngineerName = parsed.name;
+        displayData(parsed.id, parsed.name, parsed.area, parsed.organization, parsed.evaluate, parsed.profile, parsed.works);
+      });
+    }
+
+    function displayData(id, name, area, organization, evaluate, profile, works) {
+
+      document.getElementById("engineer_image").src = "data/img/user/" + id + ".png";
+      document.getElementById("name").innerHTML = name;
+      document.getElementById("area").innerHTML = area;
+      document.getElementById("organization").innerHTML = organizationWord(organization);
+      if (evaluate < 5)         {document.getElementById("engineerEvaluate1").src = "img/star_empty.png";}
+      else if (evaluate < 10)   {document.getElementById("engineerEvaluate1").src = "img/star_half.png";}
+      else                      {document.getElementById("engineerEvaluate1").src = "img/star_full.png";}
+      if (evaluate < 15)         {document.getElementById("engineerEvaluate2").src = "img/star_empty.png";}
+      else if (evaluate < 20)   {document.getElementById("engineerEvaluate2").src = "img/star_half.png";}
+      else                      {document.getElementById("engineerEvaluate2").src = "img/star_full.png";}
+      if (evaluate < 25)         {document.getElementById("engineerEvaluate3").src = "img/star_empty.png";}
+      else if (evaluate < 30)   {document.getElementById("engineerEvaluate3").src = "img/star_half.png";}
+      else                      {document.getElementById("engineerEvaluate3").src = "img/star_full.png";}
+      if (evaluate < 35)         {document.getElementById("engineerEvaluate4").src = "img/star_empty.png";}
+      else if (evaluate < 40)   {document.getElementById("engineerEvaluate4").src = "img/star_half.png";}
+      else                      {document.getElementById("engineerEvaluate4").src = "img/star_full.png";}
+      if (evaluate < 45)         {document.getElementById("engineerEvaluate5").src = "img/star_empty.png";}
+      else if (evaluate < 50)   {document.getElementById("engineerEvaluate5").src = "img/star_half.png";}
+      else                      {document.getElementById("engineerEvaluate5").src = "img/star_full.png";}
+      document.getElementById("evaluate").innerHTML = evaluateValue(evaluate);
+      document.getElementById("profile").innerHTML = profile;
+      document.getElementById("work_count").innerHTML = ("(" + works.length + "件)");
+
+      var html = "";
+      var workCount = 0;
+      for (var i=0;i<works.length;i++) {
+        var work = works[i];
+        if ((work.id == null) || (work.name == null) || (work.os == null) || (work.language == null) || (work.function == null) || (work.cost == null) || (work.evaluate == null) || (work.source == null)) {
+          continue;
+        }
+        html += "<table border='0' cellspacing='0' style='margin:20px 0 0 0;width:100%'>";
+        html += "<tr>";
+        html += "<td style='width:10px'></td>";
+        html += "<td style='width:90px'>";
+        html += ("<img src='data/img/work/" + work.id + ".png' style='width:100%'>");
+        html += "</td>";
+        html += "<td style='width:30px'></td>";
+        html += "<td style='vertical-align:middle'>";
+        html += "<div style='font-size:16px;font-weight:bold;color:#555'>";
+        html += work.name;
+        html += "</div>";
+        html += "<table border='0' cellspacing='0' style='margin-top:14px'>";
+        html += "<tr>";
+        html += "<td style='font-size:12px;color:#777;width:70px;vertical-align:top'>";
+        html += "OS";
+        html += "</td>";
+        html += "<td style='width:12px;font-size:10px;color:#777;vertical-align:top'>:</td>";
+        html += "<td style='font-size:12px;color:#777;vertical-align:top'>";
+        html += work.os;
+        html += "</td>";
+        html += "</tr>";
+        html += "<tr><td style='height:3px'></td></tr>";
+        html += "<tr>";
+        html += "<td style='font-size:12px;color:#777;vertical-align:top'>";
+        html += "開発言語";
+        html += "</td>";
+        html += "<td style='width:12px;font-size:10px;color:#777;;vertical-align:top'>:</td>";
+        html += "<td style='font-size:12px;color:#777;vertical-align:top'>";
+        html += work.language;
+        html += "</td>";
+        html += "</tr>";
+        html += "<tr><td style='height:3px'></td></tr>";
+        html += "<tr>";
+        html += "<td style='font-size:12px;color:#777;vertical-align:top'>";
+        html += "機能";
+        html += "</td>";
+        html += "<td style='width:12px;font-size:10px;color:#777;vertical-align:top;'>:</td>";
+        html += "<td style='font-size:12px;color:#777;vertical-align:top'>";
+        html += work.function;
+        html += "</td>";
+        html += "</tr>";
+        html += "</table>";
+        // ソースDL
+        if (work.source == 1) {
+          html += "<div style='height:14px'></div>";
+          html += ("<a href='data/source/" + work.id + ".zip'>");
+          html += "<div style='width:130px;height:34px;border-radius:17px;-webkit-border-radius:17px;-moz-border-radius:17px;font-size:12px;font-weight:bold;color:#fff;background:#ffc32e;line-height:34px;text-align:center'>";
+          html += "ソースコードDL";
+          html += "</div>";
+          html += "</a>";
+        }
+
+        html += "</td>";
+        html += "<td style='width:10px;height:10px'>";
+        html += "<div style='width:100%;height:100%;background-color: #fff;background-image: radial-gradient(#bfbfbf 20%, transparent 20%);background-size:10px 10px;'></div>";
+        html += "</td>";
+        html += "<td style='width:120px;text-align:center;vertical-align:middle'>";
+        html += "<div style='height:90px'>";
+        html += "<div style='font-size:14px;font-weight:bold'>";
+        html += "依頼額";
+        html += "</div>";
+        html += "<div style='font-size:14px;font-weight:bold;margin-top:26px;color:#1fcba9'>";
+        html += addComma(work.cost) + " 円";
+        html += "</div></div>";
+
+        html += "</td>";
+        html += "<td style='width:10px;height:10px'>";
+        html += "<div style='width:100%;height:100%;background-color: #fff;background-image: radial-gradient(#bfbfbf 20%, transparent 20%);background-size:10px 10px;'></div>";
+        html += "</td>";
+        html += "<td style='width:120px;text-align:center;vertical-align:middle;'>";
+        html += "<div style='height:90px'>";
+        html += "<div style='font-size:14px;font-weight:bold;'>";
+        html += "評価";
+        html += "</div>";
+        html += "<div style='font-size:12px;font-weight:bold;margin-top:13px;color:#555'>";
+        html += evaluateValue(work.evaluate);
+        html += "</div>";
+        html += "<table border='0' cellspacing='0' style='margin:4px auto 0 auto'>";
+        html += "<tr>";
+        html += "<td>";
+        if (work.evaluate < 5)        {html += "<img src='img/star_empty.png' style='width:14px'>";}
+        else if (work.evaluate < 10)  {html += "<img src='img/star_half.png' style='width:14px'>";}
+        else                          {html += "<img src='img/star_full.png' style='width:14px'>";}
+        html += "</td>";
+        html += "<td>";
+        if (work.evaluate < 15)        {html += "<img src='img/star_empty.png' style='width:14px'>";}
+        else if (work.evaluate < 20)  {html += "<img src='img/star_half.png' style='width:14px'>";}
+        else                          {html += "<img src='img/star_full.png' style='width:14px'>";}
+        html += "</td>";
+        html += "<td>";
+        if (work.evaluate < 25)        {html += "<img src='img/star_empty.png' style='width:14px'>";}
+        else if (work.evaluate < 30)  {html += "<img src='img/star_half.png' style='width:14px'>";}
+        else                          {html += "<img src='img/star_full.png' style='width:14px'>";}
+        html += "</td>";
+        html += "<td>";
+        if (work.evaluate < 35)        {html += "<img src='img/star_empty.png' style='width:14px'>";}
+        else if (work.evaluate < 40)  {html += "<img src='img/star_half.png' style='width:14px'>";}
+        else                          {html += "<img src='img/star_full.png' style='width:14px'>";}
+        html += "</td>";
+        html += "<td>";
+        if (work.evaluate < 45)        {html += "<img src='img/star_empty.png' style='width:14px'>";}
+        else if (work.evaluate < 50)  {html += "<img src='img/star_half.png' style='width:14px'>";}
+        else                          {html += "<img src='img/star_full.png' style='width:14px'>";}
+        html += "</td>";
+        html += "<tr>";
+        html += "</table></div>";
+        html += "</td>";
+        html += "<td style='width:40px'></td>";
+        html += "</tr>";
+        html += "</table>";
+        html += "<div style='height:1px;background:#d9d9d9;margin:20px auto 0 0;width:95%'></div>";
+
+        workCount++;
+      }
+      html += "<br>";
+
+      if (workCount == 0) {
+        html += "<div style='width:100%;height:280px;color:#ccc;font-size:18px;margin:20px 0 0 40px'>";
+        html += "実績はありません";
+        html += "</div>";
+      }
+
+      document.getElementById("works").innerHTML = html;
+    }
+
+    function getParameter(key) {
+      var url = window.location.href;
+        urlSplit = url.split("?");
+        if (urlSplit.length >= 2) {
+            var paramSplit = urlSplit[1].split("&");
+            for (var i=0;i<paramSplit.length;i++) {
+                var keyVal = paramSplit[i].split("=");
+                if (keyVal.length == 2) {
+                    if (keyVal[0] == key) {
+                        return keyVal[1];
+                    }
+                }
+            }
+        }
+        return "";
+    }
+
+    function addComma(value) {
+
+      var ret = "";
+      var str = String(value);
+      var chars = str.split("");
+
+      for (var i=0;i<chars.length;i++) {
+        ret += chars[i];
+        if (((chars.length - i) % 3 == 1) && (i != chars.length - 1)) {
+          ret += ",";
+        }
+      }
+      return ret;
+    }
+
+    function onClickMessage() {
+      location.href = "message.html?id=" + getParameter("id");
+    }
+
+    function onClickRequest() {
+      location.href = "estimate.html?target=" + getParameter("id");
+    }
+
+  </script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110054488-2"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-110054488-2');
+  </script>
+
+</head>
+<body>
+
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.10";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+
+  <!-- ヘッダ -->
+  <div style="top:0px;width:100%;height:50px;position:fixed;z-index:1;background:#fff">
+    <table border="0" cellspacing="0" style="width:100%;height:100%">
+      <tr>
+        <td style="width:50px"></td>
+        <td style="text-align:center;vertical-align:middle;width:50px;height:100%;background:#262626">
+          <span style="color:#fff;font-size:18px">E</span>
+        </td>
+        <td style="width:170px;text-align:center">
+          <a href="index.html" style="font-size:12px;font-weight:bold;">アプリファクトリー</a>
+        </td>
+        <td style="width:1px;padding:13px 0">
+          <div style="width:100%;height:100%;background:#262626;"></div>
+        </td>
+        <td style="width:120px;text-align:center">
+          <a href="engineer.html" style="font-size:12px;font-weight:bold;">Engineers.</a>
+        </td>
+        <td style="width:90px;text-align:center">
+          <a href="gallery.html" style="font-size:12px;font-weight:bold;">Gallery.</a>
+        </td>
+        <td style="background:#fff;text-align:right">
+          <table border="0" cellspacing="0" style="margin:0 0 0 auto">
+            <tr>
+              <td>
+                <td style="">
+                  <div class="fb-like" data-href="http://datastore.work/engineernave/" data-layout="button" data-action="like" data-size="small" data-show-faces="false" data-share="false"></div>
+                </td>
+                <td style="width:14px"></td>
+                <td style="">
+                  <a href="https://twitter.com/share" class="twitter-share-button"></a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+                </td>
+                <td style="width:40px"></td>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- コンテンツ -->
+  <table border="0" cellspacing="0" style="width:100%;margin-top:110px">
+    <tr>
+      <td style="width:230px;vertical-align:top;text-align:center">
+        <div>
+          <img id="engineer_image" src="img/no_img.png" style="width:100px" onerror="this.src='img/no_img.png';">
+        </div>
+        <div id="name" style="font-size:16px;font-weight:bold;margin-top:18px">
+          -
+        </div>
+        <div style="font-size:12px;color:#777;margin-top:2px">
+          <span id="area" style="font-size:12px;color:#777;">-</span> | <span id="organization" style="font-size:12px;color:#777;">-</span>
+        </div>
+        <table border="0" cellspacing="0" style="margin:24px auto 0 auto">
+          <tr>
+            <td style="width:18px">
+              <img id="engineerEvaluate1" src="img/star_full.png" style="width:100%">
+            </td>
+            <td style="width:18px">
+              <img id="engineerEvaluate2" src="img/star_full.png" style="width:100%">
+            </td>
+            <td style="width:18px">
+              <img id="engineerEvaluate3" src="img/star_full.png" style="width:100%">
+            </td>
+            <td style="width:18px">
+              <img id="engineerEvaluate4" src="img/star_full.png" style="width:100%">
+            </td>
+            <td style="width:18px">
+              <img id="engineerEvaluate5" src="img/star_full.png" style="width:100%">
+            </td>
+          </tr>
+        </table>
+        <div style="margin-top:6px">
+          <span style="font-size:12px;color:#555">評価 : </span>
+          <span id="evaluate" style="font-size:12px;font-weight:bold;color:#555">-</span>
+        </div>
+        <a href="javascript:onClickMessage()">
+          <div style="margin:30px auto 0 auto;border-radius:17px;-webkit-border-radius:17px;-moz-border-radius:17px;background:#1fcba9;width:150px;height:34px;line-height:34px;font-size:12px;font-weight:bold;color:#fff;text-align:center">
+            メッセージを送る
+          </div>
+        </a>
+        <a href="javascript:onClickRequest()">
+          <div style="margin:12px auto 0 auto;border-radius:17px;-webkit-border-radius:17px;-moz-border-radius:17px;background:#ff6347;width:150px;height:34px;line-height:34px;font-size:12px;font-weight:bold;color:#fff;text-align:center">
+            開発を依頼する
+          </div>
+        </a>
+      </td>
+      <td style="vertical-align:top">
+        <table border="0" cellspacing="0" style="margin-left:10px">
+          <tr>
+            <td>
+              <img src="img/balloon.png" style="width:26px">
+            </td>
+            <td style="width:8px"></td>
+            <td style="font-size:18px;font-weight:bold;color:#555;">
+              自己紹介
+            </td>
+          </tr>
+        </table>
+        <div id="profile" style="font-size:12px;margin:10px 60px 0 10px">
+          -
+        </div>
+        <table border="0" cellspacing="0" style="margin:40px 0 0 10px">
+          <tr>
+            <td style="font-size:18px;font-weight:bold;color:#555;">
+              実績
+            </td>
+            <td id="work_count" style="font-size:10px;vertical-align:bottom;padding:0 0 2px 5px">
+              (-件)
+            </td>
+          </tr>
+        </table>
+        <div style="height:1px;background:#d9d9d9;margin:8px auto 0 0;width:95%"></div>
+        <div id="works">
+        </div>
+      </td>
+    </tr>
+  </table>
+
+  <!-- フッター -->
+  <div style="margin:70px auto 0 auto;width:90%;background-image:radial-gradient(#e0e0e0 20%, transparent 20%);background-size:10px 10px;">
+    <div style="height:30px"></div>
+    <table border="0" cellspacing="0" style="margin:0 auto;width:95%">
+      <tr>
+        <td style="width:33%;text-align:center;vertical-align:top">
+          <div style="font-size:14px;font-weight:bold">
+            依頼する
+          </div>
+          <div style="margin-top:10px">
+            <a href="engineer.html" style="font-size:12px;color:#7f7f7f">
+              開発者を探す
+            </a>
+          </div>
+          <div style="margin-top:4px">
+            <a href="gallery.html" style="font-size:12px;color:#7f7f7f">
+              デザインから選ぶ
+            </a>
+          </div>
+        </td>
+        <td style="width:33%;text-align:center;;vertical-align:top">
+          <div style="font-size:14px;font-weight:bold">
+            仕事を受ける
+          </div>
+          <div style="margin-top:10px">
+            <a href="join.html" style="font-size:12px;color:#7f7f7f">
+              開発者として登録する
+            </a>
+          </div>
+        </td>
+        <td style="width:33%;font-size:14px;font-weight:bold;text-align:center;vertical-align:top">
+          <div style="font-size:14px;font-weight:bold">
+            運営会社
+          </div>
+          <div style="margin-top:10px">
+            <a href="http://lfg.co.jp/" style="font-size:12px;color:#7f7f7f;font-weight:normal">
+              会社ホームページ
+            </a>
+          </div>
+          <div style="margin-top:4px">
+            <a href="http://lfg.co.jp/company.html" style="font-size:12px;color:#7f7f7f;font-weight:normal">
+              会社概要
+            </a>
+          </div>
+          <div style="margin-top:4px">
+            <a href="terms.html" style="font-size:12px;color:#7f7f7f;font-weight:normal">
+              利用規約
+            </a>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div style="height:26px"></div>
+  </div>
+
+  <div style="margin:20px auto 30px auto;text-align:center;width:100%;font-size:12px">
+    copyright&copy; Leapfrog Inc. all rights reserved.
+  </div>
+
+  <script type="text/javascript">
+    fetch();
+  </script>
+
+</body>
+</html>
