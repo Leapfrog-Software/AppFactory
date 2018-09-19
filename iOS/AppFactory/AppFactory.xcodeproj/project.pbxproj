@@ -113,6 +113,7 @@
 		BB36A4AD2082009600B96D18 /* KeyboardRespondableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardRespondableViewController.swift; sourceTree = "<group>"; };
 		BB36A4B02082038F00B96D18 /* PlaceholderTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextField.swift; sourceTree = "<group>"; };
 		BB36A4B2208203A500B96D18 /* PlaceholderTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderTextView.swift; sourceTree = "<group>"; };
+		BB7E838320B6EFB90054235C /* AppFactory.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AppFactory.entitlements; sourceTree = "<group>"; };
 		BB96C3B2207B89150054D352 /* EngineerDetailRequester.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EngineerDetailRequester.swift; sourceTree = "<group>"; };
 		BB96C3B5207B8BB10054D352 /* OrganizationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationType.swift; sourceTree = "<group>"; };
 		BB96C3B7207B8EB60054D352 /* CostType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CostType.swift; sourceTree = "<group>"; };
@@ -173,6 +174,7 @@
 				BB1634F4207A50C200AED7F6 /* Assets.xcassets */,
 				BB1634F6207A50C200AED7F6 /* LaunchScreen.storyboard */,
 				BB1634F9207A50C300AED7F6 /* Info.plist */,
+				BB7E838320B6EFB90054235C /* AppFactory.entitlements */,
 			);
 			path = AppFactory;
 			sourceTree = "<group>";
@@ -453,7 +455,12 @@
 				TargetAttributes = {
 					BB1634E9207A50C200AED7F6 = {
 						CreatedOnToolsVersion = 9.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -678,12 +685,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = AppFactory/AppFactory.entitlements;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = AppFactory/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Leapfrog-Inc.AppFactory";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -693,12 +703,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = AppFactory/AppFactory.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = P98P6SV69B;
 				INFOPLIST_FILE = AppFactory/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Leapfrog-Inc.AppFactory";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "9cc45466-e236-47aa-9f26-d2c0de591ccc";
+				PROVISIONING_PROFILE_SPECIFIER = "AppFactory-Release-20180524";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
