@@ -10,17 +10,16 @@ body, div, span, td {
   color: #333;
 }
 
-    a {
-      text-decoration: none;
-      color: #333;
-    }
+a {
+  text-decoration: none;
+  color: #333;
+}
 
-    input[type="text"] {
-      border: 1px solid #ddd;
-    }
+input[type="text"] {
+  border: 1px solid #ddd;
+}
 
-    input[type="text"]:focus {
-      outline: 0;
-      border-color: orange;
-    }
-
+input[type="text"]:focus {
+  outline: 0;
+  border-color: orange;
+}

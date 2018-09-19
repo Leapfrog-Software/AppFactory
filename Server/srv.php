@@ -51,6 +51,8 @@ if (strcmp($command, "getengineers") == 0) {
 	sendMessage();
 } else if (strcmp($command, "estimate") == 0) {
 	estimate();
+} else if (strcmp($command, "creatediagram") == 0) {
+	creatediagram();
 } else {
   echo("unknown");
 }
@@ -482,6 +484,10 @@ function estimate() {
 	sendMail("sfujita@lfg.co.jp", $subject, $body, $headers);
 
 	echo(json_encode(Array("result" => "0")));
+}
+
+function createDiagram() {
+	echo(json_encode(Array("result" => "0", "id" => "3")));
 }
 
 function readEngineersFile() {
