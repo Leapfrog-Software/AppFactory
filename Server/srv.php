@@ -53,6 +53,8 @@ if (strcmp($command, "getengineers") == 0) {
 	estimate();
 } else if (strcmp($command, "creatediagram") == 0) {
 	creatediagram();
+} else if (strcmp($command, "getdiagramname") == 0) {
+	getDiagramName();
 } else {
   echo("unknown");
 }
@@ -487,7 +489,60 @@ function estimate() {
 }
 
 function createDiagram() {
-	echo(json_encode(Array("result" => "0", "id" => "3")));
+
+	$appName = $_GET["appName"];
+
+	$maxDiagramId = -1;
+
+	$fileNames = listupDiagramFiles();
+	foreach($fileNames as $file) {
+		$exploded = explode(".", $file);
+		if (count($exploded) == 2) {
+			$diagramId = intval($exploded[0]);
+			if ($diagramId > $maxDiagramId) {
+				$maxDiagramId = $diagramId;
+			}
+		}
+	}
+	$nextId = (string)($maxDiagramId + 1);
+	$newFileName = "data/diagram/" . $nextId . ".txt";
+	file_put_contents($newFileName, $appName);
+
+	echo(json_encode(Array("result" => "0", "id" => $nextId)));
+}
+
+function listupDiagramFiles() {
+
+	$dirName = "data/diagram/";
+
+	$fileNames = [];
+   	foreach(glob($dirName . "*", GLOB_BRACE) as $file) {
+   		if (is_file($file)) {
+   			$fileNames[] = $file;
+    	}
+    }
+   	return $fileNames;
+}
+
+function getDiagramName() {
+
+	$ids = $_GET["ids"];
+	$names = [];
+
+	$exploded = explode("-", $ids);
+	foreach($exploded as $diagramId) {
+		$fileName = "data/diagram/" . $diagramId . ".txt";
+		if (file_exists($fileName)) {
+			$fileData = file_get_contents($fileName);
+			if ($fileData !== false) {
+				$lines = explode("\n", $fileData);
+				if (count($lines) > 0) {
+					$names[$diagramId] = $lines[0];
+				}
+			}
+		}
+	}
+	echo(json_encode(Array("result" => "0", "names" => $names)));
 }
 
 function readEngineersFile() {

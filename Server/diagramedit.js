@@ -1,5 +1,15 @@
 
+function onClickCloseDetail() {
 
+  document.getElementById("detail-base").style.visibility = "hidden";
+  document.getElementById("detail").style.visibility = "hidden";
+}
+
+function onClickSave() {
+
+	document.getElementById("detail-base").style.visibility = "hidden";
+  document.getElementById("detail").style.visibility = "hidden";
+}
 
 function onClickScene(id) {
 
