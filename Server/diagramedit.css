@@ -26,14 +26,14 @@
 
 
 .basic-select {
-overflow: hidden;
-width: 90%;
-margin: 2em auto;
-text-align: center;
-position: relative;
-border: 1px solid #bbbbbb;
-border-radius: 2px;
-background: #ffffff;
+  overflow: hidden;
+  width: 90%;
+  margin: 2em auto;
+  text-align: center;
+  position: relative;
+  border: 1px solid #bbbbbb;
+  border-radius: 2px;
+  background: #ffffff;
 }
 .basic-select select {
 width: 100%;

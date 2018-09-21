@@ -20,7 +20,7 @@
 			<!-- 画面1 -->
 			<div style="position: absolute; left:50px;top:50px" onclick="javascript:onClickScene(0);">
 				<div style="">
-					<img src="scene.png" style="width:80px; height:80px">
+					<img src="img/diagram/scene1.jpg" style="width:80px; height:160px">
 				</div>
 			</div>
 			<!-- 矢印 -->
@@ -52,15 +52,17 @@
 		</div>
 	</div>
 
+	<!-- 詳細ダイアログ背景 -->
 	<div id="detail-base" style="position:absolute;left:0;top:0;width:100%;height:850px;background:#000;filter:alpha(opacity=50);-moz-opacity: 0.5;opacity: 0.5;visibility: hidden;">
 	</div>
 
+	<!-- 詳細ダイアログ -->
 	<div id="detail" style="background: #fff;color:#000;position:absolute;left:100px;top:100px;width:400px;height:400px;visibility: hidden;">
 		<div style="position:absolute;right:10px;top:10px">
 			<a href="javascript:onClickCloseDetail()">×</a>
 		</div>
 		<div style="text-align: center;width:100%;margin-top: 20px">
-			<img src="scene.png" style="width:80px; height:80px">
+			<img src="img/diagram/scene1.jpg" style="width:80px; height:160px">
 		</div>
 		<div style="">
 			<table>
@@ -73,12 +75,6 @@
 					<td>
 						<div class="basic-select">
 							<select id="genre-select" onchange="javascript:onChangeGenre()">
-								<option value="0">一覧表示</option>
-								<option value="1">ユーザー入力</option>
-								<option value="1">ユーザー選択</option>
-								<option value="2">地図</option>
-								<option value="3">固定表示</option>
-								<option value="4">チャット</option>
 							</select>
 						</div>
 					</td>
@@ -105,6 +101,10 @@
 		<a href="javascript:onClickSave()">保存して閉じる</a>
 		</div>
 	</div>
+
+	<script type="text/javascript">
+	initialize();
+	</script>
 
 </body>
 </html>
