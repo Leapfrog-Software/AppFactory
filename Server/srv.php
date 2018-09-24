@@ -55,6 +55,10 @@ if (strcmp($command, "getengineers") == 0) {
 	creatediagram();
 } else if (strcmp($command, "getdiagramname") == 0) {
 	getDiagramName();
+} else if (strcmp($command, "getdiagram") == 0) {
+	getDiagram();
+} else if (strcmp($command, "editdiagram") == 0) {
+	editDiagram();
 } else {
   echo("unknown");
 }
@@ -543,6 +547,71 @@ function getDiagramName() {
 		}
 	}
 	echo(json_encode(Array("result" => "0", "names" => $names)));
+}
+
+function getDiagram() {
+
+	$diagramId = $_GET["diagramId"];
+	$fileName = "data/diagram/" . $diagramId . ".txt";
+	$fileData = file_get_contents($fileName);
+	if ($fileData) {
+		echo(json_encode(Array("result" => "0", "diagram" => $fileData)));
+	} else {
+		echo(json_encode(Array("result" => "1")));
+	}
+}
+
+function editDiagram() {
+
+	$diagramId = $_GET["diagramId"];
+	$sceneId = $_GET["sceneId"];
+	$name = $_GET["name"];
+	$description = $_GET["description"];
+	$genre = $_GET["genre"];
+	$type = $_GET["type"];
+	$transition1 = $_GET["transition1"];
+	$transition2 = $_GET["transition2"];
+	$transition3 = $_GET["transition3"];
+	$transition4 = $_GET["transition4"];
+	$transition5 = $_GET["transition5"];
+
+	$newLine = "";
+	$newLine .= ($sceneId . ",");
+	$newLine .= ($name . ",");
+	$newLine .= ($description . ",");
+	$newLine .= ($genre . ",");
+	$newLine .= ($type . ",");
+	$newLine .= ($transition1 . ",");
+	$newLine .= ($transition2 . ",");
+	$newLine .= ($transition3 . ",");
+	$newLine .= ($transition4 . ",");
+	$newLine .= ($transition5 . "\n");
+
+	$fileName = "data/diagram/" . $diagramId . ".txt";
+	$fileData = file_get_contents($fileName);
+	if ($fileData !== false) {
+		$lines = explode("\n", $fileData);
+		if (count($lines) >= 1) {
+			$hit = false;
+			$str = $lines[0] . "\n";
+			for ($i = 1; $i < count($lines); $i++) {
+				$params = explode(",", $lines[$i]);
+				if ((count($params) >= 10) && (strcmp($params[0], $sceneId) == 0)) {
+					$hit = true;
+					$str .= $newLine;
+				} else {
+					$str .= ($lines[$i] . "\n");
+				}
+			}
+			if (!$hit) {
+				$str .= $newLine;
+			}
+			file_put_contents($fileName, $str);
+			echo(json_encode(Array("result" => "0")));
+		}
+	} else {
+		echo(json_encode(Array("result" => "1")));
+	}
 }
 
 function readEngineersFile() {

@@ -1,6 +1,7 @@
 
 var gGenreList = [
-  ["ユーザー一覧", ["SNS", "マッチング", ""]],
+  ["スプラッシュ", ["標準", "オーバーレイ"]],
+  ["ユーザー一覧", ["リスト", "コレクション", "カード"]],
   ["商品一覧", ["", ""]],
   ["ニュース一覧", ["", ""]],
   ["画像/文章一覧", ["", ""]],
@@ -14,7 +15,6 @@ var gGenreList = [
   ["ログイン", ["", ""]],
   ["新規登録", ["", ""]],
   ["同意画面", ["", ""]],
-  ["スプラッシュ", ["", ""]],
   ["タブ画面", ["", ""]],
   ["メニュー", ["", ""]],
   ["チャット", ["", ""]],
@@ -31,10 +31,10 @@ var gMaxVIndex = 0;
 
 var kLeftMargin = 50;
 var kTopMargin = 50;
-var kSceneWidth = 80;
-var kSceneHeight = 160;
-var kSceneHorizontalMargin = 60;
-var kSceneVerticalMargin = 40;
+var kSceneWidth = 120;
+var kSceneHeight = 240;
+var kSceneHorizontalMargin = 80;
+var kSceneVerticalMargin = 60;
 
 function initialize() {
 
@@ -161,7 +161,7 @@ function displayBranch(scene, hIndex, vIndex, history) {
   }
 
   gHtml += ("<div style='position: absolute; left:" + left + "px;top:" + top + "px' onclick='javascript:onClickScene(\"" + scene.id + "\");'>");
-  gHtml += ("<img src='img/diagram/scene1.png' style='width:" + kSceneWidth + "px; height:" + kSceneHeight + "px'>");
+  gHtml += ("<img src='img/diagram/scene" + scene.genre + "-" + scene.type + ".png' style='width:" + kSceneWidth + "px; height:" + kSceneHeight + "px'>");
   gHtml += "<div style='width:100%;text-align:center'>";
   gHtml += scene.name;
   gHtml += "</div>";
@@ -367,6 +367,8 @@ function onChangeGenre() {
     typeSelect.appendChild(option);
   }
   typeSelect.selectedIndex = 0;
+
+  changeDetailImage(genreIndex, 0);
 }
 
 function onChangeType() {
@@ -374,4 +376,10 @@ function onChangeType() {
   var genreIndex = document.getElementById("genre-select").selectedIndex;
   var typeIndex = document.getElementById("type-select").selectedIndex;
 
+  changeDetailImage(genreIndex, typeIndex);
+}
+
+function changeDetailImage(genre, type) {
+
+  document.getElementById("detail-img").src = "img/diagram/scene" + genre + "-" + type + ".png";
 }
