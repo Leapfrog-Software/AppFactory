@@ -26,13 +26,13 @@ var gMaxVIndex = 0;
 var kLeftMargin = 50;
 var kTopMargin = 50;
 var kSceneWidth = 120;
-var kSceneHeight = 244;
+var kSceneHeight = 240;
 var kSceneHorizontalMargin = 80;
 var kSceneVerticalMargin = 60;
 
 function initialize() {
 
-//  refresh(function(result) {});
+  refresh(function(result) {});
 
   var genreSelect = document.getElementById("genre-select");
 
@@ -148,16 +148,15 @@ function displayBranch(scene, hIndex, vIndex, history) {
   }
   // 画面循環あり
   if (count >= 2) {
-    gHtml += ("<div style='position:absolute;left:" + left + "px;top:" + top + "px;width:" + kSceneWidth + "px;height:" + kSceneHeight + "px;text-align:center;'>");
-    gHtml += "<table style='width:100%;height:100%;margin:0 10px'><tr><td style='font-size:12px;color:#666'>";
-    gHtml += ("\"" + scene.name + "\"<br>に戻る");
-    gHtml += "</td></tr></table></div>";
+    gHtml += ("<div style='position:absolute;left:" + left + "px;top:" + top + "px;width:" + kSceneWidth + "px;height:" + kSceneHeight + "px;text-align:center;line-height:" + kSceneHeight + "px'>");
+    gHtml += (scene.name + "に戻る");
+    gHtml += "</div>";
     return vIndex + 1;
   }
 
   gHtml += ("<div style='position: absolute; left:" + left + "px;top:" + top + "px' onclick='javascript:onClickScene(\"" + scene.id + "\");'>");
   gHtml += ("<img src='img/diagram/scene" + scene.genre + "-" + scene.type + ".png' style='width:" + kSceneWidth + "px; height:" + kSceneHeight + "px'>");
-  gHtml += ("<div style='width:" + kSceneWidth + "px;text-align:center;font-size:14px;margin-top:6px;color:#666'>");
+  gHtml += "<div style='width:100%;text-align:center'>";
   gHtml += scene.name;
   gHtml += "</div>";
   gHtml += "</div>";

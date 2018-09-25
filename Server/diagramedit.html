@@ -12,50 +12,33 @@
 </head>
 <body>
 
-	<div id="app-name" style="width:100%;height:50px;background:#333;color:#fff;line-height: 50px;text-align: center">
-		アプリ名
+	<div id="app-name" style="width:100%;height:50px;background:#333">
+		<table style="width:100%;height:50px">
+			<tr>
+				<td style="width:50px">
+					<a href="diagramlist.html">
+						<img src="img/arrow_left.png" style="width:50px;height:50px">
+					</a>
+				</td>
+				<td style="color:#fff;text-align:center;font-size:18px">
+					aaa
+				</td>
+				<td style="width:50px">
+				</td>
+			</tr>
+		</table>
 	</div>
 
 	<div>
 		<a href="javascript:onClickScene(-1)">
-			画面を追加
-		</a>
+      <div style="border-radius:20px;-webkit-border-radius:20px;-moz-border-radius:20px;background:#1fcba9;width:140px;height:40px;line-height:40px;font-size:14px;font-weight:bold;color:#fff;text-align:center;margin:20px 0 0 20px">
+        ＋ 画面を追加
+      </div>
+    </a>
 	</div>
 
 	<div style="width:100%;overflow-x:scroll">
 		<div id="diagram" style="width:3000px;height:800px;position:relative">
-			<!-- 画面1 -->
-			<div style="position: absolute; left:50px;top:50px" onclick="javascript:onClickScene(0);">
-				<div style="">
-					<img src="img/diagram/scene1.png" style="width:80px; height:160px">
-				</div>
-			</div>
-			<!-- 矢印 -->
-			<div style="position:absolute;left:130px;top:90px;width:100px">
-				<div class="arrow-right"></div>
-			</div>
-			<!-- 画面2 -->
-			<div style="position: absolute; left:230px;top:50px">
-				<div style="">
-					<img src="scene.png" style="width:80px; height:80px">
-				</div>
-			</div>
-
-			<!-- 縦線 -->
-			<div style="position:absolute;left:180;top:90px">
-				<div class="line-vertical"></div>
-			</div>
-			<!-- 矢印 -->
-			<div style="position:absolute;left:180px;top:190px;width:50px">
-				<div class="arrow-right"></div>
-			</div>
-
-			<!-- 画面3 -->
-			<div style="position: absolute; left:230px;top:150px">
-				<div style="">
-					<img src="scene.png" style="width:80px; height:80px">
-				</div>
-			</div>
 		</div>
 	</div>
 
@@ -64,12 +47,115 @@
 	</div>
 
 	<!-- 詳細ダイアログ -->
-	<div id="detail" style="background: #fff;color:#000;position:absolute;left:100px;top:100px;width:400px;height:600px;visibility: hidden;">
-		<div style="position:absolute;right:10px;top:10px">
-			<a href="javascript:onClickCloseDetail()">×</a>
+	<div id="detail" style="background: #fff;color:#000;position:absolute;left:100px;top:100px;width:600px;height:400px;visibility: hidden;border-radius:8px;-webkit-border-radius:8px;-moz-border-radius:8px;padding:60px 20px 20px 20px">
+		<div style="position:absolute;right:16px;top:0px">
+			<a href="javascript:onClickCloseDetail()" style="font-size:44px;color:#999">×</a>
 		</div>
+
+		<table style="width:100%;height:100%" border="0">
+			<tr>
+				<td style="width:40%;height:100%">
+					<div style="position:relative;width:100%;height:100%">
+						<img id="detail-img" src="img/diagram/scene0-0.png" style="position:absolute;width:auto;height:auto;max-width:100%;max-height:100%">
+					</div>
+				</td>
+				<td style="width:60%;height:100%">
+					<table style="width:100%;height:100%" border="0">
+						<tr>
+							<td>画面名</td>
+							<td><input id="scene-name" type="text" style="width:100%;height:24px;border-radius:12px;-webkit-border-radius:12px;-moz-border-radius:12px;padding:0 12px"></td>
+						</tr>
+						<tr>
+							<td>説明</td>
+							<td><textarea id="scene-description" style="width:100%;height:80px;border-radius:6px;-webkit-border-radius:6px;-moz-border-radius:6px;resize:none;padding:6px"></textarea></td>
+						</tr>
+						<tr>
+							<td>ジャンル</td>
+							<td>
+								<div class="basic-select">
+									<select id="genre-select" onchange="javascript:onChangeGenre()">
+									</select>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>タイプ</td>
+							<td>
+								<div id="genre0">
+									<div class="basic-select">
+										<select id="type-select" onchange="javascript:onChangeType()">
+											<option value="0">標準</option>
+											<option value="1">オーバーレイ</option>
+										</select>
+									</div>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								遷移先1
+							</td>
+							<td>
+								<div class="basic-select">
+									<select id="transition1"></select>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								遷移先2
+							</td>
+							<td>
+								<div class="basic-select">
+									<select id="transition2"></select>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								遷移先3
+							</td>
+							<td>
+								<div class="basic-select">
+									<select id="transition3"></select>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								遷移先4
+							</td>
+							<td>
+								<div class="basic-select">
+									<select id="transition4"></select>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								遷移先5
+							</td>
+							<td>
+								<div class="basic-select">
+									<select id="transition5"></select>
+								</div>
+							</td>
+						</tr>
+					</table>
+
+					<a href="javascript:onClickSave()">
+						<div style="border-radius:20px;-webkit-border-radius:20px;-moz-border-radius:20px;background:#1fcba9;width:80%;height:40px;line-height:40px;font-size:14px;font-weight:bold;color:#fff;text-align:center;margin:20px">
+							保存して閉じる
+						</div>
+					</a>
+				</td>
+			</tr>
+		</table>
+
+
+		<!--
 		<div style="text-align: center;width:100%;margin-top: 20px">
-			<img id="detail-img" src="img/diagram/scene1.png" style="width:80px; height:160px">
+			<img id="detail-img" src="" style="width:80px; height:160px">
 		</div>
 		<div style="">
 			<table>
@@ -161,6 +247,7 @@
 		</div>
 		<div>
 		<a href="javascript:onClickSave()">保存して閉じる</a>
+	-->
 		</div>
 	</div>
 
