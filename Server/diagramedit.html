@@ -48,17 +48,19 @@
 
 	<!-- 詳細ダイアログ -->
 	<div id="detail" style="background: #f6f6f6;color:#000;position:absolute;left:0px;top:0px;width:100px;height:100px;visibility: hidden;border-radius:8px;-webkit-border-radius:8px;-moz-border-radius:8px;">
-		<div style="position:absolute;right:16px;top:0px">
-			<a href="javascript:onClickCloseDetail()" style="font-size:44px;color:#999">×</a>
+		<div style="position:absolute;right:8px;top:8px;width:40px;height:40px;z-index:1">
+			<a href="javascript:onClickCloseDetail()">
+				<img src="img/diagram_close.png" style="width:100%;height:100%">
+			</a>
 		</div>
+		
 
 		<div style="position:relative;width:100%;height:100%;">
-			<!-- 画像 -->
 			<div style="position:absolute;left:40px;top:40px;width:260px;height:540px">
 				<img id="detail-img" src="img/diagram/scene0-0.png" style="width:100%;height:100%">
 			</div>
 
-			<table style="position:absolute;left:330px;top:80px;width:320px" border="0">
+			<table style="position:absolute;left:330px;top:60px;width:320px" border="0">
 				<tr>
 					<td style="vertical-align: top">画面名</td>
 					<td style="vertical-align: top"><input id="scene-name" type="text" style="width:100%;height:24px;border-radius:12px;-webkit-border-radius:12px;-moz-border-radius:12px;padding:0 12px"></td>
@@ -120,7 +122,7 @@
 			</table>
 			
 			<a href="javascript:onClickSave()">
-				<div style="border-radius:20px;-webkit-border-radius:20px;-moz-border-radius:20px;background:#1fcba9;position:absolute;left:340px;top:530px;width:280px;height:40px;line-height:40px;font-size:14px;font-weight:bold;color:#fff;text-align:center;">
+				<div style="border-radius:20px;-webkit-border-radius:20px;-moz-border-radius:20px;background:#1fcba9;position:absolute;left:340px;top:530px;width:300px;height:40px;line-height:40px;font-size:14px;font-weight:bold;color:#fff;text-align:center;">
 					保存して閉じる
 				</div>
 			</a>

@@ -127,6 +127,10 @@ function display(diagram) {
       option.innerHTML = gSceneList[j].name;
       element.appendChild(option);
     }
+    // var createOption = document.createElement("option");
+    // createOption.setAttribute("value", -1);
+    // createOption.innerHTML = "(新規作成)";
+    // element.appendChild(createOption);
   }
 
   // ルート画面
