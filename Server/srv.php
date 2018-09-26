@@ -522,7 +522,10 @@ function listupDiagramFiles() {
 	$fileNames = [];
    	foreach(glob($dirName . "*", GLOB_BRACE) as $file) {
    		if (is_file($file)) {
-   			$fileNames[] = $file;
+				$exploded = explode("/", $file);
+				if (count($exploded) > 0) {
+					$fileNames[] = $exploded[count($exploded) - 1];
+				}
     	}
     }
    	return $fileNames;

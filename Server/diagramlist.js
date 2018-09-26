@@ -1,13 +1,27 @@
 
+var gTimer;
+
 function initialize() {
 
   var savedDiagramIds = getCookie("diagram");
   if (savedDiagramIds.length == 0) {
     document.getElementById("div_nodata").style.display = "block";
+    document.getElementById("div_add_diagram").style.display = "none";
   } else {
     document.getElementById("div_nodata").style.display = "none";
     fetch(savedDiagramIds);
   }
+
+  adjustWindow();
+
+  window.addEventListener("resize", function(event) {
+    if (gTimer !== false) {
+      clearTimeout(gTimer);
+    }
+    gTimer = setTimeout(function() {
+      adjustWindow();
+    }, 50);
+  });
 }
 
 function fetch(savedDiagramIds) {
@@ -26,12 +40,14 @@ function fetch(savedDiagramIds) {
     if (parsed.result == null) {
       return;
     }
+    var html = "";
+
     if (parsed.result === "0") {
       var names = parsed.names;
 
-      var html = "<table>";
+      html = "<table style='margin:30px 0 400px 50px'>";
       for (id in names) {
-        html += "<tr><td><a href='javascript:onClickDiagram(\"" + id + "\")'>";
+        html += "<tr><td><a href='javascript:onClickDiagram(\"" + id + "\")' style='font-size:18px'>・";
         html += base64Decode(names[id]);
         html += "</a></td></tr>";
       }
@@ -39,6 +55,13 @@ function fetch(savedDiagramIds) {
     }
     document.getElementById("contents").innerHTML = html;
   });
+}
+
+function adjustWindow() {
+
+  var dialog = document.getElementById("div-create");
+  dialog.style.left = ((document.body.clientWidth - 400) / 2) + "px";
+  dialog.style.top = ((document.body.clientHeight - 260) / 2) + "px";
 }
 
 function onClickDiagram(id) {

@@ -367,6 +367,10 @@ function onClickScene(id) {
 
   var sceneIndex = findSceneIndex(id);
   if (sceneIndex == -1) {
+    document.getElementById("scene-name").value = "";
+    document.getElementById("scene-description").value = "";
+    document.getElementById("genre-select").selectedIndex = 0;
+    ocument.getElementById("type-select").selectedIndex = 0;
     return;
   }
   var scene = gSceneList[sceneIndex];

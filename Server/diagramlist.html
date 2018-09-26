@@ -6,7 +6,8 @@
   <meta charset="utf-8">
   <title>アプリファクトリー</title>
   <link rel="shortcut icon" href="img/icon.png" type="image/png">
-  <link rel="stylesheet" type="text/css" href="diagramlist.css?">
+  <link rel="stylesheet" type="text/css" href="common.css">
+  <link rel="stylesheet" type="text/css" href="diagramlist.css">
   <script src="common.js"></script>
   <script src="diagramlist.js"></script>
 
@@ -84,13 +85,17 @@
 
   <!-- コンテンツ -->
   <table border="0" cellspacing="0" style="width:100%;margin-top:80px">
-    <tr>
+    <tr style="height:40px">
       <td style="width:30px"></td>
-      <td style="font-size:16px;font-weight:bold;padding-bottom: 4px;width:120px">
+      <td style="font-size:16px;font-weight:bold;padding: 10px 0;width:120px;vertical-align:bottom">
         アプリ設計書
       </td>
       <td style="">
-        <a href="javascript:onClickCreate()">＋</a>
+        <a href="javascript:onClickCreate()">
+          <div id="div_add_diagram" style="border-radius:6px;-webkit-border-radius:6px;-moz-border-radius:6px;background:#1fcba9;width:50px;height:30px;line-height:30px;font-size:16px;font-weight:bold;color:#fff;text-align:center;">
+            ＋
+          </div>
+        </a>
       </td>
     </tr>
   </table>
@@ -173,16 +178,20 @@
   <div id="div-create-base" style="position:absolute;left:0;top:0;width:100%;height:850px;background:#000;filter:alpha(opacity=50);-moz-opacity: 0.5;opacity: 0.5;visibility: hidden;" onclick="javascript:onClickDetailBase()">
   </div>
 
-  <div id="div-create" style="background: #fff;color:#000;position:absolute;left:100px;top:100px;width:400px;height:400px;visibility: hidden;">
-    <div>
+  <div id="div-create" style="background: #fff;color:#000;position:absolute;left:0px;top:0px;width:400px;height:260px;visibility: hidden;border-radius:8px;-webkit-border-radius:8px;-moz-border-radius:8px;">
+    <div style="width:100%;text-align:center;margin-top:40px;font-size:18px">
       アプリ名
     </div>
-    <input type="text" id="app-name" style="width:100px"><br>
+    <div style="width:100%;text-align:center">
+      <input type="text" id="app-name" style="text-align: center;padding:0 8px;margin:10px auto;width:70%;height:34px;border-radius:8px;-webkit-border-radius:8px;-moz-border-radius:8px;">
+    </div>
     <div id="div-no-name" style="color:#f00;visibility: hidden">
       アプリ名を入力してください
     </div>
     <a href="javascript:onClickNext()">
-      次へ
+      <div style="border-radius:20px;-webkit-border-radius:20px;-moz-border-radius:20px;background:#1fcba9;width:200px;height:40px;line-height:40px;font-size:14px;font-weight:bold;color:#fff;text-align:center;margin:26px auto">
+        次へ
+      </div>
     </a>
   </div>
 
