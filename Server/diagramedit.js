@@ -22,6 +22,7 @@ var gCurrentSceneId = 0;
 var gHtml = "";
 var gMaxHIndex = 0;
 var gMaxVIndex = 0;
+var gTimer;
 
 var kLeftMargin = 50;
 var kTopMargin = 50;
@@ -29,10 +30,12 @@ var kSceneWidth = 120;
 var kSceneHeight = 244;
 var kSceneHorizontalMargin = 80;
 var kSceneVerticalMargin = 60;
+var kDialogWidth = 700;
+var kDialogHeight = 600;
 
 function initialize() {
 
-//  refresh(function(result) {});
+  refresh(function(result) {});
 
   var genreSelect = document.getElementById("genre-select");
 
@@ -42,6 +45,17 @@ function initialize() {
     option.innerHTML = gGenreList[i][0];
     genreSelect.appendChild(option);
   }
+
+  adjustWindow();
+
+  window.addEventListener("resize", function(event) {
+    if (gTimer !== false) {
+      clearTimeout(gTimer);
+    }
+    gTimer = setTimeout(function() {
+      adjustWindow();
+    }, 50);
+  });
 }
 
 function refresh(callback) {
@@ -130,6 +144,35 @@ function display(diagram) {
   diagramElement.innerHTML = gHtml;
   diagramElement.style.width = (2 * kLeftMargin + (gMaxHIndex + 1) * (kSceneWidth + kSceneHorizontalMargin)) + "px";
   diagramElement.style.height = (2 * kTopMargin + (gMaxVIndex + 1) * (kSceneHeight + kSceneVerticalMargin)) + "px";
+
+  adjustWindow();
+}
+
+function adjustWindow() {
+
+  var dialogBase = document.getElementById("dialog-base");
+  dialogBase.style.width = document.body.clientWidth + "px";
+  var contentsHeight = (2 * kTopMargin + (gMaxVIndex + 1) * (kSceneHeight + kSceneVerticalMargin));
+  if ((contentsHeight > kDialogHeight) && (contentsHeight > document.body.clientHeight)) {
+    console.log("contentsHeight");
+    dialogBase.style.height = contentsHeight + "px";
+  } else if ((kDialogHeight > contentsHeight) && (kDialogHeight > document.body.clientHeight)) {
+    console.log("kDialogHeight");
+    dialogBase.style.height = kDialogHeight + "px";
+  } else {
+    console.log("clientHeight");
+    dialogBase.style.height = document.body.clientHeight + "px";
+  }
+
+  var detailDialog = document.getElementById("detail");
+  detailDialog.style.width = kDialogWidth + "px";
+  detailDialog.style.height = kDialogHeight + "px";
+  detailDialog.style.left = ((document.body.clientWidth - kDialogWidth) / 2) + "px";
+  var detailDialogTop = (document.body.clientHeight - kDialogHeight) / 2;
+  if (detailDialogTop < 0) {
+    detailDialogTop = 0;
+  }
+  detailDialog.style.top = detailDialogTop + "px";
 }
 
 function displayBranch(scene, hIndex, vIndex, history) {
