@@ -25,6 +25,8 @@ class EngineerDetailViewController: UIViewController {
     }
 
     private func initTableView() {
+        
+        self.tableView.backgroundColor = .white
         self.tableView.rowHeight = UITableViewAutomaticDimension
         self.tableView.estimatedRowHeight = 200
     }

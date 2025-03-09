@@ -46,6 +46,10 @@ class EstimateViewController: KeyboardRespondableViewController {
     }
     
     private func initContents() {
+        
+        self.purposeTextView.backgroundColor = .white
+        self.descriptionTextView.backgroundColor = .white
+        
         let name = (self.targetEngineerName.count > 0) ? self.targetEngineerName : "登録中の開発者"
         self.engineerNameLabel.text = name + "様に見積もり依頼を送信します。"
     }

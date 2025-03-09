@@ -27,6 +27,7 @@ class EngineerViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.tableView.backgroundColor = .white
         self.noDataLabel.isHidden = true
         self.initTableView()
         self.fetch()
